@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{{ assignment.title }}{% endblock %}
+{% block page_title %}{% translate "Topshiriq" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <div class="small text-muted mb-1">{{ assignment.subject.name|default:"" }}{% if assignment.competency %} · {{ assignment.competency }}{% endif %}</div>
+    <h1>{{ assignment.title }}</h1>
+    <p class="subtitle">{% translate "Ustoz" %}: {{ assignment.created_by.full_name }}</p>
+  </div>
+  <div class="actions"><a href="{% url 'assignments:list' %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Topshiriqlar" %}</a></div>
+</div>
+<div class="row g-4">
+  <div class="col-xl-8">{% include "shared/assignment_info.html" %}</div>
+  <div class="col-xl-4">
+    <div class="card sticky-side">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-3"><span class="text-muted small">{% translate "Holat" %}</span><span class="ms-auto">{% status_badge target.display_status target.display_status_label %}</span></div>
+        <div class="d-flex small mb-2"><span class="text-muted">{% translate "Boshlanish" %}</span><span class="ms-auto">{{ assignment.start_date|date:"d.m.Y H:i" }}</span></div>
+        <div class="d-flex small mb-3"><span class="text-muted">{% translate "Yakuniy muddat" %}</span><span class="ms-auto fw-semibold {% if target.is_overdue %}text-danger{% endif %}">{{ assignment.due_date|date:"d.m.Y H:i" }}</span></div>
+        {% if not assignment.is_past_due and target.status != 'approved' %}<div class="alert alert-info small py-2"><i class="bi bi-hourglass-split me-1"></i>{{ assignment.due_date|timeuntil }} {% translate "qoldi" %}</div>{% endif %}
+
+        {% if target.status == 'new' %}
+          <form method="post" action="{% url 'assignments:accept' assignment.pk %}">{% csrf_token %}
+            <button class="btn btn-outline-primary w-100 mb-2"><i class="bi bi-hand-thumbs-up me-1"></i>{% translate "Topshiriqni qabul qilish" %}</button>
+          </form>
+        {% endif %}
+        {% if portfolio %}
+          <a href="{% url 'portfolios:detail' portfolio.pk %}" class="btn btn-primary w-100"><i class="bi bi-folder2-open me-1"></i>{% translate "Ishimni ochish" %} (v{{ portfolio.current_version }})</a>
+          <div class="small text-muted mt-2 text-center">{% translate "Ish holati" %}: {{ portfolio.get_status_display }}</div>
+        {% else %}
+          <a href="{% url 'portfolios:create' %}?assignment={{ assignment.pk }}" class="btn btn-primary w-100"><i class="bi bi-cloud-arrow-up me-1"></i>{% translate "Dars rejasi / ish yuklash" %}</a>
+        {% endif %}
+        <hr>
+        <ol class="small text-muted ps-3 mb-0">
+          <li>{% translate "Dars ishlanmasi, video yoki boshqa materialni yuklang" %}</li>
+          <li>{% translate "Refleksiya savollariga javob yozing" %}</li>
+          <li>{% translate "Ustozga tekshirishga yuboring" %}</li>
+          <li>{% translate "Ustoz fikri asosida takomillashtiring" %}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

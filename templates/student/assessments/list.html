@@ -1,0 +1,43 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Baholar" %}{% endblock %}
+{% block page_title %}{% translate "Baholash natijalari" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% if is_student_role %}{% translate "Baholarim" %}{% else %}{% translate "Baholar tarixi" %}{% endif %}</h1>
+    <p class="subtitle">{% translate "Boshlang‘ich va ishlar bo‘yicha baholashlar, mezonlar bo‘yicha batafsil" %}</p></div>
+</div>
+<div class="card">
+  <div class="card-body border-bottom d-flex flex-wrap gap-2 align-items-center">
+    <ul class="nav nav-pills-soft">
+      <li class="nav-item"><a class="nav-link {% if not request.GET.kind %}active{% endif %}" href="?">{% translate "Barchasi" %}</a></li>
+      {% for code, label in kinds %}<li class="nav-item"><a class="nav-link {% if request.GET.kind == code %}active{% endif %}" href="?kind={{ code }}">{{ label }}</a></li>{% endfor %}
+    </ul>
+    {% if not is_student_role %}
+    <form method="get" class="ms-auto">{% if request.GET.kind %}<input type="hidden" name="kind" value="{{ request.GET.kind }}">{% endif %}
+      <input type="search" name="q" value="{{ request.GET.q }}" class="form-control form-control-sm" placeholder="{% translate 'Talaba yoki ish...' %}"></form>
+    {% endif %}
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Sana" %}</th>{% if not is_student_role %}<th>{% translate "Talaba" %}</th>{% endif %}<th>{% translate "Turi" %}</th><th>{% translate "Ish" %}</th><th>{% translate "Ustoz" %}</th><th>{% translate "Qaror" %}</th><th class="text-end">{% translate "Ball" %}</th></tr></thead>
+      <tbody>
+      {% for a in assessments %}
+        <tr>
+          <td class="small text-nowrap">{{ a.created_at|date:"d.m.Y" }}</td>
+          {% if not is_student_role %}<td class="small">{{ a.student.full_name }}<div class="cell-sub">{{ a.student.group|default:"" }}</div></td>{% endif %}
+          <td>{% status_badge a.kind a.get_kind_display %}</td>
+          <td class="small">{% if a.portfolio_version %}<a href="{% url 'portfolios:detail' a.portfolio_version.portfolio_id %}?v={{ a.portfolio_version.version_number }}">{{ a.portfolio_version.portfolio.title|truncatechars:50 }}</a> (v{{ a.portfolio_version.version_number }}){% elif a.goal %}<i class="bi bi-bullseye me-1"></i>{{ a.goal.title|truncatechars:50 }}{% else %}—{% endif %}</td>
+          <td class="small">{{ a.mentor.short_name }}</td>
+          <td>{% if a.decision %}{% status_badge a.decision a.get_decision_display %}{% else %}—{% endif %}</td>
+          <td class="text-end"><a class="fw-semibold" href="{% url 'assessments:detail' a.pk %}">{{ a.total_score }}/{{ a.max_score }}</a><div class="cell-sub">{{ a.percent }}%</div></td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="7">{% translate "Baholar hali yo‘q" as t %}{% include "base/empty.html" with icon="bi-award" title=t %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

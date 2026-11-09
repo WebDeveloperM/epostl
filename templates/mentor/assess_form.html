@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Baholash" %}{% endblock %}
+{% block page_title %}{% translate "Ishni baholash" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <div class="small text-muted mb-1">{{ portfolio.student.full_name }} · {{ portfolio.student.group|default:"" }}</div>
+    <h1>{{ portfolio.title }} <span class="badge text-bg-light border fs-6 align-middle">v{{ version.version_number }}</span></h1>
+    <p class="subtitle">{{ portfolio.assignment.title|default:_("Mustaqil ish") }}{% if previous %} · {% translate "oldingi versiya bahosi" %}: {{ previous.total_score }}/{{ previous.max_score }}{% endif %}</p>
+  </div>
+  <div class="actions"><a href="{% url 'portfolios:detail' portfolio.pk %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Ishga qaytish" %}</a></div>
+</div>
+<div class="row g-4">
+  <div class="col-xl-5 order-xl-2">
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-files text-primary"></i>{% translate "Yuklangan materiallar" %}</div>
+      <div class="card-body">{% include "base/file_list.html" with files=files can_delete=False %}</div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-chat-square-quote text-primary"></i>{% translate "Talaba refleksiyasi" %}</div>
+      <div class="card-body">
+        {% if reflection %}
+          {% for a in reflection.answers.all %}
+            <div class="reflection-q"><span class="q-num">{{ forloop.counter }}</span><span class="q-text">{{ a.question_text|tr }}</span><div class="q-answer small">{{ a.answer|default:"—" }}</div></div>
+          {% endfor %}
+          {% for e in reflection.evidence.all %}
+            <div class="small"><i class="bi bi-paperclip me-1"></i>{% if e.file %}<a href="{% url 'reflections:evidence' e.pk %}" target="_blank" rel="noopener">{{ e.original_name }}</a>{% else %}<a href="{{ e.link }}" target="_blank" rel="noopener noreferrer">{{ e.link|truncatechars:50 }}</a>{% endif %}</div>
+          {% endfor %}
+        {% else %}<div class="small text-muted">{% translate "Refleksiya yo‘q" %}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-7 order-xl-1">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% include "base/form_errors.html" %}
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-list-check text-primary"></i>{% translate "Mezonlar bo‘yicha baholash" %}</div>
+        <div class="card-body">{% include "shared/criteria_form.html" %}</div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div><div class="small text-muted">{% translate "Jami" %}</div><div class="score-total" data-score-total>0 / {{ form.max_total }}</div></div>
+            <div class="flex-grow-1"><div class="progress progress-thin"><div class="progress-bar bg-primary" data-score-bar style="width:0%"></div></div></div>
+          </div>
+          {% include "base/field.html" with field=form.overall_comment %}
+          {% include "base/field.html" with field=form.decision %}
+          <p class="small text-muted">{% translate "«Qayta ishlashga qaytarish» tanlansa, talaba tavsiyalaringiz asosida ishning yangi versiyasini yuklaydi. Oldingi versiya va bahosi tarixda saqlanadi." %}</p>
+          <button class="btn btn-primary" type="submit"><i class="bi bi-check2-circle me-1"></i>{% translate "Bahoni saqlash" %}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Topshiriqlar" %}{% endblock %}
+{% block page_title %}{% translate "Topshiriqlar" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Mening topshiriqlarim" %}</h1>
+    <p class="subtitle">{% translate "Ustozlar bergan topshiriqlar va ularning bajarilish holati" %}</p></div>
+</div>
+<div class="card">
+  <div class="card-body border-bottom d-flex flex-wrap gap-2 align-items-center">
+    <ul class="nav nav-pills-soft flex-wrap">
+      <li class="nav-item"><a class="nav-link {% if not request.GET.status %}active{% endif %}" href="?">{% translate "Barchasi" %} <span class="count">{{ total }}</span></a></li>
+      {% for code, label, count in status_tabs %}
+        <li class="nav-item"><a class="nav-link {% if request.GET.status == code %}active{% endif %}" href="?status={{ code }}">{{ label }} <span class="count">{{ count }}</span></a></li>
+      {% endfor %}
+    </ul>
+    <form method="get" class="ms-auto">
+      {% if request.GET.status %}<input type="hidden" name="status" value="{{ request.GET.status }}">{% endif %}
+      <input type="search" name="q" value="{{ request.GET.q }}" class="form-control form-control-sm" placeholder="{% translate 'Qidiruv...' %}">
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Topshiriq" %}</th><th>{% translate "Fan" %}</th><th>{% translate "Ustoz" %}</th><th>{% translate "Yakuniy muddat" %}</th><th>{% translate "Holat" %}</th></tr></thead>
+      <tbody>
+      {% for t in object_list %}
+        <tr>
+          <td><a class="cell-title" href="{% url 'assignments:detail' t.assignment_id %}">{{ t.assignment.title }}</a>
+            <div class="cell-sub">{{ t.assignment.description|truncatechars:90 }}</div></td>
+          <td class="small">{{ t.assignment.subject.name|default:"—" }}</td>
+          <td class="small">{{ t.assignment.created_by.short_name }}</td>
+          <td class="small text-nowrap {% if t.is_overdue %}text-danger fw-semibold{% endif %}"><i class="bi bi-calendar-event me-1"></i>{{ t.assignment.due_date|date:"d.m.Y H:i" }}
+            {% if not t.is_overdue and t.status != 'approved' %}<div class="cell-sub">{{ t.assignment.due_date|timeuntil }} {% translate "qoldi" %}</div>{% endif %}</td>
+          <td>{% status_badge t.display_status t.display_status_label %}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="5">{% translate "Topshiriqlar topilmadi" as tt %}{% include "base/empty.html" with icon="bi-journal-check" title=tt %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

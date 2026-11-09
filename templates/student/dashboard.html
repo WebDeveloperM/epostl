@@ -1,0 +1,113 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Boshqaruv paneli" %}{% endblock %}
+{% block page_title %}{% translate "Boshqaruv paneli" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% blocktranslate with name=user.first_name|default:user.username %}Xush kelibsiz, {{ name }}!{% endblocktranslate %}</h1>
+    <p class="subtitle">{{ user.group|default:"" }}{% if user.direction %} · {{ user.direction.name }}{% endif %}</p>
+  </div>
+  <div class="actions">
+    <a href="{% url 'goals:create' %}" class="btn btn-light"><i class="bi bi-bullseye me-1"></i>{% translate "Maqsad qo‘yish" %}</a>
+    <a href="{% url 'portfolios:create' %}" class="btn btn-primary"><i class="bi bi-cloud-arrow-up me-1"></i>{% translate "Ish yuklash" %}</a>
+  </div>
+</div>
+
+{% with s=summary %}
+<div class="row g-3 mb-4">
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-primary"><i class="bi bi-folder2-open"></i></div>
+    <div class="flex-grow-1"><div class="stat-value">{{ s.works_total }}</div><div class="stat-label">{% translate "Portfolio holati" %}</div>
+      <div class="progress progress-thin mt-2"><div class="progress-bar bg-success" style="width: {{ s.works_approved_percent|css_pct }}%"></div></div>
+      <div class="stat-sub mt-1">{% blocktranslate with p=s.works_approved_percent %}{{ p }}% tasdiqlangan{% endblocktranslate %}</div></div>
+  </div></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-violet"><i class="bi bi-bullseye"></i></div>
+    <div><div class="stat-value">{{ s.goals_total }}</div><div class="stat-label">{% translate "Rivojlanish maqsadlari" %}</div>
+      <div class="stat-sub">{% blocktranslate with a=s.goals_active c=s.goals_completed %}{{ a }} faol · {{ c }} bajarilgan{% endblocktranslate %}</div></div>
+  </div></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-warning"><i class="bi bi-hourglass-split"></i></div>
+    <div><div class="stat-value">{{ s.targets_active }}</div><div class="stat-label">{% translate "Faol topshiriqlar" %}</div>
+      <div class="stat-sub">{% if s.targets_revision %}{% blocktranslate with r=s.targets_revision %}{{ r }} tasi qayta ishlashda{% endblocktranslate %}{% else %}{% blocktranslate with t=s.targets_total %}jami {{ t }} ta{% endblocktranslate %}{% endif %}</div></div>
+  </div></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-success"><i class="bi bi-patch-check"></i></div>
+    <div><div class="stat-value">{{ s.targets_completed }}</div><div class="stat-label">{% translate "Bajarilgan topshiriqlar" %}</div>
+      <div class="stat-sub">{% blocktranslate with r=s.reflections_total %}{{ r }} ta refleksiya{% endblocktranslate %}</div></div>
+  </div></div>
+</div>
+{% endwith %}
+
+<div class="row g-4">
+  <div class="col-xl-7">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-graph-up-arrow text-primary"></i>{% translate "Kompetensiyalar bo‘yicha rivojlanish" %}
+        <div class="card-actions"><a href="{% url 'analytics:index' %}" class="btn btn-sm btn-light">{% translate "Batafsil" %}</a></div></div>
+      <div class="card-body">{% include "shared/comparison_block.html" with chart_id="dash-comparison" %}</div>
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-journal-check text-primary"></i>{% translate "Faol topshiriqlar" %}
+        <div class="card-actions"><a href="{% url 'assignments:list' %}" class="btn btn-sm btn-light">{% translate "Barchasi" %}</a></div></div>
+      <ul class="list-group list-group-flush">
+        {% for t in active_targets %}
+          <li class="list-group-item">
+            <a href="{% url 'assignments:detail' t.assignment_id %}" class="d-flex align-items-start gap-2 text-body">
+              <div class="min-w-0 flex-grow-1">
+                <div class="fw-semibold small">{{ t.assignment.title }}</div>
+                <div class="small-muted"><i class="bi bi-calendar-event me-1"></i>{{ t.assignment.due_date|date:"d.m.Y H:i" }}{% if t.assignment.subject %} · {{ t.assignment.subject.name }}{% endif %}</div>
+              </div>
+              {% status_badge t.display_status t.display_status_label %}
+            </a>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted small py-4 text-center">{% translate "Faol topshiriqlar yo‘q" %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header"><i class="bi bi-chat-left-text text-primary"></i>{% translate "Ustozdan kelgan izohlar" %}</div>
+      <ul class="list-group list-group-flush">
+        {% for c in comments %}
+          <li class="list-group-item small">
+            <div class="d-flex"><span class="fw-semibold">{{ c.author.short_name }}</span><span class="ms-auto text-muted">{{ c.at|date:"d.m.Y" }}</span></div>
+            <div class="text-pre">{{ c.text|truncatechars:180 }}</div>
+            {% if c.portfolio %}<a class="small" href="{% url 'portfolios:detail' c.portfolio.pk %}">{{ c.portfolio.title }}</a>{% endif %}
+            {% if c.assessment %}<span class="badge text-bg-light border ms-1">{{ c.assessment.total_score }}/{{ c.assessment.max_score }}</span>{% endif %}
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted small py-4 text-center">{% translate "Hozircha izohlar yo‘q" %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header"><i class="bi bi-clock-history text-primary"></i>{% translate "Oxirgi yuklangan ishlar" %}
+        <div class="card-actions"><a href="{% url 'portfolios:list' %}" class="btn btn-sm btn-light">{% translate "Portfolio" %}</a></div></div>
+      <div class="table-responsive">
+        <table class="table table-hover table-stack">
+          <thead><tr><th>{% translate "Ish" %}</th><th>{% translate "Versiya" %}</th><th>{% translate "Fayllar" %}</th><th>{% translate "Yuklangan" %}</th><th>{% translate "Holat" %}</th></tr></thead>
+          <tbody>
+          {% for v in recent_versions %}
+            <tr>
+              <td><a class="cell-title" href="{% url 'portfolios:detail' v.portfolio_id %}?v={{ v.version_number }}">{{ v.portfolio.title }}</a></td>
+              <td>v{{ v.version_number }}</td>
+              <td class="small">{% for f in v.files.all %}<i class="bi {{ f.category|file_icon }} me-1" title="{{ f.original_name }}"></i>{% endfor %} {{ v.files.all|length }}</td>
+              <td class="small">{{ v.created_at|date:"d.m.Y H:i" }}</td>
+              <td>{% status_badge v.portfolio.status v.portfolio.get_status_display %}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="5" class="text-center text-muted py-4">{% translate "Hali ish yuklanmagan" %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

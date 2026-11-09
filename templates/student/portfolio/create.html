@@ -1,0 +1,47 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Ish yuklash" %}{% endblock %}
+{% block page_title %}{% translate "Elektron portfolio" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Amaliy ishni yuklash" %}</h1>
+    <p class="subtitle">{% translate "Bu ishning 1-versiyasi bo‘ladi. Keyingi qayta yuklashlar yangi versiya sifatida saqlanadi, oldingilari o‘chmaydi." %}</p></div>
+  <div class="actions"><a href="{% url 'portfolios:list' %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Portfolio" %}</a></div>
+</div>
+<form method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {% include "base/form_errors.html" %}
+  <div class="row g-4">
+    <div class="col-xl-8">
+      <div class="card mb-4"><div class="card-body">
+        {% include "base/field.html" with field=form.title %}
+        {% include "base/field.html" with field=form.description %}
+        <div class="row">
+          <div class="col-md-6">{% include "base/field.html" with field=form.assignment %}</div>
+          <div class="col-md-6">{% include "base/field.html" with field=form.goal %}</div>
+        </div>
+        {% include "base/field.html" with field=form.material_type %}
+      </div></div>
+      <div class="card"><div class="card-body">
+        {% include "base/field.html" with field=form.files %}
+        {% include "base/field.html" with field=form.note %}
+        <div class="progress mb-3 d-none" data-upload-progress><div class="progress-bar progress-bar-striped progress-bar-animated w-100">{% translate "Yuklanmoqda..." %}</div></div>
+        <button class="btn btn-primary" type="submit"><i class="bi bi-cloud-arrow-up me-1"></i>{% translate "Yuklash" %}</button>
+      </div></div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card"><div class="card-body small">
+        <h6 class="fw-bold"><i class="bi bi-info-circle text-primary me-1"></i>{% translate "Qanday materiallar yuklash mumkin" %}</h6>
+        <ul class="text-muted ps-3">
+          <li>{% translate "Dars ishlanmasi: PDF, DOC, DOCX" %}</li>
+          <li>{% translate "Video" %}: {{ system_settings.allowed_video_extensions|upper }} ({% translate "ko‘pi bilan" %} {{ system_settings.max_video_size_mb }} MB)</li>
+          <li>{% translate "Audio: MP3, WAV" %}</li>
+          <li>{% translate "Rasmlar: JPG, PNG" %}</li>
+          <li>{% translate "Taqdimotlar: PPT, PPTX" %}</li>
+        </ul>
+        <p class="text-muted mb-0">{% blocktranslate with n=system_settings.max_upload_size_mb %}Hujjat, rasm va audio fayllar uchun limit — {{ n }} MB. Bir versiyaga bir nechta fayl (masalan, dars rejasi va dars videosi) yuklash mumkin.{% endblocktranslate %}</p>
+      </div></div>
+    </div>
+  </div>
+</form>
+{% endblock %}

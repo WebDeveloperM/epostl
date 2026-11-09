@@ -1,0 +1,26 @@
+{% load i18n core_tags %}
+{% comment %}comparison + comparison_chart; chart_id — sahifada takrorlanmas ID{% endcomment %}
+{% if comparison.has_data %}
+  {% translate "Kompetensiyalar bo‘yicha boshlang‘ich va keyingi natijalar" as l %}
+  {% include "base/chart.html" with chart_id=chart_id spec=comparison_chart label=l %}
+  <div class="table-responsive mt-3">
+    <table class="table table-sm">
+      <thead><tr><th>{% translate "Kompetensiya" %}</th><th class="text-end">{% translate "Boshlang‘ich" %}</th><th class="text-end">{% translate "Keyingi natija" %}</th><th class="text-end">{% translate "O‘zgarish" %}</th></tr></thead>
+      <tbody>
+      {% for r in comparison.rows %}
+        <tr>
+          <td>{{ r.competency.name|tr }}</td>
+          <td class="text-end">{% if r.initial is not None %}{{ r.initial }}%{% else %}—{% endif %}</td>
+          <td class="text-end fw-semibold">{% if r.latest is not None %}{{ r.latest }}%{% else %}—{% endif %}</td>
+          <td class="text-end">{% if r.delta is not None %}<span class="{% if r.delta > 0 %}delta-up{% elif r.delta < 0 %}delta-down{% endif %}"><i class="bi {% if r.delta > 0 %}bi-arrow-up-right{% elif r.delta < 0 %}bi-arrow-down-right{% else %}bi-dash{% endif %}"></i> {{ r.delta|signed }}</span>{% else %}—{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if not comparison.has_latest %}<p class="small text-muted mb-0"><i class="bi bi-info-circle me-1"></i>{% translate "Keyingi natija takroriy baholashdan keyin paydo bo‘ladi." %}</p>{% endif %}
+{% else %}
+  {% translate "Hali baholash natijalari yo‘q" as t %}
+  {% translate "Ustoz baholaganidan so‘ng kompetensiyalar bo‘yicha rivojlanish diagrammasi shu yerda ko‘rinadi." as tx %}
+  {% include "base/empty.html" with icon="bi-bar-chart" title=t text=tx %}
+{% endif %}

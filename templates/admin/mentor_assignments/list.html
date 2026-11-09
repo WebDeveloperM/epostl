@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Ustoz biriktiruvlari" %}{% endblock %}
+{% block page_title %}{% translate "Ustoz biriktiruvlari" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Ustoz — talaba / guruh biriktiruvlari" %}</h1>
+    <p class="subtitle">{% translate "Ustoz talabaga to‘g‘ridan-to‘g‘ri yoki butun guruhga biriktiriladi" %}</p></div>
+  <div class="actions"><a href="{% url 'accounts:mentor_assignment_create' %}" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i>{% translate "Biriktirish" %}</a></div>
+</div>
+<div class="card">
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search"><input type="search" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="{% translate 'Ustoz, talaba yoki guruh...' %}"></div>
+      <select name="mentor" class="form-select" style="max-width:260px">
+        <option value="">{% translate "Barcha ustozlar" %}</option>
+        {% for m in mentors %}<option value="{{ m.pk }}" {% if request.GET.mentor == m.pk|stringformat:"s" %}selected{% endif %}>{{ m.full_name }}</option>{% endfor %}
+      </select>
+      <select name="status" class="form-select" style="max-width:170px">
+        <option value="active" {% if status == "active" %}selected{% endif %}>{% translate "Faol" %}</option>
+        <option value="inactive" {% if status == "inactive" %}selected{% endif %}>{% translate "Nofaol" %}</option>
+        <option value="all" {% if status == "all" %}selected{% endif %}>{% translate "Barchasi" %}</option>
+      </select>
+      <button class="btn btn-outline-primary"><i class="bi bi-funnel"></i></button>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Ustoz" %}</th><th>{% translate "Biriktirilgan" %}</th><th>{% translate "Muddatlar" %}</th><th>{% translate "Biriktirgan" %}</th><th>{% translate "Holat" %}</th><th></th></tr></thead>
+      <tbody>
+      {% for l in links %}
+        <tr>
+          <td class="cell-title">{{ l.mentor.full_name }}</td>
+          <td>{% if l.group %}<i class="bi bi-people me-1 text-primary"></i>{% translate "Guruh" %}: <strong>{{ l.group }}</strong>{% else %}<i class="bi bi-person me-1 text-primary"></i>{{ l.student.full_name }} <span class="cell-sub">{{ l.student.group|default:"" }}</span>{% endif %}
+            {% if l.note %}<div class="cell-sub">{{ l.note }}</div>{% endif %}</td>
+          <td class="small">{{ l.start_date|date:"d.m.Y" }} — {{ l.end_date|date:"d.m.Y"|default:"…" }}</td>
+          <td class="small">{{ l.assigned_by.short_name|default:"—" }}</td>
+          <td>{% if l.is_active %}<span class="badge text-bg-success">{% translate "Faol" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "Nofaol" %}</span>{% endif %}</td>
+          <td class="text-end">
+            <form method="post" action="{% url 'accounts:mentor_assignment_toggle' l.pk %}" data-confirm="{% translate 'Holatni o‘zgartirasizmi?' %}">{% csrf_token %}
+              <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              <button class="btn btn-sm btn-light">{% if l.is_active %}{% translate "Nofaol qilish" %}{% else %}{% translate "Faollashtirish" %}{% endif %}</button>
+            </form>
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6" class="text-center text-muted py-5">{% translate "Biriktiruvlar topilmadi" %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

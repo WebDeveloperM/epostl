@@ -1,0 +1,22 @@
+{% load i18n core_tags %}{% if page_obj and page_obj.paginator.num_pages > 1 %}
+<nav class="d-flex flex-wrap align-items-center gap-2 px-3 py-3 border-top" aria-label="{% translate 'Sahifalar' %}">
+  <span class="small text-muted">{% blocktranslate with start=page_obj.start_index end=page_obj.end_index total=page_obj.paginator.count %}{{ start }}–{{ end }} / jami {{ total }}{% endblocktranslate %}</span>
+  <ul class="pagination pagination-sm mb-0 ms-auto">
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="?{% url_replace page=1 %}">&laquo;</a></li>
+      <li class="page-item"><a class="page-link" href="?{% url_replace page=page_obj.previous_page_number %}">&lsaquo;</a></li>
+    {% endif %}
+    {% for num in page_obj.paginator.page_range %}
+      {% if num == page_obj.number %}
+        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <li class="page-item"><a class="page-link" href="?{% url_replace page=num %}">{{ num }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="?{% url_replace page=page_obj.next_page_number %}">&rsaquo;</a></li>
+      <li class="page-item"><a class="page-link" href="?{% url_replace page=page_obj.paginator.num_pages %}">&raquo;</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}

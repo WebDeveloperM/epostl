@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="520" height="300" role="img" aria-hidden="true">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="155%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#0b1240" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <!-- Chap karta: guruhlangan ustunli diagramma (boshlang'ich va oxirgi natija) -->
+  <rect x="24" y="24" width="300" height="252" rx="18" fill="#fff" filter="url(#sh)"/>
+  <rect x="46" y="46" width="104" height="10" rx="5" fill="#dfe3f3"/>
+  <circle cx="236" cy="51" r="5" fill="#eb6834"/><rect x="246" y="47" width="26" height="8" rx="4" fill="#e8ebf5"/>
+  <circle cx="288" cy="51" r="5" fill="#2a78d6"/><rect x="298" y="47" width="18" height="8" rx="4" fill="#e8ebf5"/>
+  <g stroke="#eef0f7" stroke-width="1.5">
+    <line x1="46" y1="90" x2="302" y2="90"/><line x1="46" y1="130" x2="302" y2="130"/>
+    <line x1="46" y1="170" x2="302" y2="170"/><line x1="46" y1="210" x2="302" y2="210"/>
+  </g>
+  <line x1="46" y1="250" x2="302" y2="250" stroke="#cfd5e8" stroke-width="2"/>
+  <g>
+    <rect x="56" y="151" width="16" height="99" rx="4" fill="#eb6834"/><rect x="76" y="97" width="16" height="153" rx="4" fill="#2a78d6"/>
+    <rect x="106" y="142" width="16" height="108" rx="4" fill="#eb6834"/><rect x="126" y="106" width="16" height="144" rx="4" fill="#2a78d6"/>
+    <rect x="156" y="187" width="16" height="63" rx="4" fill="#eb6834"/><rect x="176" y="97" width="16" height="153" rx="4" fill="#2a78d6"/>
+    <rect x="206" y="160" width="16" height="90" rx="4" fill="#eb6834"/><rect x="226" y="106" width="16" height="144" rx="4" fill="#2a78d6"/>
+    <rect x="256" y="178" width="16" height="72" rx="4" fill="#eb6834"/><rect x="276" y="106" width="16" height="144" rx="4" fill="#2a78d6"/>
+  </g>
+  <g fill="#cfd5e8">
+    <circle cx="74" cy="263" r="3"/><circle cx="124" cy="263" r="3"/><circle cx="174" cy="263" r="3"/>
+    <circle cx="224" cy="263" r="3"/><circle cx="274" cy="263" r="3"/>
+  </g>
+
+  <!-- O'ng yuqori karta: o'sish chizig'i -->
+  <rect x="344" y="24" width="152" height="116" rx="18" fill="#fff" filter="url(#sh)"/>
+  <rect x="362" y="42" width="62" height="8" rx="4" fill="#dfe3f3"/>
+  <polygon points="362,124 362,112 390,102 418,94 446,78 474,56 474,124" fill="#2a78d6" opacity=".13"/>
+  <polyline points="362,112 390,102 418,94 446,78 474,56" fill="none" stroke="#2a78d6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff" stroke="#2a78d6" stroke-width="2.5">
+    <circle cx="362" cy="112" r="4"/><circle cx="390" cy="102" r="4"/><circle cx="418" cy="94" r="4"/><circle cx="446" cy="78" r="4"/>
+  </g>
+  <circle cx="474" cy="56" r="6" fill="#2a78d6" stroke="#fff" stroke-width="2.5"/>
+
+  <!-- O'ng pastki karta: o'sish ko'rsatkichi -->
+  <rect x="344" y="156" width="152" height="120" rx="18" fill="#fff" filter="url(#sh)"/>
+  <text x="362" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="800" fill="#1baf7a">+30%</text>
+  <circle cx="470" cy="192" r="15" fill="#e7f8f0"/>
+  <path d="M470 199 v-13 M463.5 192.5 l6.5 -6.5 l6.5 6.5" fill="none" stroke="#1baf7a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="362" y="226" width="116" height="9" rx="4.5" fill="#eef0f7"/>
+  <rect x="362" y="226" width="88" height="9" rx="4.5" fill="#1baf7a"/>
+  <rect x="362" y="248" width="72" height="8" rx="4" fill="#e8ebf5"/>
+</svg>

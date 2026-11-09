@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Audit log" %}{% endblock %}
+{% block page_title %}{% translate "Audit log" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Tizimdagi muhim amallar tarixi" %}</h1>
+    <p class="subtitle">{% translate "Kirish/chiqish, yaratish, o‘zgartirish, yuklash, baholash va boshqa amallar" %}</p></div>
+</div>
+<div class="card">
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search"><input type="search" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="{% translate 'Foydalanuvchi, obyekt, IP...' %}"></div>
+      <select name="action" class="form-select" style="max-width:220px">
+        <option value="">{% translate "Barcha amallar" %}</option>
+        {% for code, label in actions %}<option value="{{ code }}" {% if request.GET.action == code %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+      <input type="date" name="from" value="{{ request.GET.from }}" class="form-control" style="max-width:170px" aria-label="{% translate 'Dan' %}">
+      <input type="date" name="to" value="{{ request.GET.to }}" class="form-control" style="max-width:170px" aria-label="{% translate 'Gacha' %}">
+      {% if filter_user %}<input type="hidden" name="user" value="{{ filter_user.pk }}"><span class="badge text-bg-light border align-self-center">{{ filter_user }}</span>{% endif %}
+      <button class="btn btn-outline-primary"><i class="bi bi-funnel"></i> {% translate "Filtrlash" %}</button>
+      <a href="{% url 'audit:list' %}" class="btn btn-light">{% translate "Tozalash" %}</a>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-sm table-stack">
+      <thead><tr><th>{% translate "Vaqt" %}</th><th>{% translate "Foydalanuvchi" %}</th><th>{% translate "Amal" %}</th><th>{% translate "Obyekt" %}</th><th>{% translate "Izoh" %}</th><th>IP</th></tr></thead>
+      <tbody>
+      {% for log in logs %}
+        <tr>
+          <td class="text-nowrap small">{{ log.created_at|date:"d.m.Y H:i:s" }}</td>
+          <td>{% if log.user %}<a href="?user={{ log.user_id }}">{{ log.user.short_name }}</a>{% else %}—{% endif %}</td>
+          <td><span class="badge text-bg-light border">{{ log.get_action_display }}</span></td>
+          <td class="small"><div>{{ log.object_repr|truncatechars:60 }}</div><div class="cell-sub">{{ log.object_type }}{% if log.object_id %} #{{ log.object_id }}{% endif %}</div></td>
+          <td class="small text-muted">{{ log.message|truncatechars:80 }}{% if log.extra %} <span class="text-break">{{ log.extra|truncatechars:80 }}</span>{% endif %}</td>
+          <td class="small text-nowrap">{{ log.ip_address|default:"—" }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6" class="text-center text-muted py-4">{% translate "Yozuvlar topilmadi" %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

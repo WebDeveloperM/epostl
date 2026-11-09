@@ -1,0 +1,72 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Excel orqali import" %}{% endblock %}
+{% block page_title %}{% translate "Foydalanuvchilarni ommaviy import qilish" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Excel orqali import" %}</h1>
+    <p class="subtitle">{% translate "Talaba va ustozlarni bitta .xlsx fayl orqali qo‘shish" %}</p></div>
+  <div class="actions">
+    <a href="{% url 'accounts:user_import_template' %}" class="btn btn-light"><i class="bi bi-download me-1"></i>{% translate "Namuna faylni yuklab olish" %}</a>
+    <a href="{% url 'accounts:user_list' %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Ro‘yxat" %}</a>
+  </div>
+</div>
+
+{% if result %}
+  {% if result.applied %}
+  <div class="card mb-4 border-success">
+    <div class="card-header"><i class="bi bi-check-circle text-success"></i>{% blocktranslate with n=result.created|length %}{{ n }} ta foydalanuvchi qo‘shildi{% endblocktranslate %}
+      <div class="card-actions"><button type="button" class="btn btn-sm btn-success" data-export-table="#created-table" data-filename="import_natijasi.csv"><i class="bi bi-filetype-csv me-1"></i>{% translate "CSV yuklab olish" %}</button></div>
+    </div>
+    <div class="card-body pb-0"><div class="alert alert-warning small"><i class="bi bi-exclamation-triangle me-1"></i>{% translate "Yaratilgan vaqtinchalik parollar faqat shu sahifada bir marta ko‘rsatiladi va hech qayerda saqlanmaydi. Ularni hozir yuklab oling. Foydalanuvchilar birinchi kirishda parolni almashtiradi." %}</div></div>
+    <div class="table-responsive">
+      <table class="table table-sm" id="created-table">
+        <thead><tr><th>{% translate "Qator" %}</th><th>{% translate "F.I.Sh." %}</th><th>{% translate "Login" %}</th><th>{% translate "Vaqtinchalik parol" %}</th><th>{% translate "Rol" %}</th><th>{% translate "Guruh" %}</th></tr></thead>
+        <tbody>{% for row in result.created %}
+          <tr><td>{{ row.row_number }}</td><td>{{ row.user.full_name }}</td><td><code>{{ row.user.username }}</code></td>
+            <td>{% if row.generated_password %}<code>{{ row.generated_password }}</code>{% else %}<span class="text-muted">{% translate "fayldagi parol" %}</span>{% endif %}</td>
+            <td>{{ row.user.role }}</td><td>{{ row.user.group|default:"—" }}</td></tr>
+        {% endfor %}</tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+  {% if result.errors %}
+  <div class="card mb-4 border-danger">
+    <div class="card-header"><i class="bi bi-x-octagon text-danger"></i>{% blocktranslate with n=result.errors|length %}Xatoli qatorlar: {{ n }}{% endblocktranslate %}</div>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead><tr><th>{% translate "Qator" %}</th><th>{% translate "Login" %}</th><th>{% translate "Xatolar" %}</th></tr></thead>
+        <tbody>{% for row in result.errors %}
+          <tr><td>{{ row.row_number }}</td><td>{{ row.data.username|default:"—" }}</td><td class="text-danger small">{{ row.errors|join:"; " }}</td></tr>
+        {% endfor %}</tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+{% endif %}
+
+<div class="row g-4">
+  <div class="col-lg-6">
+    <div class="card"><div class="card-body">
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% include "base/form_fields.html" %}
+        <button class="btn btn-primary" type="submit"><i class="bi bi-upload me-1"></i>{% translate "Import qilish" %}</button>
+      </form>
+    </div></div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header"><i class="bi bi-table text-primary"></i>{% translate "Fayl tuzilmasi" %}</div>
+      <div class="table-responsive">
+        <table class="table table-sm small">
+          <thead><tr><th>{% translate "Ustun" %}</th><th>{% translate "Majburiy" %}</th></tr></thead>
+          <tbody>{% for key, label, required in columns %}<tr><td>{{ label }}</td><td>{% if required %}<i class="bi bi-check-lg text-success"></i>{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+      <div class="card-body small text-muted">{% translate "Rol: talaba / ustoz / admin. Talaba uchun guruh, ustoz uchun kafedra tizimda oldindan mavjud bo‘lishi kerak. Standart rejimda bitta xato bo‘lsa ham hech kim qo‘shilmaydi." %}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,353 @@
+{% load static i18n core_tags %}<!doctype html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ platform_name }} — {% translate "Pedagogik kompetensiyalarni rivojlantirishning yagona elektron platformasi" %}</title>
+  <meta name="description" content="{% translate 'Maqsad qo‘ying, amaliy ishlarni hujjatlashtiring, o‘z faoliyatingizni tahlil qiling va ustoz fikri asosida o‘sib boring.' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ platform_name }}">
+  <meta property="og:description" content="{% translate 'Maqsad qo‘ying, amaliy ishlarni hujjatlashtiring, o‘z faoliyatingizni tahlil qiling va ustoz fikri asosida o‘sib boring.' %}">
+  <meta name="theme-color" content="#4154f1">
+  <link rel="icon" href="{% static 'images/logo.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="landing" data-bs-spy="scroll" data-bs-target="#landing-nav" data-bs-root-margin="-40% 0px -55% 0px" tabindex="-1">
+<a class="visually-hidden-focusable lp-skip" href="#main">{% translate "Asosiy mazmunga o‘tish" %}</a>
+
+{# ---------- Navbar ---------- #}
+<header class="lp-header">
+  <nav class="navbar navbar-expand-lg lp-navbar" aria-label="{% translate 'Asosiy menyu' %}">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="{% url 'landing' %}">
+        <img src="{% static 'images/logo.svg' %}" width="36" height="36" alt="">
+        <span>{{ platform_name }}</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#landing-nav"
+              aria-controls="landing-nav" aria-expanded="false" aria-label="{% translate 'Menyuni ochish' %}">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="landing-nav">
+        <ul class="navbar-nav mx-lg-auto gap-lg-1">
+          {% for anchor, label in nav %}
+            <li class="nav-item"><a class="nav-link" href="#{{ anchor }}">{{ label }}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+          {% include "base/language_switch.html" %}
+          {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn btn-primary px-3"><i class="bi bi-speedometer2 me-1"></i>{% translate "Boshqaruv panelini ochish" %}</a>
+          {% else %}
+            <a href="{% url 'accounts:login' %}" class="btn btn-primary px-4"><i class="bi bi-box-arrow-in-right me-1"></i>{% translate "Kirish" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+{# ---------- Hero / banner ---------- #}
+<section class="lp-hero" id="top">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="lp-badge"><i class="bi bi-stars me-1"></i>{% translate "Kasbiy o‘sish uchun platforma" %}</span>
+        <h1 class="lp-hero-title">{% translate "Pedagogik kompetensiyalarni rivojlantirishning yagona elektron platformasi" %}</h1>
+        <p class="lp-hero-lead">{% translate "Maqsad qo‘ying, amaliy ishlarni hujjatlashtiring, o‘z faoliyatingizni tahlil qiling va ustoz fikri asosida o‘sib boring." %}</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg px-4 fw-semibold"><i class="bi bi-speedometer2 me-2"></i>{% translate "Boshqaruv panelini ochish" %}</a>
+          {% else %}
+            <a href="{% url 'accounts:login' %}" class="btn btn-light btn-lg px-4 fw-semibold"><i class="bi bi-box-arrow-in-right me-2"></i>{% translate "Kirish" %}</a>
+          {% endif %}
+          <a href="#about" class="btn btn-outline-light btn-lg px-4">{% translate "Batafsil" %}<i class="bi bi-arrow-down ms-2"></i></a>
+        </div>
+        <dl class="lp-stats">
+          {% for value, label in stats %}
+            <div><dt>{{ value }}</dt><dd>{{ label }}</dd></div>
+          {% endfor %}
+        </dl>
+      </div>
+      <div class="col-lg-6">
+        {# Qurilma maketi: platformaning haqiqiy ko‘rinishiga o‘xshash namuna #}
+        <div class="lp-mock" aria-hidden="true">
+          <div class="lp-mock-card">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-arrow-repeat text-primary"></i><strong>{{ frameworks.0.label }}</strong>
+              <span class="ms-auto small text-muted">3 / 6</span>
+            </div>
+            <div class="progress progress-thin mb-3"><div class="progress-bar" style="width: 50%"></div></div>
+            <div class="stage-nav mb-3">
+              {% for st in frameworks.0.stages %}
+                <span class="stage-chip {% if forloop.counter <= 3 %}done{% endif %}"><span class="dot">{{ forloop.counter }}</span>{{ st.label }}</span>
+              {% endfor %}
+            </div>
+            <div class="fw-semibold small mb-1">{% translate "Nima sodir bo‘ldi?" %}</div>
+            <div class="lp-lines"><span></span><span></span><span class="w-60"></span></div>
+          </div>
+          <div class="lp-float lp-float-a">
+            <div class="small text-muted mb-1">{% translate "Boshlang‘ich" %} → {% translate "Oxirgi" %}</div>
+            <div class="d-flex align-items-baseline gap-2"><span class="text-muted">55%</span><i class="bi bi-arrow-right text-muted"></i><strong class="fs-4 text-success">85%</strong></div>
+            <div class="lp-bars"><span style="height: 38%"></span><span style="height: 52%"></span><span style="height: 70%"></span><span style="height: 100%"></span></div>
+          </div>
+          <div class="lp-float lp-float-b">
+            <i class="bi bi-patch-check-fill text-success fs-4"></i>
+            <div><div class="small fw-semibold">{% translate "Ustoz fikri" %}</div><div class="small text-muted">{% translate "Tasdiqlangan" %}</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---------- Haqida ---------- #}
+<section class="lp-section" id="about">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-5 reveal">
+        <span class="lp-kicker">{% translate "Platforma haqida" %}</span>
+        <h2 class="lp-title">{% translate "Kasbiy o‘sish uchun refleksiv e-portfolio" %}</h2>
+        <p class="lp-text">{% translate "Refleksiv e-portfolio — o‘z faoliyati haqida o‘ylash orqali kasbiy rivojlanishga yordam beradigan platforma. U muhim tajribalarni, olingan xulosalarni va o‘rganganlaringizni bir joyda saqlaydi." %}</p>
+        <p class="lp-text mb-0">{% translate "Shu jarayon doimiy takomillashish va o‘sishni ta’minlaydi." %}</p>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          {% for icon, title, text in pillars %}
+            <div class="col-md-4 reveal">
+              <div class="lp-card h-100">
+                <span class="lp-icon"><i class="bi {{ icon }}"></i></span>
+                <h3 class="h6 fw-bold mt-3">{{ title }}</h3>
+                <p class="small text-muted mb-0">{{ text }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---------- Slayder ---------- #}
+<section class="lp-section lp-alt" id="slides" aria-labelledby="slides-title">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="lp-kicker">{% translate "Yaqindan tanishing" %}</span>
+      <h2 class="lp-title" id="slides-title">{% translate "Platforma nimalarga qodir" %}</h2>
+    </div>
+    <div id="lp-carousel" class="carousel slide lp-carousel" data-bs-ride="carousel" data-bs-interval="7000" data-bs-pause="hover" aria-roledescription="carousel" aria-label="{% translate 'Platforma imkoniyatlari' %}">
+      <div class="carousel-indicators">
+        {% for s in slides %}
+          <button type="button" data-bs-target="#lp-carousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="{{ s.kicker }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for s in slides %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} / {{ slides|length }}">
+            <div class="row g-4 align-items-center lp-slide">
+              <div class="col-lg-6 order-2 order-lg-1">
+                <span class="lp-kicker">{{ s.kicker }}</span>
+                <h3 class="lp-slide-title">{{ s.title }}</h3>
+                <p class="lp-text">{{ s.text }}</p>
+                <ul class="lp-checks">
+                  {% for point in s.points %}<li><i class="bi bi-check-circle-fill"></i>{{ point }}</li>{% endfor %}
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2">
+                <div class="lp-visual tone-{{ s.tone }}" aria-hidden="true">
+                  <img class="lp-art" src="{% static s.image %}" alt="" width="520" height="300"{% if not forloop.first %} loading="lazy"{% endif %}>
+                  <span class="lp-orb o1"></span><span class="lp-orb o2"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#lp-carousel" data-bs-slide="prev">
+        <span class="lp-arrow"><i class="bi bi-chevron-left"></i></span><span class="visually-hidden">{% translate "Oldingi slayd" %}</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#lp-carousel" data-bs-slide="next">
+        <span class="lp-arrow"><i class="bi bi-chevron-right"></i></span><span class="visually-hidden">{% translate "Keyingi slayd" %}</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+{# ---------- Qanday ishlaydi ---------- #}
+<section class="lp-section" id="cycle">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="lp-kicker">{% translate "Qanday ishlaydi" %}</span>
+      <h2 class="lp-title">{% translate "Sakkiz bosqichli rivojlanish sikli" %}</h2>
+      <p class="lp-text mx-auto lp-narrow">{% translate "Har bir bosqich oldingisiga tayanadi. Sikl takrorlanadi: har bir aylanishda siz biroz yuqoriroq darajaga chiqasiz." %}</p>
+    </div>
+    <ol class="lp-steps">
+      {% for icon, title, text in steps %}
+        <li class="reveal">
+          <span class="lp-step-num">{{ forloop.counter }}</span>
+          <span class="lp-icon sm"><i class="bi {{ icon }}"></i></span>
+          <h3 class="h6 fw-bold mt-2 mb-1">{{ title }}</h3>
+          <p class="small text-muted mb-0">{{ text }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{# ---------- Refleksiya modellari ---------- #}
+<section class="lp-section lp-alt" id="models">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="lp-kicker">{% translate "Refleksiya modellari" %}</span>
+      <h2 class="lp-title">{% translate "Ikkita mashhur refleksiya modeli" %}</h2>
+      <p class="lp-text mx-auto lp-narrow">{% translate "O‘zingizga mosini tanlang. Model savollarni bosqichlarga bo‘lib beradi va qaysi bosqichgacha yetganingizni ko‘rsatadi." %}</p>
+    </div>
+    <div class="row g-4">
+      {% for fw in frameworks %}
+        <div class="col-lg-6 reveal">
+          <div class="lp-card lp-model h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="lp-icon"><i class="bi {{ fw.icon }}"></i></span>
+              <div><h3 class="h5 fw-bold mb-0">{{ fw.label }}</h3>
+                <span class="small text-muted">{% blocktranslate with n=fw.stages|length %}{{ n }} bosqich{% endblocktranslate %}</span></div>
+            </div>
+            <p class="mb-2">{{ fw.summary }}</p>
+            <p class="small text-muted">{{ fw.best_for }}</p>
+            <ol class="stage-list mb-0">
+              {% for st in fw.stages %}
+                <li><span class="dot">{{ forloop.counter }}</span><span><strong>{{ st.label }}</strong><span class="text-muted"> — {{ st.hint }}</span></span></li>
+              {% endfor %}
+            </ol>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---------- Imkoniyatlar ---------- #}
+<section class="lp-section" id="features">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="lp-kicker">{% translate "Imkoniyatlar" %}</span>
+      <h2 class="lp-title">{% translate "Rivojlanish uchun kerakli hamma narsa" %}</h2>
+    </div>
+    <div class="row g-4">
+      {% for icon, title, text in features %}
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="lp-card lp-feature h-100">
+            <span class="lp-icon"><i class="bi {{ icon }}"></i></span>
+            <h3 class="h6 fw-bold mt-3">{{ title }}</h3>
+            <p class="small text-muted mb-0">{{ text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---------- Rollar ---------- #}
+<section class="lp-section lp-alt" id="roles">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <span class="lp-kicker">{% translate "Rollar" %}</span>
+      <h2 class="lp-title">{% translate "Har bir foydalanuvchi uchun o‘z kabineti" %}</h2>
+    </div>
+    <div class="row g-4">
+      {% for icon, title, points in roles %}
+        <div class="col-md-4 reveal">
+          <div class="lp-card h-100">
+            <span class="lp-icon"><i class="bi {{ icon }}"></i></span>
+            <h3 class="h5 fw-bold mt-3">{{ title }}</h3>
+            <ul class="lp-checks mb-0">
+              {% for point in points %}<li><i class="bi bi-check-circle-fill"></i>{{ point }}</li>{% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---------- Savol-javob ---------- #}
+<section class="lp-section" id="faq">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-lg-4 reveal">
+        <span class="lp-kicker">{% translate "Savol-javob" %}</span>
+        <h2 class="lp-title">{% translate "Ko‘p beriladigan savollar" %}</h2>
+        <p class="lp-text">{% admin_link as admin %}{% blocktranslate with admin=admin %}Javob topa olmadingizmi? {{ admin }} murojaat qiling.{% endblocktranslate %}</p>
+      </div>
+      <div class="col-lg-8">
+        <div class="accordion lp-faq" id="faq-list">
+          {% for question, answer in faq %}
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faq-{{ forloop.counter }}">{{ question }}</button>
+              </h3>
+              <div id="faq-{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#faq-list">
+                <div class="accordion-body text-muted">{{ answer }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---------- Chaqiruv ---------- #}
+<section class="lp-cta">
+  <div class="container text-center">
+    <h2 class="lp-cta-title">{% translate "Rivojlanishni bugun boshlang" %}</h2>
+    <p class="lp-cta-text">{% translate "Administrator bergan login va parol bilan kiring." %}</p>
+    {% if user.is_authenticated %}
+      <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg px-5 fw-semibold"><i class="bi bi-speedometer2 me-2"></i>{% translate "Boshqaruv panelini ochish" %}</a>
+    {% else %}
+      <a href="{% url 'accounts:login' %}" class="btn btn-light btn-lg px-5 fw-semibold"><i class="bi bi-box-arrow-in-right me-2"></i>{% translate "Kirish" %}</a>
+    {% endif %}
+  </div>
+</section>
+</main>
+
+{# ---------- Footer ---------- #}
+<footer class="lp-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-5">
+        <div class="d-flex align-items-center gap-2 fw-bold mb-3">
+          <img src="{% static 'images/logo-light.svg' %}" width="36" height="36" alt=""><span>{{ platform_name }}</span>
+        </div>
+        <p class="small mb-2">{% translate "Uzluksiz refleksiv rivojlanish" %}</p>
+        {% if system_settings.organization_name %}<p class="small mb-0"><i class="bi bi-building me-1"></i>{{ system_settings.organization_name }}</p>{% endif %}
+      </div>
+      <div class="col-6 col-lg-3">
+        <h3 class="lp-foot-title">{% translate "Sahifa bo‘limlari" %}</h3>
+        <ul class="list-unstyled small mb-0">
+          {% for anchor, label in nav %}<li class="mb-1"><a href="#{{ anchor }}">{{ label }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      <div class="col-6 col-lg-4">
+        <h3 class="lp-foot-title">{% translate "Hisob" %}</h3>
+        <ul class="list-unstyled small mb-0">
+          <li class="mb-1">{% if user.is_authenticated %}<a href="{% url 'dashboard' %}">{% translate "Boshqaruv panelini ochish" %}</a>{% else %}<a href="{% url 'accounts:login' %}">{% translate "Kirish" %}</a>{% endif %}</li>
+          <li class="text-white-50">{% admin_link as admin %}{% blocktranslate with admin=admin %}Parolni unutgan bo‘lsangiz, {{ admin }} murojaat qiling.{% endblocktranslate %}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lp-foot-bottom d-flex flex-wrap justify-content-between gap-2 small">
+      <span>© {% now "Y" %} {{ system_settings.organization_name|default:platform_name }}</span>
+      <a href="#top">{% translate "Yuqoriga" %} <i class="bi bi-arrow-up"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/landing.js' %}"></script>
+</body>
+</html>

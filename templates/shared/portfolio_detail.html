@@ -1,0 +1,189 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{{ portfolio.title }}{% endblock %}
+{% block page_title %}{% translate "Portfolio ishi" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div class="min-w-0">
+    <div class="small text-muted mb-1">
+      {% if not is_owner %}<i class="bi bi-person me-1"></i>{{ portfolio.student.full_name }} · {{ portfolio.student.group|default:"" }} · {% endif %}
+      {{ portfolio.get_material_type_display }}
+    </div>
+    <h1>{{ portfolio.title }}</h1>
+    <p class="subtitle d-flex flex-wrap gap-2 align-items-center">
+      {% status_badge portfolio.status portfolio.get_status_display %}
+      {% if portfolio.assignment %}<a href="{% url 'assignments:detail' portfolio.assignment_id %}"><i class="bi bi-journal-check me-1"></i>{{ portfolio.assignment.title }}</a>{% endif %}
+      {% if portfolio.goal %}<a href="{% url 'goals:detail' portfolio.goal_id %}"><i class="bi bi-bullseye me-1"></i>{{ portfolio.goal.title|truncatechars:60 }}</a>{% endif %}
+    </p>
+  </div>
+  <div class="actions">
+    {% if is_owner %}
+      {% if upload_state.allowed %}
+        <a href="{% url 'portfolios:upload' portfolio.pk %}" class="btn {% if upload_state.mode == 'new_version' %}btn-primary{% else %}btn-light{% endif %}">
+          <i class="bi bi-cloud-arrow-up me-1"></i>{% if upload_state.mode == 'new_version' %}{% translate "Yangi versiya yuklash" %}{% else %}{% translate "Fayl qo‘shish" %}{% endif %}</a>
+      {% endif %}
+      <a href="{% url 'portfolios:update' portfolio.pk %}" class="btn btn-light"><i class="bi bi-pencil"></i></a>
+    {% endif %}
+    {% if can_assess and latest and latest.is_submitted %}
+      <a href="{% url 'assessments:assess' latest.pk %}" class="btn btn-primary"><i class="bi bi-clipboard-check me-1"></i>{% if latest.assessment %}{% translate "Bahoni tahrirlash" %}{% else %}{% translate "Baholash" %}{% endif %}</a>
+    {% endif %}
+  </div>
+</div>
+
+{% if is_owner and portfolio.status == 'revision' %}
+  <div class="alert alert-danger d-flex gap-2"><i class="bi bi-arrow-repeat mt-1"></i>
+    <div><strong>{% translate "Ish qayta ishlash uchun qaytarildi." %}</strong> {% translate "Ustoz tavsiyalarini o‘qib chiqing, ishni takomillashtiring va yangi versiyasini yuklang." %}</div></div>
+{% elif is_owner and latest and not latest.is_submitted %}
+  <div class="alert alert-info d-flex gap-2 align-items-center"><i class="bi bi-info-circle"></i>
+    <div class="flex-grow-1">{% blocktranslate with n=latest.version_number %}v{{ n }} — qoralama. Refleksiya yozing va ishni ustozga tekshirishga yuboring.{% endblocktranslate %}</div>
+    <a href="{% url 'reflections:edit' latest.pk %}" class="btn btn-sm btn-primary text-nowrap"><i class="bi bi-chat-square-quote me-1"></i>{% translate "Refleksiya va yuborish" %}</a>
+  </div>
+{% endif %}
+
+<div class="row g-4">
+  <div class="col-xl-8">
+    {% if portfolio.description %}<div class="card mb-4"><div class="card-body text-pre">{{ portfolio.description }}</div></div>{% endif %}
+
+    {% if selected %}
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-files text-primary"></i>{% blocktranslate with n=selected.version_number %}{{ n }}-versiya{% endblocktranslate %}
+        <span class="small text-muted fw-normal">· {{ selected.created_at|date:"d.m.Y H:i" }}</span>
+        <span class="card-actions">{% if selected.is_submitted %}<span class="badge text-bg-light border"><i class="bi bi-send-check me-1"></i>{% translate "yuborilgan" %} {{ selected.submitted_at|date:"d.m.Y H:i" }}</span>{% else %}<span class="badge text-bg-secondary">{% translate "qoralama" %}</span>{% endif %}</span>
+      </div>
+      <div class="card-body">
+        {% if selected.note %}<div class="alert alert-light border small text-pre"><strong>{% translate "O‘zgarishlar izohi" %}:</strong> {{ selected.note }}</div>{% endif %}
+        {% if is_owner and not selected.is_submitted %}{% include "base/file_list.html" with files=selected.files.all can_delete=True %}{% else %}{% include "base/file_list.html" with files=selected.files.all can_delete=False %}{% endif %}
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-chat-square-quote text-primary"></i>{% translate "Refleksiya" %}
+        {% with r=selected.reflection %}
+        <span class="card-actions">
+          {% if r %}{% status_badge r.status r.get_status_display %}{% endif %}
+          {% if is_owner and not selected.assessment %}<a href="{% url 'reflections:edit' selected.pk %}" class="btn btn-sm btn-light"><i class="bi bi-pencil me-1"></i>{% if r %}{% translate "Tahrirlash" %}{% else %}{% translate "Yozish" %}{% endif %}</a>{% endif %}
+        </span>{% endwith %}
+      </div>
+      <div class="card-body">
+        {% with r=selected.reflection %}
+        {% if r %}
+          <div class="small text-muted mb-3"><i class="bi {{ r.framework_info.icon }} text-primary me-1"></i>{{ r.framework_info.label }}</div>
+          {% include "shared/reflection_answers.html" with reflection=r %}
+          {% if r.evidence.all %}
+            <h6 class="fw-bold small mt-3">{% translate "Dalillar" %}</h6>
+            {% for e in r.evidence.all %}
+              <div class="small mb-1"><i class="bi {% if e.link %}bi-link-45deg{% else %}bi-paperclip{% endif %} me-1"></i>
+                {% if e.file %}<a href="{% url 'reflections:evidence' e.pk %}" target="_blank" rel="noopener">{{ e.original_name }}</a>{% else %}<a href="{{ e.link }}" target="_blank" rel="noopener noreferrer">{{ e.link|truncatechars:70 }}</a>{% endif %}
+                {% if e.description %}<span class="text-muted">— {{ e.description }}</span>{% endif %}</div>
+            {% endfor %}
+          {% endif %}
+        {% else %}
+          <div class="text-muted small">{% translate "Bu versiya uchun refleksiya yozilmagan." %}</div>
+        {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+
+    {% with a=selected.assessment %}
+    {% if a %}
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-award text-primary"></i>{% translate "Ustoz bahosi va fikri" %}
+        <span class="card-actions"><span class="badge {% if a.decision == 'approved' %}text-bg-success{% else %}text-bg-danger{% endif %}">{{ a.get_decision_display }}</span>
+          <a href="{% url 'assessments:detail' a.pk %}" class="btn btn-sm btn-light">{% translate "Batafsil" %}</a></span></div>
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="score-total text-{{ a.percent|score_color }}">{{ a.total_score }}<span class="fs-5 text-muted">/{{ a.max_score }}</span></div>
+          <div class="flex-grow-1"><div class="progress progress-thin"><div class="progress-bar bg-{{ a.percent|score_color }}" style="width: {{ a.percent|css_pct }}%"></div></div>
+            <div class="small text-muted mt-1">{{ a.mentor.full_name }} · {{ a.updated_at|date:"d.m.Y H:i" }}</div></div>
+        </div>
+        {% if a.overall_comment %}<div class="alert alert-light border text-pre small">{{ a.overall_comment }}</div>{% endif %}
+        {% for d in a.details.all %}
+          <div class="criterion-card">
+            <div class="d-flex align-items-center"><span class="fw-semibold">{{ d.criterion.name|tr }}</span><span class="ms-auto fw-bold">{{ d.score }}/{{ d.max_score }}</span></div>
+            <div class="progress progress-thin my-2"><div class="progress-bar bg-{{ d.percent|score_color }}" style="width: {{ d.percent|css_pct }}%"></div></div>
+            {% if d.comment %}<div class="small text-pre"><i class="bi bi-chat-left me-1 text-muted"></i>{{ d.comment }}</div>{% endif %}
+            {% if d.weaknesses %}<div class="small text-pre mt-1"><span class="text-danger fw-semibold">{% translate "Kamchiliklar" %}:</span> {{ d.weaknesses }}</div>{% endif %}
+            {% if d.recommendations %}<div class="small text-pre mt-1"><span class="text-success fw-semibold">{% translate "Tavsiya" %}:</span> {{ d.recommendations }}</div>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+    {% else %}
+      <div class="card"><div class="card-body">{% translate "Versiyalar yo‘q" %}</div></div>
+    {% endif %}
+  </div>
+
+  <div class="col-xl-4">
+    {% if insights %}
+    <div class="card mb-4 key-insights">
+      <div class="card-header"><i class="bi bi-lightbulb text-primary"></i>{% translate "Asosiy xulosalar" %}</div>
+      <div class="card-body">
+        {% for item in insights %}
+          <div class="{% if not forloop.last %}mb-3 pb-3 border-bottom{% endif %}">
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+              <span class="badge text-bg-light border">v{{ item.version.version_number }}</span>
+              <span class="small text-muted"><i class="bi {{ item.reflection.framework_info.icon }} me-1"></i>{{ item.reflection.framework_info.label }}</span>
+            </div>
+            {% for i in item.items %}
+              <div class="mb-2"><div class="small fw-semibold">{{ i.label }}</div><div class="small text-pre">{{ i.text }}</div></div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-clock-history text-primary"></i>{% translate "Versiyalar tarixi" %}</div>
+      <div class="list-group list-group-flush version-list">
+        {% for v in versions %}
+          <a href="?v={{ v.version_number }}" class="list-group-item list-group-item-action {% if selected and v.pk == selected.pk %}active{% endif %}">
+            <div class="d-flex align-items-center">
+              <span class="fw-semibold">v{{ v.version_number }}</span>
+              {% if forloop.first %}<span class="badge text-bg-primary ms-2">{% translate "oxirgi" %}</span>{% endif %}
+              <span class="ms-auto">{% if v.assessment %}<span class="fw-semibold">{{ v.assessment.total_score }}/{{ v.assessment.max_score }}</span>{% elif v.is_submitted %}<span class="badge text-bg-warning">{% translate "tekshirishda" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "qoralama" %}</span>{% endif %}</span>
+            </div>
+            <div class="small text-muted">{{ v.created_at|date:"d.m.Y H:i" }} · {{ v.files.all|length }} {% translate "fayl" %}{% if v.reflection %} · {% translate "refleksiya" %}{% endif %}</div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if history_chart %}
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-graph-up text-primary"></i>{% translate "Versiyalar bo‘yicha natija" %}</div>
+      <div class="card-body">{% translate "Versiyalar bo‘yicha natija" as l %}{% include "base/chart.html" with chart_id="history-chart" spec=history_chart size="sm" label=l %}</div>
+    </div>
+    {% endif %}
+
+    <div class="card" id="feedback">
+      <div class="card-header"><i class="bi bi-chat-left-text text-primary"></i>{% translate "Ustoz izohlari" %}</div>
+      {% if can_assess %}
+      <div class="card-body border-bottom">
+        <form method="post" action="{% url 'assessments:feedback' portfolio.pk %}" novalidate>{% csrf_token %}
+          <div class="mb-2">{{ feedback_form.kind }}</div>
+          <div class="mb-2">{{ feedback_form.text }}</div>
+          <button class="btn btn-sm btn-primary"><i class="bi bi-send me-1"></i>{% translate "Yuborish" %}</button>
+        </form>
+      </div>
+      {% endif %}
+      <ul class="list-group list-group-flush">
+        {% for f in feedback_list %}
+          <li class="list-group-item small">
+            <div class="d-flex"><span class="fw-semibold">{{ f.mentor.short_name }}</span>
+              <span class="badge text-bg-light border ms-2">{{ f.get_kind_display }}</span>
+              <span class="ms-auto text-muted">{{ f.created_at|date:"d.m.Y H:i" }}</span></div>
+            <div class="text-pre mt-1">{{ f.text }}</div>
+            {% if f.version %}<div class="text-muted mt-1">v{{ f.version.version_number }}</div>{% endif %}
+          </li>
+        {% empty %}
+          <li class="list-group-item small text-muted">{% translate "Izohlar yo‘q" %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block charts %}{% if history_chart %}{% include "base/chart_scripts.html" %}{% endif %}{% endblock %}

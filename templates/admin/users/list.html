@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Foydalanuvchilar" %}{% endblock %}
+{% block page_title %}{% translate "Foydalanuvchilarni boshqarish" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% translate "Foydalanuvchilar" %}</h1>
+    <p class="subtitle">{% blocktranslate with n=total %}Jami {{ n }} ta hisob{% endblocktranslate %}
+      {% for r in role_counts %} · {{ r.label }}: {{ r.n }}{% endfor %}</p>
+  </div>
+  <div class="actions">
+    <a href="{% url 'accounts:user_import' %}" class="btn btn-light"><i class="bi bi-file-earmark-excel me-1"></i>{% translate "Excel orqali import" %}</a>
+    <a href="{% url 'accounts:user_create' %}" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i>{% translate "Yangi foydalanuvchi" %}</a>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search">{{ filter_form.q }}</div>
+      {{ filter_form.role }}{{ filter_form.faculty }}{{ filter_form.group }}{{ filter_form.status }}
+      <button class="btn btn-outline-primary"><i class="bi bi-funnel"></i> {% translate "Filtrlash" %}</button>
+      <a href="{% url 'accounts:user_list' %}" class="btn btn-light">{% translate "Tozalash" %}</a>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr>
+        <th>{% translate "F.I.Sh." %}</th><th>{% translate "Login" %}</th><th>{% translate "Rol" %}</th>
+        <th>{% translate "Guruh / Kafedra" %}</th><th>{% translate "Aloqa" %}</th><th>{% translate "Holat" %}</th><th class="text-end">{% translate "Amallar" %}</th>
+      </tr></thead>
+      <tbody>
+      {% for u in users %}
+        <tr>
+          <td>
+            <div class="d-flex align-items-center gap-2">
+              {% if u.avatar %}<img class="avatar avatar-sm" src="{% url 'accounts:avatar' u.pk %}" alt="">{% else %}<span class="avatar avatar-sm">{{ u|initials }}</span>{% endif %}
+              <div><div class="cell-title">{{ u.full_name|default:"—" }}</div><div class="cell-sub">{{ u.external_id|default:"" }}</div></div>
+            </div>
+          </td>
+          <td>{{ u.username }}</td>
+          <td>{{ u.role_label }}</td>
+          <td class="small">{% if u.group %}{{ u.group }}<div class="cell-sub">{{ u.group.direction.faculty }}</div>{% else %}{{ u.department|default:"—" }}{% endif %}</td>
+          <td class="small">{{ u.email|default:"" }}<div class="cell-sub">{{ u.phone }}</div></td>
+          <td>{% if u.is_active %}<span class="badge text-bg-success">{% translate "Faol" %}</span>{% else %}<span class="badge text-bg-danger">{% translate "Bloklangan" %}</span>{% endif %}
+            {% if u.must_change_password %}<i class="bi bi-key text-warning ms-1" data-bs-toggle="tooltip" title="{% translate 'Parolni o‘zgartirishi kerak' %}"></i>{% endif %}</td>
+          <td class="text-end text-nowrap">
+            <a href="{% url 'accounts:user_update' u.pk %}" class="btn btn-sm btn-light" title="{% translate 'Tahrirlash' %}"><i class="bi bi-pencil"></i></a>
+            {% if u.pk != user.pk %}
+            <form method="post" action="{% url 'accounts:user_toggle' u.pk %}" class="d-inline" data-confirm="{% if u.is_active %}{% translate 'Foydalanuvchini bloklaysizmi?' %}{% else %}{% translate 'Foydalanuvchini faollashtirasizmi?' %}{% endif %}">
+              {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+              <button class="btn btn-sm btn-light {% if u.is_active %}text-danger{% else %}text-success{% endif %}" title="{% if u.is_active %}{% translate 'Bloklash' %}{% else %}{% translate 'Faollashtirish' %}{% endif %}">
+                <i class="bi {% if u.is_active %}bi-lock{% else %}bi-unlock{% endif %}"></i></button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="7" class="text-center text-muted py-5">{% translate "Foydalanuvchilar topilmadi" %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

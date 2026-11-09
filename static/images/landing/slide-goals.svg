@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="520" height="300" role="img" aria-hidden="true">
+  <defs>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="155%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#0b1240" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <!-- Maqsad kartasi -->
+  <rect x="24" y="24" width="300" height="252" rx="18" fill="#fff" filter="url(#sh)"/>
+  <circle cx="62" cy="66" r="20" fill="#eef0fe"/>
+  <circle cx="62" cy="66" r="12" fill="none" stroke="#4154f1" stroke-width="3"/>
+  <circle cx="62" cy="66" r="5" fill="#4154f1"/>
+  <rect x="94" y="54" width="130" height="12" rx="6" fill="#c9d0ea"/>
+  <rect x="94" y="74" width="88" height="8" rx="4" fill="#e8ebf5"/>
+
+  <!-- Reja: vazifalar ro'yxati -->
+  <rect x="44" y="104" width="260" height="36" rx="10" fill="#f6f7fc"/>
+  <circle cx="64" cy="122" r="10" fill="#1baf7a"/>
+  <path d="M59 122.5 l3.6 3.6 l7 -7.4" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="84" y="117" width="128" height="9" rx="4.5" fill="#dfe3f3"/>
+  <rect x="244" y="113" width="48" height="18" rx="9" fill="#e7f8f0"/>
+
+  <rect x="44" y="148" width="260" height="36" rx="10" fill="#f6f7fc"/>
+  <circle cx="64" cy="166" r="10" fill="#1baf7a"/>
+  <path d="M59 166.5 l3.6 3.6 l7 -7.4" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="84" y="161" width="98" height="9" rx="4.5" fill="#dfe3f3"/>
+  <rect x="244" y="157" width="48" height="18" rx="9" fill="#e7f8f0"/>
+
+  <rect x="44" y="192" width="260" height="36" rx="10" fill="#f6f7fc"/>
+  <circle cx="64" cy="210" r="9" fill="#fff" stroke="#b9c0d8" stroke-width="2.4"/>
+  <rect x="84" y="205" width="148" height="9" rx="4.5" fill="#cdd3ea"/>
+  <rect x="244" y="201" width="48" height="18" rx="9" fill="#fff1df"/>
+
+  <!-- Umumiy progress -->
+  <rect x="44" y="244" width="260" height="10" rx="5" fill="#e8ebf5"/>
+  <rect x="44" y="244" width="172" height="10" rx="5" fill="#4154f1"/>
+
+  <!-- Taqvim (muddatlar) -->
+  <rect x="352" y="44" width="144" height="136" rx="16" fill="#fff" filter="url(#sh)"/>
+  <path d="M352 76 v-16 a16 16 0 0 1 16 -16 h112 a16 16 0 0 1 16 16 v16 z" fill="#4154f1"/>
+  <rect x="380" y="34" width="7" height="18" rx="3.5" fill="#c9d0ff"/>
+  <rect x="461" y="34" width="7" height="18" rx="3.5" fill="#c9d0ff"/>
+  <g fill="#e3e7f5">
+    <circle cx="378" cy="100" r="7"/><circle cx="412" cy="100" r="7"/><circle cx="446" cy="100" r="7"/><circle cx="480" cy="100" r="7"/>
+    <circle cx="378" cy="126" r="7"/><circle cx="480" cy="126" r="7"/>
+    <circle cx="378" cy="152" r="7"/><circle cx="412" cy="152" r="7"/><circle cx="446" cy="152" r="7"/>
+  </g>
+  <circle cx="412" cy="126" r="7" fill="#1baf7a"/>
+  <circle cx="446" cy="126" r="12" fill="#f6b24a"/>
+  <circle cx="480" cy="152" r="7" fill="#e3e7f5"/>
+
+  <!-- Eslatma (qo'ng'iroqcha) -->
+  <circle cx="436" cy="232" r="36" fill="#fff" filter="url(#sh)"/>
+  <path d="M436 213 c-9.5 0 -15 7.4 -15 16 v10 l-5.5 7 h41 l-5.5 -7 v-10 c0 -8.6 -5.5 -16 -15 -16 z" fill="#4154f1"/>
+  <circle cx="436" cy="253" r="4.4" fill="#4154f1"/>
+  <circle cx="456" cy="210" r="8" fill="#eb6834" stroke="#fff" stroke-width="2.5"/>
+</svg>

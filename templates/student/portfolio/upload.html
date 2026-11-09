@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Fayl yuklash" %}{% endblock %}
+{% block page_title %}{% translate "Elektron portfolio" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% if upload_state.mode == "new_version" %}{% blocktranslate with n=portfolio.current_version|add:1 %}Yangi versiya yuklash (v{{ n }}){% endblocktranslate %}{% else %}{% blocktranslate with n=portfolio.current_version %}v{{ n }} qoralamasiga fayl qo‘shish{% endblocktranslate %}{% endif %}</h1>
+    <p class="subtitle">{{ portfolio.title }}</p>
+  </div>
+  <div class="actions"><a href="{% url 'portfolios:detail' portfolio.pk %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Orqaga" %}</a></div>
+</div>
+<div class="row"><div class="col-lg-8">
+  {% if not upload_state.allowed %}
+    <div class="alert alert-warning">{{ upload_state.reason }}</div>
+  {% else %}
+  <div class="card"><div class="card-body">
+    {% if upload_state.mode == "new_version" %}<div class="alert alert-info small"><i class="bi bi-clock-history me-1"></i>{% translate "Oldingi versiyalar va ularning fayllari tarixda o‘zgarishsiz saqlanadi." %}</div>{% endif %}
+    <form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
+      {% include "base/form_fields.html" %}
+      <div class="progress mb-3 d-none" data-upload-progress><div class="progress-bar progress-bar-striped progress-bar-animated w-100">{% translate "Yuklanmoqda..." %}</div></div>
+      <button class="btn btn-primary"><i class="bi bi-cloud-arrow-up me-1"></i>{% translate "Yuklash" %}</button>
+    </form>
+  </div></div>
+  {% endif %}
+</div></div>
+{% endblock %}

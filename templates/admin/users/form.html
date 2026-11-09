@@ -1,0 +1,71 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% if target_user %}{{ target_user }}{% else %}{% translate "Yangi foydalanuvchi" %}{% endif %}{% endblock %}
+{% block page_title %}{% translate "Foydalanuvchilarni boshqarish" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% if target_user %}{{ target_user.full_name|default:target_user.username }}{% else %}{% translate "Yangi foydalanuvchi" %}{% endif %}</h1>
+    {% if target_user %}<p class="subtitle">{{ target_user.role_label }} · {% translate "Ro‘yxatdan o‘tgan" %}: {{ target_user.date_joined|date:"d.m.Y" }} · {% translate "Oxirgi kirish" %}: {{ target_user.last_login|date:"d.m.Y H:i"|default:"—" }}</p>{% endif %}
+  </div>
+  <div class="actions">
+    {% if target_user %}<a href="{% url 'audit:list' %}?user={{ target_user.pk }}" class="btn btn-light"><i class="bi bi-shield-check me-1"></i>{% translate "Amallar tarixi" %}</a>{% endif %}
+    <a href="{% url 'accounts:user_list' %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Ro‘yxat" %}</a>
+  </div>
+</div>
+<form method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {% include "base/form_errors.html" %}
+  <div class="row g-4">
+    <div class="col-xl-8">
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-person-vcard text-primary"></i>{% translate "Shaxsiy ma’lumotlar" %}</div>
+        <div class="card-body"><div class="row">
+          <div class="col-md-4">{% include "base/field.html" with field=form.last_name %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.first_name %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.middle_name %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.email %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.phone %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.external_id %}</div>
+          <div class="col-md-12">{% include "base/field.html" with field=form.avatar %}</div>
+        </div></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><i class="bi bi-diagram-3 text-primary"></i>{% translate "Rol va tashkiliy tuzilma" %}</div>
+        <div class="card-body"><div class="row">
+          <div class="col-md-4">{% include "base/field.html" with field=form.role %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.group %}</div>
+          <div class="col-md-4">{% include "base/field.html" with field=form.department %}</div>
+        </div>
+        <p class="small text-muted mb-0"><i class="bi bi-info-circle me-1"></i>{% translate "Talabaning fakulteti va yo‘nalishi guruh orqali avtomatik aniqlanadi." %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-shield-lock text-primary"></i>{% translate "Kirish ma’lumotlari" %}</div>
+        <div class="card-body">
+          {% include "base/field.html" with field=form.username %}
+          {% include "base/field.html" with field=form.password1 %}
+          {% include "base/field.html" with field=form.password2 %}
+          {% include "base/field.html" with field=form.must_change_password %}
+          {% include "base/field.html" with field=form.is_active %}
+        </div>
+      </div>
+      {% if mentor_links or mentee_links %}
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-people text-primary"></i>{% if mentor_links %}{% translate "Ustozlari" %}{% else %}{% translate "Biriktirilganlar" %}{% endif %}</div>
+        <ul class="list-group list-group-flush small">
+          {% for l in mentor_links %}<li class="list-group-item d-flex">{{ l.mentor }}{% if l.group %} <span class="text-muted ms-1">({% translate "guruh orqali" %})</span>{% endif %}<span class="ms-auto">{% if l.is_active %}<span class="badge text-bg-success">{% translate "faol" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "nofaol" %}</span>{% endif %}</span></li>{% endfor %}
+          {% for l in mentee_links %}<li class="list-group-item d-flex">{{ l.target }}<span class="ms-auto">{% if l.is_active %}<span class="badge text-bg-success">{% translate "faol" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "nofaol" %}</span>{% endif %}</span></li>{% endfor %}
+        </ul>
+        <div class="card-body pt-2"><a class="btn btn-sm btn-light w-100" href="{% url 'accounts:mentor_assignment_create' %}?{% if target_user.is_mentor %}mentor{% else %}student{% endif %}={{ target_user.pk }}"><i class="bi bi-plus-lg me-1"></i>{% translate "Ustoz biriktirish" %}</a></div>
+      </div>
+      {% elif target_user %}
+        <a class="btn btn-light w-100 mb-4" href="{% url 'accounts:mentor_assignment_create' %}?{% if target_user.is_mentor %}mentor{% else %}student{% endif %}={{ target_user.pk }}"><i class="bi bi-plus-lg me-1"></i>{% translate "Ustoz biriktirish" %}</a>
+      {% endif %}
+      <button class="btn btn-primary w-100 py-2" type="submit"><i class="bi bi-check2 me-1"></i>{% translate "Saqlash" %}</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

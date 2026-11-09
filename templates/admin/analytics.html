@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Analitika" %}{% endblock %}
+{% block page_title %}{% translate "Umumiy analitika" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% translate "Platforma bo‘yicha rivojlanish" %}</h1>
+    <p class="subtitle">{% blocktranslate with n=platform.students %}{{ n }} nafar baholangan talaba bo‘yicha kompetensiyalar: o‘rtacha boshlang‘ich va keyingi natija{% endblocktranslate %}</p>
+  </div>
+</div>
+<div class="row g-4">
+  <div class="col-xl-8">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-bar-chart text-primary"></i>{% translate "Kompetensiyalar bo‘yicha o‘rtacha natija (%)" %}</div>
+      <div class="card-body">{% translate "Kompetensiyalar bo‘yicha o‘rtacha natija" as l %}{% include "base/chart.html" with chart_id="platform-chart" spec=platform.chart size="lg" label=l %}</div>
+    </div>
+  </div>
+  <div class="col-xl-4">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-table text-primary"></i>{% translate "Jadval ko‘rinishi" %}</div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead><tr><th>{% translate "Kompetensiya" %}</th><th class="text-end">{% translate "Boshl." %}</th><th class="text-end">{% translate "Keyingi" %}</th></tr></thead>
+          <tbody>{% for label, ini, lat in platform.rows %}
+            <tr><td>{{ label }}</td><td class="text-end">{{ ini|default_if_none:"—" }}{% if ini is not None %}%{% endif %}</td><td class="text-end fw-semibold">{{ lat|default_if_none:"—" }}{% if lat is not None %}%{% endif %}</td></tr>
+          {% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-bank text-primary"></i>{% translate "Fakultetlar bo‘yicha talabalar" %}</div>
+      <div class="card-body">{% translate "Fakultetlar bo‘yicha talabalar" as l %}{% include "base/chart.html" with chart_id="faculty-chart" spec=faculty_chart label=l %}</div>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-folder2-open text-primary"></i>{% translate "Portfolio ishlari holati" %}</div>
+      <div class="card-body">
+        {% with c=portfolio_counts %}
+        <table class="table">
+          <tr><td>{% translate "Qoralama" %}</td><td class="text-end fw-semibold">{{ c.draft|default:0 }}</td></tr>
+          <tr><td>{% translate "Tekshirishda" %}</td><td class="text-end fw-semibold">{{ c.submitted|default:0 }}</td></tr>
+          <tr><td>{% translate "Qayta ishlash talab etiladi" %}</td><td class="text-end fw-semibold">{{ c.revision|default:0 }}</td></tr>
+          <tr><td>{% translate "Tasdiqlangan" %}</td><td class="text-end fw-semibold">{{ c.approved|default:0 }}</td></tr>
+          <tr><td>{% translate "Jami baholashlar" %}</td><td class="text-end fw-semibold">{{ assessments_total }}</td></tr>
+        </table>
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-4">{% include "shared/model_stats.html" %}</div>
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

@@ -1,0 +1,41 @@
+{% load i18n %}
+{% if model_stats %}
+<div class="card mb-4 model-stats">
+  <div class="card-header"><i class="bi bi-diagram-3 text-primary"></i>{% translate "Refleksiya modellari bo‘yicha tahlil" %}</div>
+  <div class="table-responsive">
+    <table class="table mb-0">
+      <thead><tr><th>{% translate "Model" %}</th><th class="text-end">{% translate "Yuborilgan refleksiyalar" %}</th><th class="text-end">{% translate "Talabalar" %}</th><th class="text-end">{% translate "Javob uzunligi (o‘rtacha so‘z)" %}</th><th class="text-end">{% translate "O‘rtacha ball" %}</th></tr></thead>
+      <tbody>
+      {% for m in model_stats %}
+        <tr>
+          <td><i class="bi {{ m.info.icon }} text-primary me-1"></i><span class="fw-semibold">{{ m.info.label }}</span></td>
+          <td class="text-end">{{ m.reflections }}</td>
+          <td class="text-end">{{ m.students }}</td>
+          <td class="text-end">{{ m.avg_words }}</td>
+          <td class="text-end">{% if m.avg_score is not None %}{{ m.avg_score }}%<span class="small text-muted"> ({{ m.scored }})</span>{% else %}<span class="text-muted">—</span>{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="card-body border-top">
+    <div class="row g-4">
+      {% for m in model_stats %}{% if m.stages %}
+        <div class="col-lg-6">
+          <div class="small fw-semibold mb-2">{{ m.info.label }} — {% translate "bosqichlar bo‘yicha o‘rtacha javob uzunligi (so‘z)" %}</div>
+          {% for row in m.stages %}
+            <div class="d-flex align-items-center gap-2 mb-1 small">
+              <span class="stage-dot">{{ row.index }}</span>
+              <span class="stage-label">{{ row.stage.label }}</span>
+              <div class="progress progress-thin flex-grow-1"><div class="progress-bar" style="width: {{ row.bar }}%"></div></div>
+              <span class="fw-semibold stage-words">{{ row.avg_words }}</span>
+            </div>
+          {% endfor %}
+          {% if m.shortest %}<div class="small text-muted mt-2"><i class="bi bi-info-circle me-1"></i>{% blocktranslate with stage=m.shortest.label %}Eng qisqa yoziladigan bosqich: {{ stage }}{% endblocktranslate %}</div>{% endif %}
+        </div>
+      {% endif %}{% endfor %}
+    </div>
+    <p class="small text-muted mt-3 mb-0">{% translate "Ball ishning o‘ziga ham bog‘liq, shuning uchun u bir modelning boshqasidan yaxshiroq ekanini isbotlamaydi. Javob uzunligi — faqat taxminiy ko‘rsatkich." %}</p>
+  </div>
+</div>
+{% endif %}

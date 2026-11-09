@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block page_title %}{% translate "Boshqaruv paneli" %}{% endblock %}
+{% block content %}
+<div class="card"><div class="card-body">
+  {% translate "Hisobingizga rol biriktirilmagan" as t %}
+  {% translate "Administrator bilan bog‘laning." as tx %}
+  {% include "base/empty.html" with icon="bi-person-exclamation" title=t text=tx %}
+</div></div>
+{% endblock %}

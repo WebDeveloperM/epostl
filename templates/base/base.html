@@ -1,0 +1,43 @@
+{% load static i18n %}<!doctype html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#4154f1">
+  <title>{% block title %}{% translate "Bosh sahifa" %}{% endblock %} — {{ platform_name }}</title>
+  <link rel="icon" href="{% static 'images/logo.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body data-max-upload-mb="{{ system_settings.max_upload_size_mb }}" data-max-video-mb="{{ system_settings.max_video_size_mb }}"
+      data-i18n-drop-title="{% translate 'Fayllarni shu yerga tashlang yoki tanlash uchun bosing' %}"
+      data-i18n-allowed="{% translate 'Ruxsat etilgan' %}" data-i18n-size="{% translate 'Hajm' %}"
+      data-i18n-document="{% translate 'hujjat' %}" data-i18n-video="{% translate 'video' %}">
+  {% include "base/sidebar.html" %}
+  <div class="sidebar-backdrop"></div>
+  <div class="app-main">
+    <header class="app-topbar">
+      <button type="button" class="icon-btn sidebar-toggle" data-sidebar-toggle aria-label="{% translate 'Menyu' %}">
+        <i class="bi bi-list"></i>
+      </button>
+      <h2 class="page-title">{% block page_title %}{% endblock %}</h2>
+      {% include "base/topbar_actions.html" %}
+    </header>
+    <main class="app-content">
+      {% include "base/messages.html" %}
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="app-footer d-flex flex-wrap gap-2 justify-content-between">
+      <span>© {% now "Y" %} {{ system_settings.organization_name|default:platform_name }}</span>
+      <span>{% translate "Refleksiv portfolio platformasi" %}</span>
+    </footer>
+  </div>
+  <script src="{% static 'vendor/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  {% block charts %}{% endblock %}
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

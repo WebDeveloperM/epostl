@@ -1,0 +1,110 @@
+{% load i18n core_tags %}
+{% with s=summary %}
+<div class="row g-3 mb-4">
+  <div class="col-6 col-lg-3"><div class="card stat-card"><div class="stat-icon tone-primary"><i class="bi bi-award"></i></div>
+    <div><div class="stat-value">{{ s.assessments_total }}</div><div class="stat-label">{% translate "Baholashlar" %}</div></div></div></div>
+  <div class="col-6 col-lg-3"><div class="card stat-card"><div class="stat-icon tone-success"><i class="bi bi-patch-check"></i></div>
+    <div><div class="stat-value">{{ s.targets_completed }}<span class="fs-6 text-muted">/{{ s.targets_total }}</span></div><div class="stat-label">{% translate "Bajarilgan topshiriqlar" %}</div></div></div></div>
+  <div class="col-6 col-lg-3"><div class="card stat-card"><div class="stat-icon tone-violet"><i class="bi bi-chat-square-quote"></i></div>
+    <div><div class="stat-value">{{ s.reflections_total }}</div><div class="stat-label">{% translate "Refleksiyalar soni" %}</div></div></div></div>
+  <div class="col-6 col-lg-3"><div class="card stat-card"><div class="stat-icon tone-warning"><i class="bi bi-arrow-repeat"></i></div>
+    <div><div class="stat-value">{{ repeat_results|length }}</div><div class="stat-label">{% translate "Takroriy ishlar" %}</div></div></div></div>
+</div>
+{% endwith %}
+
+<div class="row g-4">
+  <div class="col-xl-7">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-bar-chart text-primary"></i>{% translate "Talabaning pedagogik kompetensiyalari" %}</div>
+      <div class="card-body">
+        <p class="small text-muted">{% translate "Dastlabki (boshlang‘ich) va keyingi baholash natijalari, foizda. Boshlang‘ich baholash o‘tkazilgan bo‘lsa, u dastlabki natija sifatida olinadi." %}</p>
+        {% include "shared/comparison_block.html" with chart_id="an-comparison" %}
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-graph-up text-primary"></i>{% translate "Ustoz baholari dinamikasi" %}</div>
+      <div class="card-body">
+        {% if timeline.values %}
+          {% translate "Umumiy natija dinamikasi" as l %}
+          {% include "base/chart.html" with chart_id="an-timeline" spec=timeline_chart label=l %}
+        {% else %}
+          {% translate "Baholar tarixi bo‘sh" as t %}{% include "base/empty.html" with icon="bi-graph-up" title=t %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-7">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-list-check text-primary"></i>{% translate "Mezonlar bo‘yicha ballar (dastlabki va oxirgi)" %}</div>
+      {% if criteria_rows %}
+      <div class="card-body pb-0">{% translate "Mezonlar bo‘yicha ballar" as l %}{% include "base/chart.html" with chart_id="an-criteria" spec=criteria_chart size="sm" label=l %}</div>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead><tr><th>{% translate "Mezon" %}</th><th class="text-end">{% translate "Dastlabki" %}</th><th class="text-end">{% translate "Oxirgi" %}</th><th class="text-end">{% translate "Maks." %}</th><th class="text-end">{% translate "O‘zgarish" %}</th><th>{% translate "Tarix" %}</th></tr></thead>
+          <tbody>{% for r in criteria_rows %}
+            <tr><td>{{ r.criterion.name|tr }}</td><td class="text-end">{{ r.initial }}</td><td class="text-end fw-semibold">{{ r.latest|default_if_none:"—" }}</td><td class="text-end text-muted">{{ r.max }}</td>
+              <td class="text-end">{% if r.delta is not None %}<span class="{% if r.delta > 0 %}delta-up{% elif r.delta < 0 %}delta-down{% endif %}">{{ r.delta|signed }}</span>{% else %}—{% endif %}</td>
+              <td class="small text-muted">{{ r.history|join:" → " }}</td></tr>
+          {% endfor %}</tbody>
+        </table>
+      </div>
+      {% else %}
+        <div class="card-body">{% translate "Ma’lumot yo‘q" as t %}{% include "base/empty.html" with icon="bi-list-check" title=t %}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-calendar3 text-primary"></i>{% translate "Bajarilgan ishlar dinamikasi (6 oy)" %}</div>
+      <div class="card-body">
+        {% translate "Oylar bo‘yicha faollik" as l %}
+        {% include "base/chart.html" with chart_id="an-dynamics" spec=dynamics_chart size="sm" label=l %}
+        <div class="table-responsive mt-3">
+          <table class="table table-sm small mb-0">
+            <thead><tr><th></th>{% for m in dynamics.labels %}<th class="text-end">{{ m }}</th>{% endfor %}</tr></thead>
+            <tbody>
+              <tr><td>{% translate "Tasdiqlangan" %}</td>{% for v in dynamics.approved %}<td class="text-end">{{ v }}</td>{% endfor %}</tr>
+              <tr><td>{% translate "Versiyalar" %}</td>{% for v in dynamics.versions %}<td class="text-end">{{ v }}</td>{% endfor %}</tr>
+              <tr><td>{% translate "Refleksiyalar" %}</td>{% for v in dynamics.reflections %}<td class="text-end">{{ v }}</td>{% endfor %}</tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-arrow-repeat text-primary"></i>{% translate "Takroriy ishlar natijasi" %}</div>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead><tr><th>{% translate "Ish" %}</th><th class="text-end">{% translate "Birinchi" %}</th><th class="text-end">{% translate "Oxirgi" %}</th><th class="text-end">{% translate "O‘zgarish" %}</th></tr></thead>
+          <tbody>{% for r in repeat_results %}
+            <tr><td><a href="{% url 'portfolios:detail' r.portfolio.pk %}">{{ r.portfolio.title }}</a> <span class="cell-sub">({{ r.versions }} {% translate "versiya" %})</span></td>
+              <td class="text-end">{{ r.first }}%</td><td class="text-end fw-semibold">{{ r.last }}%</td>
+              <td class="text-end"><span class="{% if r.delta > 0 %}delta-up{% elif r.delta < 0 %}delta-down{% endif %}">{{ r.delta|signed }}</span></td></tr>
+          {% empty %}<tr><td colspan="4" class="text-center text-muted py-4 small">{% translate "Qayta ishlangan va qayta baholangan ishlar hali yo‘q" %}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-award text-primary"></i>{% translate "Ustoz baholari tarixi" %}</div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover">
+          <thead><tr><th>{% translate "Sana" %}</th><th>{% translate "Turi" %}</th><th>{% translate "Ish" %}</th><th class="text-end">{% translate "Ball" %}</th></tr></thead>
+          <tbody>{% for a in assessments %}
+            <tr><td class="small">{{ a.created_at|date:"d.m.Y" }}</td><td>{% status_badge a.kind a.get_kind_display %}</td>
+              <td class="small">{% if a.portfolio_version %}{{ a.portfolio_version.portfolio.title|truncatechars:40 }} (v{{ a.portfolio_version.version_number }}){% else %}—{% endif %}</td>
+              <td class="text-end"><a href="{% url 'assessments:detail' a.pk %}" class="fw-semibold">{{ a.total_score }}/{{ a.max_score }}</a></td></tr>
+          {% empty %}<tr><td colspan="4" class="text-center text-muted py-4 small">{% translate "Baholar yo‘q" %}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% include "shared/model_stats.html" %}

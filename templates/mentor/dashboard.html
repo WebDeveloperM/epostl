@@ -1,0 +1,80 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Ustoz paneli" %}{% endblock %}
+{% block page_title %}{% translate "Ustoz paneli" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% blocktranslate with name=user.first_name|default:user.username %}Xush kelibsiz, {{ name }}!{% endblocktranslate %}</h1>
+    <p class="subtitle">{% translate "Talabalaringizning rivojlanishi va tekshirish kutilayotgan ishlar" %}</p></div>
+  <div class="actions">
+    <a href="{% url 'analytics:students' %}" class="btn btn-light"><i class="bi bi-people me-1"></i>{% translate "Talabalarim" %}</a>
+    <a href="{% url 'assignments:create' %}" class="btn btn-primary"><i class="bi bi-journal-plus me-1"></i>{% translate "Topshiriq berish" %}</a>
+  </div>
+</div>
+<div class="row g-3 mb-4">
+  <div class="col-6 col-xl-3"><div class="card stat-card"><div class="stat-icon tone-primary"><i class="bi bi-people"></i></div>
+    <div><div class="stat-value">{{ students_count }}</div><div class="stat-label">{% translate "Biriktirilgan talabalar" %}</div>
+      <div class="stat-sub">{% blocktranslate with n=assignments_active %}{{ n }} ta faol topshiriq{% endblocktranslate %}</div></div></div></div>
+  <div class="col-6 col-xl-3"><a href="{% url 'assessments:queue' %}" class="card stat-card text-body"><div class="stat-icon tone-warning"><i class="bi bi-hourglass-split"></i></div>
+    <div><div class="stat-value">{{ pending_count }}</div><div class="stat-label">{% translate "Tekshirish kutilmoqda" %}</div></div></a></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card"><div class="stat-icon tone-success"><i class="bi bi-clipboard-check"></i></div>
+    <div><div class="stat-value">{{ assessed_count }}</div><div class="stat-label">{% translate "Baholangan ishlar" %}</div>
+      <div class="stat-sub">{% blocktranslate with n=assessed_week %}shu hafta: {{ n }}{% endblocktranslate %}</div></div></div></div>
+  <div class="col-6 col-xl-3"><a href="{% url 'reflections:list' %}?filter=new" class="card stat-card text-body"><div class="stat-icon tone-violet"><i class="bi bi-chat-square-quote"></i></div>
+    <div><div class="stat-value">{{ new_reflections_count }}</div><div class="stat-label">{% translate "Yangi refleksiya yozuvlari" %}</div></div></a></div>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-7">
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-inboxes text-primary"></i>{% translate "Tekshirish kutilayotgan ishlar" %}
+        <div class="card-actions"><a href="{% url 'assessments:queue' %}" class="btn btn-sm btn-light">{% translate "Barchasi" %}</a></div></div>
+      <ul class="list-group list-group-flush">
+        {% for p in pending %}
+          <li class="list-group-item d-flex align-items-center gap-2">
+            <div class="min-w-0 flex-grow-1"><a class="fw-semibold small" href="{% url 'portfolios:detail' p.pk %}">{{ p.title }}</a>
+              <div class="small-muted">{{ p.student.full_name }} · v{{ p.current_version }} · {{ p.submitted_at|timesince }} {% translate "oldin" %}</div></div>
+            <a href="{% url 'portfolios:detail' p.pk %}" class="btn btn-sm btn-primary">{% translate "Ko‘rish" %}</a>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-center small text-muted py-4"><i class="bi bi-check2-all me-1"></i>{% translate "Barcha ishlar tekshirilgan" %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header"><i class="bi bi-graph-up-arrow text-primary"></i>{% translate "Talabalar rivojlanish ko‘rsatkichlari" %}
+        {% if avg_delta is not None %}<span class="ms-2 small {% if avg_delta >= 0 %}delta-up{% else %}delta-down{% endif %}">{% translate "o‘rtacha o‘sish" %}: {{ avg_delta|signed }}%</span>{% endif %}
+        <div class="card-actions"><a href="{% url 'analytics:students' %}" class="btn btn-sm btn-light">{% translate "Batafsil" %}</a></div></div>
+      {% if progress_chart.labels %}
+        <div class="card-body pb-0">{% translate "Talabalar: boshlang‘ich va keyingi natija" as l %}{% include "base/chart.html" with chart_id="mentor-progress" spec=progress_chart label=l %}</div>
+      {% endif %}
+      <div class="table-responsive">
+        <table class="table table-sm table-hover table-stack">
+          <thead><tr><th>{% translate "Talaba" %}</th><th class="text-end">{% translate "Boshl." %}</th><th class="text-end">{% translate "Oxirgi" %}</th><th class="text-end">{% translate "O‘zgarish" %}</th><th class="text-end">{% translate "Kutilmoqda" %}</th></tr></thead>
+          <tbody>{% for r in overview %}
+            <tr><td><a href="{% url 'analytics:student_detail' r.student.pk %}" class="fw-semibold small">{{ r.student.full_name }}</a><div class="cell-sub">{{ r.student.group|default:"" }}</div></td>
+              <td class="text-end small">{% if r.initial is not None %}{{ r.initial }}%{% else %}—{% endif %}</td>
+              <td class="text-end small fw-semibold">{% if r.latest is not None %}{{ r.latest }}%{% else %}—{% endif %}</td>
+              <td class="text-end small">{% if r.delta is not None %}<span class="{% if r.delta > 0 %}delta-up{% elif r.delta < 0 %}delta-down{% endif %}">{{ r.delta|signed }}</span>{% else %}—{% endif %}</td>
+              <td class="text-end">{% if r.pending %}<span class="badge text-bg-warning">{{ r.pending }}</span>{% else %}<span class="text-muted small">0</span>{% endif %}</td></tr>
+          {% empty %}<tr><td colspan="5" class="text-center small text-muted py-4">{% translate "Sizga hali talaba biriktirilmagan. Administrator bilan bog‘laning." %}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="card">
+      <div class="card-header"><i class="bi bi-chat-square-quote text-primary"></i>{% translate "Yangi refleksiya yozuvlari" %}</div>
+      <ul class="list-group list-group-flush">
+        {% for r in new_reflections %}
+          <li class="list-group-item small">
+            <div class="d-flex"><span class="fw-semibold">{{ r.student.short_name }}</span><span class="ms-auto text-muted">{{ r.submitted_at|date:"d.m H:i" }}</span></div>
+            <a href="{% url 'reflections:detail' r.pk %}">{{ r.portfolio_version.portfolio.title|truncatechars:60 }} (v{{ r.portfolio_version.version_number }})</a>
+          </li>
+        {% empty %}<li class="list-group-item small text-muted py-4 text-center">{% translate "Yangi refleksiyalar yo‘q" %}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

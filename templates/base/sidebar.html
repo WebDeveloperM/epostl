@@ -1,0 +1,84 @@
+{% load static i18n %}
+{% with path=request.path %}
+<aside class="app-sidebar" id="sidebar" aria-label="{% translate 'Asosiy menyu' %}">
+  <a class="brand" href="{% url 'dashboard' %}">
+    <img src="{% static 'images/logo.svg' %}" alt="">
+    <span>{{ platform_name }}
+      <small>{% translate "Pedagogik rivojlanish" %}</small></span>
+  </a>
+  <nav>
+    <a class="nav-link {% if path == '/dashboard/' %}active{% endif %}" href="{% url 'dashboard' %}">
+      <i class="bi bi-grid-1x2"></i> {% translate "Boshqaruv paneli" %}</a>
+
+    {% if is_student_role %}
+      <div class="nav-section">{% translate "Rivojlanish sikli" %}</div>
+      <a class="nav-link {% if '/goals/' in path %}active{% endif %}" href="{% url 'goals:list' %}">
+        <i class="bi bi-bullseye"></i> {% translate "Maqsadlarim" %}</a>
+      <a class="nav-link {% if '/assignments/' in path %}active{% endif %}" href="{% url 'assignments:list' %}">
+        <i class="bi bi-journal-check"></i> {% translate "Topshiriqlar" %}</a>
+      <a class="nav-link {% if '/portfolio/' in path %}active{% endif %}" href="{% url 'portfolios:list' %}">
+        <i class="bi bi-folder2-open"></i> {% translate "Portfolio" %}</a>
+      <a class="nav-link {% if '/reflections/' in path %}active{% endif %}" href="{% url 'reflections:list' %}">
+        <i class="bi bi-chat-square-quote"></i> {% translate "Refleksiyalar" %}</a>
+      <a class="nav-link {% if '/assessments/' in path %}active{% endif %}" href="{% url 'assessments:list' %}">
+        <i class="bi bi-award"></i> {% translate "Baholarim" %}</a>
+      <a class="nav-link {% if '/analytics/' in path %}active{% endif %}" href="{% url 'analytics:index' %}">
+        <i class="bi bi-graph-up-arrow"></i> {% translate "Rivojlanishim" %}</a>
+    {% endif %}
+
+    {% if is_mentor_role %}
+      <div class="nav-section">{% translate "Ustoz" %}</div>
+      <a class="nav-link {% if '/analytics/students' in path %}active{% endif %}" href="{% url 'analytics:students' %}">
+        <i class="bi bi-people"></i> {% translate "Mening talabalarim" %}</a>
+      <a class="nav-link {% if '/assignments/' in path %}active{% endif %}" href="{% url 'assignments:list' %}">
+        <i class="bi bi-journal-plus"></i> {% translate "Topshiriqlar" %}</a>
+      <a class="nav-link {% if '/assessments/queue' in path or '/assessments/version' in path %}active{% endif %}" href="{% url 'assessments:queue' %}">
+        <i class="bi bi-clipboard-check"></i> {% translate "Tekshirish" %}</a>
+      <a class="nav-link {% if '/portfolio/' in path %}active{% endif %}" href="{% url 'portfolios:list' %}">
+        <i class="bi bi-folder2-open"></i> {% translate "Talabalar ishlari" %}</a>
+      <a class="nav-link {% if '/reflections/' in path %}active{% endif %}" href="{% url 'reflections:list' %}">
+        <i class="bi bi-chat-square-quote"></i> {% translate "Refleksiyalar" %}</a>
+      <a class="nav-link {% if path == '/assessments/' or '/assessments/baseline' in path %}active{% endif %}" href="{% url 'assessments:list' %}">
+        <i class="bi bi-award"></i> {% translate "Baholar tarixi" %}</a>
+      <a class="nav-link {% if '/goals/' in path %}active{% endif %}" href="{% url 'goals:list' %}">
+        <i class="bi bi-bullseye"></i> {% translate "Talabalar maqsadlari" %}</a>
+    {% endif %}
+
+    {% if is_admin_role %}
+      <div class="nav-section">{% translate "Foydalanuvchilar" %}</div>
+      <a class="nav-link {% if '/accounts/users' in path %}active{% endif %}" href="{% url 'accounts:user_list' %}">
+        <i class="bi bi-person-gear"></i> {% translate "Foydalanuvchilar" %}</a>
+      <a class="nav-link {% if '/accounts/mentor-assignments' in path %}active{% endif %}" href="{% url 'accounts:mentor_assignment_list' %}">
+        <i class="bi bi-diagram-3"></i> {% translate "Ustoz biriktiruvlari" %}</a>
+      <div class="nav-section">{% translate "Tashkiliy tuzilma" %}</div>
+      <a class="nav-link {% if '/organization/faculties' in path %}active{% endif %}" href="{% url 'organization:faculty_list' %}">
+        <i class="bi bi-bank"></i> {% translate "Fakultetlar" %}</a>
+      <a class="nav-link {% if '/organization/departments' in path %}active{% endif %}" href="{% url 'organization:department_list' %}">
+        <i class="bi bi-diagram-2"></i> {% translate "Kafedralar" %}</a>
+      <a class="nav-link {% if '/organization/directions' in path %}active{% endif %}" href="{% url 'organization:direction_list' %}">
+        <i class="bi bi-signpost-split"></i> {% translate "Yo‘nalishlar" %}</a>
+      <a class="nav-link {% if '/organization/groups' in path %}active{% endif %}" href="{% url 'organization:group_list' %}">
+        <i class="bi bi-people"></i> {% translate "Guruhlar" %}</a>
+      <a class="nav-link {% if '/subjects/' in path %}active{% endif %}" href="{% url 'subjects:subject_list' %}">
+        <i class="bi bi-book"></i> {% translate "Fanlar" %}</a>
+      <div class="nav-section">{% translate "Baholash tizimi" %}</div>
+      <a class="nav-link {% if '/competencies/items' in path %}active{% endif %}" href="{% url 'competencies:competency_list' %}">
+        <i class="bi bi-stars"></i> {% translate "Kompetensiyalar" %}</a>
+      <a class="nav-link {% if '/competencies/criteria' in path %}active{% endif %}" href="{% url 'competencies:criterion_list' %}">
+        <i class="bi bi-list-check"></i> {% translate "Baholash mezonlari" %}</a>
+      <a class="nav-link {% if '/reflections/questions' in path %}active{% endif %}" href="{% url 'reflections:question_list' %}">
+        <i class="bi bi-patch-question"></i> {% translate "Refleksiya savollari" %}</a>
+      <div class="nav-section">{% translate "Monitoring" %}</div>
+      <a class="nav-link {% if path == '/analytics/' %}active{% endif %}" href="{% url 'analytics:index' %}">
+        <i class="bi bi-bar-chart-line"></i> {% translate "Analitika" %}</a>
+      <a class="nav-link {% if '/portfolio/' in path %}active{% endif %}" href="{% url 'portfolios:list' %}">
+        <i class="bi bi-folder2-open"></i> {% translate "Portfolio ishlari" %}</a>
+      <a class="nav-link {% if '/audit/' in path %}active{% endif %}" href="{% url 'audit:list' %}">
+        <i class="bi bi-shield-check"></i> {% translate "Audit log" %}</a>
+      <a class="nav-link {% if '/system/settings' in path %}active{% endif %}" href="{% url 'core:settings' %}">
+        <i class="bi bi-gear"></i> {% translate "Tizim sozlamalari" %}</a>
+    {% endif %}
+  </nav>
+  <div class="sidebar-footer">{% translate "Uzluksiz refleksiv rivojlanish" %}</div>
+</aside>
+{% endwith %}

@@ -1,0 +1,45 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Tekshirish" %}{% endblock %}
+{% block page_title %}{% translate "Tekshirish navbati" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Tekshirish kutilayotgan ishlar" %}</h1>
+    <p class="subtitle">{% translate "Talabalar yuborgan ishlar va refleksiyalar — yuborilgan vaqti bo‘yicha" %}</p></div>
+</div>
+<div class="card mb-4">
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Talaba" %}</th><th>{% translate "Ish" %}</th><th>{% translate "Topshiriq" %}</th><th class="text-center">{% translate "Versiya" %}</th><th>{% translate "Yuborilgan" %}</th><th></th></tr></thead>
+      <tbody>
+      {% for p in pending %}
+        <tr>
+          <td class="small"><span class="fw-semibold">{{ p.student.full_name }}</span><div class="cell-sub">{{ p.student.group|default:"" }}</div></td>
+          <td><a class="cell-title" href="{% url 'portfolios:detail' p.pk %}">{{ p.title }}</a><div class="cell-sub">{{ p.get_material_type_display }}</div></td>
+          <td class="small">{{ p.assignment.title|default:_("Mustaqil ish") }}{% if p.assignment and p.submitted_at > p.assignment.due_date %} <span class="badge text-bg-danger">{% translate "kechikkan" %}</span>{% endif %}</td>
+          <td class="text-center"><span class="badge text-bg-light border">v{{ p.current_version }}</span></td>
+          <td class="small text-nowrap">{{ p.submitted_at|date:"d.m.Y H:i" }}<div class="cell-sub">{{ p.submitted_at|timesince }} {% translate "oldin" %}</div></td>
+          <td class="text-end"><a href="{% url 'portfolios:detail' p.pk %}" class="btn btn-sm btn-primary"><i class="bi bi-clipboard-check me-1"></i>{% translate "Ko‘rib chiqish" %}</a></td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6">{% translate "Tekshirish kutilayotgan ishlar yo‘q" as t %}{% include "base/empty.html" with icon="bi-check2-all" title=t %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header"><i class="bi bi-clock-history text-primary"></i>{% translate "Yaqinda baholaganlarim" %}</div>
+  <ul class="list-group list-group-flush">
+    {% for a in recent %}
+      <li class="list-group-item d-flex flex-wrap align-items-center gap-2 small">
+        <span class="fw-semibold">{{ a.student.short_name }}</span>
+        <a href="{% url 'portfolios:detail' a.portfolio_version.portfolio_id %}">{{ a.portfolio_version.portfolio.title|truncatechars:50 }} (v{{ a.portfolio_version.version_number }})</a>
+        {% status_badge a.decision a.get_decision_display %}
+        <span class="ms-auto fw-semibold">{{ a.total_score }}/{{ a.max_score }}</span>
+        <span class="text-muted">{{ a.created_at|date:"d.m.Y" }}</span>
+      </li>
+    {% empty %}<li class="list-group-item small text-muted">—</li>{% endfor %}
+  </ul>
+</div>
+{% endblock %}

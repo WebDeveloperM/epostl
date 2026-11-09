@@ -1,0 +1,118 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Refleksiya" %}{% endblock %}
+{% block page_title %}{% translate "Refleksiya yozish" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% translate "Refleksiya" %}: {{ portfolio.title }} <span class="badge text-bg-light border fs-6 align-middle">v{{ version.version_number }}</span></h1>
+    <p class="subtitle">{% translate "Har bir savolga alohida, aniq dalillarga tayanib javob bering." %}
+      {% if reflection %} · {% status_badge reflection.status reflection.get_status_display %}{% endif %}</p>
+  </div>
+  <div class="actions"><a href="{% url 'portfolios:detail' portfolio.pk %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Ishga qaytish" %}</a></div>
+</div>
+<form method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {% include "base/form_errors.html" %}
+  <div class="row g-4">
+    <div class="col-xl-8">
+      {% with sections=form.sections %}
+      <div class="card mb-4"><div class="card-body" data-reflection-progress>
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+          <span class="fw-bold"><i class="bi {{ framework.icon }} text-primary me-1"></i>{{ framework.label }}</span>
+          <span class="ms-auto small text-muted">{% translate "Javob berilgan savollar" %}: <strong data-progress-text>{{ progress.done }} / {{ progress.total }}</strong></span>
+          {% if can_change_model and other_frameworks %}
+          <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-light" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-arrow-left-right me-1"></i>{% translate "Modelni almashtirish" %}</button>
+            <div class="dropdown-menu dropdown-menu-end shadow">
+              {% for item in other_frameworks %}
+                <button type="submit" name="target_framework" value="{{ item.info.code }}" formaction="{% url 'reflections:change_model' version.pk %}" formnovalidate
+                        class="dropdown-item" data-confirm="{% translate 'Modelni almashtirasizmi? Javoblaringiz mos bosqichlarga ko‘chiriladi.' %}"><i class="bi {{ item.info.icon }} me-2 text-primary"></i>{{ item.info.label }}</button>
+              {% endfor %}
+            </div>
+          </div>
+          {% elif not reflection %}
+          <a href="{% url 'reflections:edit' version.pk %}" class="btn btn-sm btn-light"><i class="bi bi-arrow-left-right me-1"></i>{% translate "Boshqa modelni tanlash" %}</a>
+          {% endif %}
+        </div>
+        <div class="progress progress-thin"><div class="progress-bar" data-progress-bar style="width: {{ progress.percent }}%"></div></div>
+        {% if framework.stages %}
+        <nav class="stage-nav mt-3" aria-label="{% translate 'Refleksiya bosqichlari' %}">
+          {% for section in sections %}{% if section.stage %}
+            <a href="#stage-{{ section.stage.code }}" class="stage-chip" data-stage-chip="{{ section.stage.code }}"><span class="dot">{{ section.index }}</span>{{ section.stage.label }}</a>
+          {% endif %}{% endfor %}
+        </nav>
+        {% endif %}
+      </div></div>
+
+      <div class="card mb-4"><div class="card-body">
+        <input type="hidden" name="framework" value="{{ framework.code }}">
+        {% for section in sections %}
+          <section class="reflection-stage" {% if section.stage %}id="stage-{{ section.stage.code }}" data-stage="{{ section.stage.code }}"{% endif %}>
+            {% if section.stage %}
+              <div class="stage-head"><span class="dot">{{ section.index }}</span>
+                <div><div class="stage-title">{{ section.stage.label }}</div><div class="stage-hint">{{ section.stage.hint }}</div></div></div>
+            {% endif %}
+            {% for number, q, field in section.items %}
+              <div class="reflection-q">
+                <label class="d-block mb-2" for="{{ field.id_for_label }}">{% if not section.stage or section.items|length > 1 %}<span class="q-num">{{ number }}</span>{% endif %}<span class="q-text">{{ q.text|tr }}</span>{% if q.is_required %} <span class="text-danger">*</span>{% endif %}</label>
+                {% if q.help_text %}<div class="form-text mt-0 mb-2">{{ q.help_text|tr }}</div>{% endif %}
+                {{ field }}
+                {% for e in field.errors %}<div class="invalid-feedback d-block">{{ e }}</div>{% endfor %}
+              </div>
+            {% endfor %}
+          </section>
+        {% endfor %}
+      </div></div>
+      {% endwith %}
+
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-paperclip text-primary"></i>{% translate "Dalil biriktirish (ixtiyoriy)" %}</div>
+        <div class="card-body">
+          {% if reflection and reflection.evidence.all %}
+            <div class="mb-3">
+            {% for e in reflection.evidence.all %}
+              <div class="file-item">
+                <span class="file-icon tone-primary"><i class="bi {% if e.link %}bi-link-45deg{% else %}{{ e.category|file_icon }}{% endif %}"></i></span>
+                <div class="min-w-0"><div class="file-name">{% if e.file %}{{ e.original_name }}{% else %}{{ e.link|truncatechars:60 }}{% endif %}</div>
+                  <div class="file-meta">{{ e.description|default:"" }}{% if e.file %} · {{ e.file_size|human_size }}{% endif %}</div></div>
+                <div class="file-actions">
+                  {% if e.file %}<a class="btn btn-sm btn-light" href="{% url 'reflections:evidence' e.pk %}" target="_blank" rel="noopener"><i class="bi bi-eye"></i></a>{% else %}<a class="btn btn-sm btn-light" href="{{ e.link }}" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i></a>{% endif %}
+                  <button type="submit" form="del-ev-{{ e.pk }}" class="btn btn-sm btn-light text-danger" data-confirm="{% translate 'Dalilni o‘chirasizmi?' %}"><i class="bi bi-trash"></i></button>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+          {% endif %}
+          {% include "base/field.html" with field=form.evidence_files %}
+          <div class="row">
+            <div class="col-md-7">{% include "base/field.html" with field=form.evidence_link %}</div>
+            <div class="col-md-5">{% include "base/field.html" with field=form.evidence_description %}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card sticky-side">
+        <div class="card-body">
+          <button type="submit" name="action" value="draft" class="btn btn-light w-100 mb-2"><i class="bi bi-save me-1"></i>{% translate "Qoralama sifatida saqlash" %}</button>
+          <button type="submit" name="action" value="submit" class="btn btn-primary w-100" data-confirm="{% if version.is_submitted %}{% translate 'O‘zgarishlarni saqlab, ustozga yuborasizmi?' %}{% else %}{% translate 'Refleksiya va ish ustozga tekshirishga yuboriladi. Davom etasizmi?' %}{% endif %}">
+            <i class="bi bi-send me-1"></i>{% translate "Ustozga yuborish" %}</button>
+          <p class="small text-muted mt-3 mb-0">{% translate "Yuborilgandan keyin ham ustoz baholaguncha refleksiyani tahrirlash mumkin." %}</p>
+          <hr>
+          <h6 class="fw-bold small">{% translate "Ushbu versiya fayllari" %}</h6>
+          {% for f in version.files.all %}<div class="small"><i class="bi {{ f.category|file_icon }} me-1"></i>{{ f.original_name|truncatechars:40 }}</div>{% empty %}<div class="small text-danger">{% translate "Fayl yuklanmagan — yuborishdan oldin fayl yuklang." %}</div>{% endfor %}
+          {% if previous_reflections %}
+            <hr>
+            <h6 class="fw-bold small">{% translate "Oldingi refleksiyalarim" %}</h6>
+            {% for r in previous_reflections %}<div class="small mb-1"><a href="{% url 'reflections:detail' r.pk %}" target="_blank">{{ r.portfolio_version.portfolio.title|truncatechars:36 }} (v{{ r.portfolio_version.version_number }})</a></div>{% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% if reflection %}{% for e in reflection.evidence.all %}
+  <form id="del-ev-{{ e.pk }}" method="post" action="{% url 'reflections:evidence_delete' e.pk %}" class="d-none">{% csrf_token %}</form>
+{% endfor %}{% endif %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Bildirishnomalar" %}{% endblock %}
+{% block page_title %}{% translate "Bildirishnomalar" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1>{% translate "Bildirishnomalar" %}</h1>
+  <div class="actions">
+    <ul class="nav nav-pills-soft">
+      <li class="nav-item"><a class="nav-link {% if request.GET.filter != 'unread' %}active{% endif %}" href="?">{% translate "Barchasi" %}</a></li>
+      <li class="nav-item"><a class="nav-link {% if request.GET.filter == 'unread' %}active{% endif %}" href="?filter=unread">{% translate "O‘qilmagan" %} <span class="count">{{ unread_notifications_count }}</span></a></li>
+    </ul>
+    {% if unread_notifications_count %}
+    <form method="post" action="{% url 'notifications:mark_all' %}">{% csrf_token %}
+      <button class="btn btn-light btn-sm"><i class="bi bi-check2-all me-1"></i>{% translate "Barchasini o‘qilgan deb belgilash" %}</button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+<div class="card">
+  {% for n in notifications %}
+    <a class="notif-item {% if not n.is_read %}unread{% endif %}" href="{% url 'notifications:open' n.pk %}">
+      <span class="n-icon tone-{{ n.color }}"><i class="bi {{ n.icon }}"></i></span>
+      <span class="min-w-0 flex-grow-1">
+        <span class="n-title d-block">{{ n.title }} {% if not n.is_read %}<span class="badge text-bg-primary ms-1">{% translate "yangi" %}</span>{% endif %}</span>
+        {% if n.message %}<span class="small text-muted d-block">{{ n.message|truncatechars:160 }}</span>{% endif %}
+        <span class="n-time">{{ n.get_type_display }} · {{ n.created_at|date:"d.m.Y H:i" }}{% if n.actor %} · {{ n.actor.short_name }}{% endif %}</span>
+      </span>
+    </a>
+  {% empty %}
+    {% translate "Bildirishnomalar yo‘q" as t %}
+    {% include "base/empty.html" with icon="bi-bell-slash" title=t %}
+  {% endfor %}
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

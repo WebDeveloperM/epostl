@@ -1,0 +1,39 @@
+{% load i18n core_tags %}
+<div class="card mb-4">
+  <div class="card-header"><i class="bi bi-card-text text-primary"></i>{% translate "Topshiriq tavsifi" %}</div>
+  <div class="card-body">
+    <p class="text-pre">{{ assignment.description }}</p>
+    {% if assignment.instructions %}
+      <h6 class="fw-bold mt-4"><i class="bi bi-signpost me-1 text-primary"></i>{% translate "Bajarish bo‘yicha yo‘riqnoma" %}</h6>
+      <p class="text-pre mb-0">{{ assignment.instructions }}</p>
+    {% endif %}
+  </div>
+</div>
+<div class="card mb-4">
+  <div class="card-header"><i class="bi bi-list-check text-primary"></i>{% translate "Baholash mezonlari" %}</div>
+  <ul class="list-group list-group-flush">
+    {% for c in criteria %}
+      <li class="list-group-item d-flex small"><span>{{ c.name|tr }}{% if c.competency %} <span class="text-muted">· {{ c.competency }}</span>{% endif %}</span><span class="ms-auto fw-semibold">{{ c.max_score }} {% translate "ball" %}</span></li>
+    {% endfor %}
+  </ul>
+  {% if assignment.criteria_notes %}<div class="card-body small text-pre border-top">{{ assignment.criteria_notes }}</div>{% endif %}
+</div>
+{% if assignment.attachments.all %}
+<div class="card mb-4">
+  <div class="card-header"><i class="bi bi-paperclip text-primary"></i>{% translate "Qo‘shimcha fayllar" %}</div>
+  <div class="card-body">
+    {% for a in assignment.attachments.all %}
+      <div class="file-item">
+        <span class="file-icon tone-primary"><i class="bi {{ a.category|file_icon }}"></i></span>
+        <div class="min-w-0"><div class="file-name">{{ a.original_name }}</div><div class="file-meta">{{ a.file_size|human_size }}</div></div>
+        <div class="file-actions">
+          <a class="btn btn-sm btn-light" href="{% url 'assignments:attachment' a.pk %}" target="_blank" rel="noopener"><i class="bi bi-download"></i></a>
+          {% if can_manage and show_delete %}
+          <form method="post" action="{% url 'assignments:attachment_delete' a.pk %}" data-confirm="{% translate 'Faylni o‘chirasizmi?' %}">{% csrf_token %}<button class="btn btn-sm btn-light text-danger"><i class="bi bi-trash"></i></button></form>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

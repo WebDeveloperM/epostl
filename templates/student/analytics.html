@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Rivojlanishim" %}{% endblock %}
+{% block page_title %}{% translate "Rivojlanish va analitika" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Mening rivojlanishim" %}</h1>
+    <p class="subtitle">{% translate "Boshlang‘ich va keyingi natijalar, ustoz baholari tarixi va faollik dinamikasi" %}</p></div>
+</div>
+{% include "shared/analytics_body.html" %}
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

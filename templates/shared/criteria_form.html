@@ -1,0 +1,26 @@
+{% load i18n core_tags %}
+{% for row in form.criterion_rows %}
+  <div class="criterion-card">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <div class="min-w-0 flex-grow-1">
+        <div class="fw-semibold">{{ row.criterion.name|tr }}</div>
+        <div class="small text-muted">{% if row.criterion.competency %}{{ row.criterion.competency }} · {% endif %}{% translate "maks." %} {{ row.criterion.max_score }} {% translate "ball" %}
+          {% with p=previous_details|get_item:row.criterion.pk %}{% if p %} · <span class="text-primary">{% translate "oldingi versiyada" %}: {{ p.score }}</span>{% endif %}{% endwith %}</div>
+        {% if row.criterion.description %}<div class="small text-muted">{{ row.criterion.description|tr }}</div>{% endif %}
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <label class="small text-muted" for="{{ row.score.id_for_label }}">{% translate "Ball" %}</label>
+        <input type="number" name="{{ row.score.html_name }}" id="{{ row.score.id_for_label }}" value="{{ row.score.value|default_if_none:'' }}"
+               min="0" max="{{ row.criterion.max_score }}" required data-score-input data-max="{{ row.criterion.max_score }}"
+               class="form-control score-input {% if row.score.errors %}is-invalid{% endif %}">
+      </div>
+    </div>
+    <div class="progress progress-thin my-2"><div class="progress-bar bg-primary" style="width:0%"></div></div>
+    {% for e in row.score.errors %}<div class="invalid-feedback d-block">{{ e }}</div>{% endfor %}
+    <div class="row g-2 mt-1">
+      <div class="col-md-4"><label class="form-label small" for="{{ row.comment.id_for_label }}">{% translate "Izoh" %}</label>{{ row.comment }}</div>
+      <div class="col-md-4"><label class="form-label small text-danger" for="{{ row.weaknesses.id_for_label }}">{% translate "Kamchiliklar" %}</label>{{ row.weaknesses }}</div>
+      <div class="col-md-4"><label class="form-label small text-success" for="{{ row.recommendations.id_for_label }}">{% translate "Tavsiya" %}</label>{{ row.recommendations }}</div>
+    </div>
+  </div>
+{% endfor %}

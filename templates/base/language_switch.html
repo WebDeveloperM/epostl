@@ -1,0 +1,18 @@
+{% load i18n %}{% get_current_language as CUR %}
+<div class="dropdown lang-switch">
+  <button class="icon-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+          aria-label="{% translate 'Tilni o‘zgartirish' %}" title="{% translate 'Tilni o‘zgartirish' %}">
+    <i class="bi bi-translate"></i>
+  </button>
+  <form class="dropdown-menu dropdown-menu-end shadow lang-menu" action="{% url 'set_language' %}" method="post" data-allow-resubmit>
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <h6 class="dropdown-header">{% translate "Til" %}</h6>
+    {% for code, name in language_choices %}
+      <button type="submit" name="language" value="{{ code }}" lang="{{ code }}"
+              class="dropdown-item d-flex align-items-center gap-2 {% if code == CUR %}active{% endif %}">
+        <span>{{ name }}</span>{% if code == CUR %}<i class="bi bi-check2 ms-auto"></i>{% endif %}
+      </button>
+    {% endfor %}
+  </form>
+</div>

@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Rivojlanish maqsadlari" %}{% endblock %}
+{% block page_title %}{% translate "Rivojlanish maqsadlari" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% if is_student_role %}{% translate "Maqsadlarim" %}{% else %}{% translate "Talabalar maqsadlari" %}{% endif %}</h1>
+    <p class="subtitle">{% translate "Har bir maqsad — alohida rivojlanish sikli: baholash → reja → amaliyot → refleksiya → takomillashtirish" %}</p></div>
+  {% if is_student_role %}<div class="actions"><a href="{% url 'goals:create' %}" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i>{% translate "Yangi maqsad" %}</a></div>{% endif %}
+</div>
+<div class="card">
+  <div class="card-body border-bottom d-flex flex-wrap gap-2 align-items-center">
+    <ul class="nav nav-pills-soft">
+      <li class="nav-item"><a class="nav-link {% if not request.GET.status %}active{% endif %}" href="?">{% translate "Barchasi" %} <span class="count">{{ total }}</span></a></li>
+      {% for code, label in statuses %}
+        <li class="nav-item"><a class="nav-link {% if request.GET.status == code %}active{% endif %}" href="?status={{ code }}">{{ label }} <span class="count">{{ status_counts|get_item:code|default:0 }}</span></a></li>
+      {% endfor %}
+    </ul>
+    <form method="get" class="ms-auto d-flex gap-2">
+      {% if request.GET.status %}<input type="hidden" name="status" value="{{ request.GET.status }}">{% endif %}
+      <input type="search" name="q" value="{{ request.GET.q }}" class="form-control form-control-sm" placeholder="{% translate 'Qidiruv...' %}">
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr>
+        <th>{% translate "Maqsad" %}</th>{% if not is_student_role %}<th>{% translate "Talaba" %}</th>{% endif %}
+        <th>{% translate "Kompetensiya" %}</th><th>{% translate "Muddat" %}</th><th class="text-end">{% translate "Ishlar" %}</th><th>{% translate "Holat" %}</th>
+      </tr></thead>
+      <tbody>
+      {% for g in goals %}
+        <tr>
+          <td><a class="cell-title" href="{% url 'goals:detail' g.pk %}">{{ g.title }}</a><div class="cell-sub">{{ g.expected_outcome|truncatechars:90 }}</div></td>
+          {% if not is_student_role %}<td class="small">{{ g.student.full_name }}<div class="cell-sub">{{ g.student.group|default:"" }}</div></td>{% endif %}
+          <td class="small">{{ g.competency|default:"—" }}</td>
+          <td class="small text-nowrap {% if g.is_overdue %}text-danger{% endif %}">{{ g.start_date|date:"d.m.Y" }} — {{ g.target_date|date:"d.m.Y" }}</td>
+          <td class="text-end">{{ g.works_count }}</td>
+          <td>{% status_badge g.status g.get_status_display %}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6">
+          {% translate "Maqsadlar hali belgilanmagan" as t %}
+          {% if is_student_role %}{% url 'goals:create' as u %}{% translate "Maqsad qo‘yish" as al %}
+            {% translate "Masalan: «Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish»" as tx %}
+            {% include "base/empty.html" with icon="bi-bullseye" title=t text=tx action_url=u action_label=al %}
+          {% else %}{% include "base/empty.html" with icon="bi-bullseye" title=t %}{% endif %}
+        </td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

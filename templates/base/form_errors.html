@@ -1,0 +1,8 @@
+{% load i18n %}{% if form.non_field_errors %}
+<div class="alert alert-danger d-flex gap-2" role="alert">
+  <i class="bi bi-exclamation-triangle-fill"></i>
+  <div>{% for error in form.non_field_errors %}<div>{{ error }}</div>{% endfor %}</div>
+</div>
+{% elif form.errors %}
+<div class="alert alert-danger py-2 small" role="alert"><i class="bi bi-exclamation-circle me-1"></i>{% translate "Formada xatolar bor. Iltimos, belgilangan maydonlarni tekshiring." %}</div>
+{% endif %}

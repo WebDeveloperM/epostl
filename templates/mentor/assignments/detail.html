@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{{ assignment.title }}{% endblock %}
+{% block page_title %}{% translate "Topshiriq" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <div class="small text-muted mb-1">{{ assignment.subject.name|default:"" }}{% if assignment.competency %} · {{ assignment.competency }}{% endif %}{% if not assignment.is_active %} · <span class="badge text-bg-secondary">{% translate "arxiv" %}</span>{% endif %}</div>
+    <h1>{{ assignment.title }}</h1>
+    <p class="subtitle"><i class="bi bi-calendar-range me-1"></i>{{ assignment.start_date|date:"d.m.Y H:i" }} — <span class="{% if assignment.is_past_due %}text-danger{% endif %}">{{ assignment.due_date|date:"d.m.Y H:i" }}</span>
+      · {% translate "Guruhlar" %}: {% for g in assignment.groups.all %}{{ g }}{% if not forloop.last %}, {% endif %}{% empty %}—{% endfor %}</p>
+  </div>
+  {% if can_manage %}
+  <div class="actions">
+    <a href="{% url 'assignments:update' assignment.pk %}" class="btn btn-light"><i class="bi bi-pencil me-1"></i>{% translate "Tahrirlash" %}</a>
+    <form method="post" action="{% url 'assignments:delete' assignment.pk %}" data-confirm="{% translate 'Topshiriqni o‘chirasizmi?' %}">{% csrf_token %}
+      <button class="btn btn-light text-danger"><i class="bi bi-trash"></i></button></form>
+  </div>
+  {% endif %}
+</div>
+<div class="row g-4">
+  <div class="col-xl-8">
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-people text-primary"></i>{% translate "Ijrochilar va holat" %}</div>
+      <div class="card-body border-bottom">
+        <ul class="nav nav-pills-soft flex-wrap">
+          <li class="nav-item"><a class="nav-link {% if not request.GET.status %}active{% endif %}" href="?">{% translate "Barchasi" %}</a></li>
+          {% for code, label, count in status_summary %}{% if count %}
+            <li class="nav-item"><a class="nav-link {% if request.GET.status == code %}active{% endif %}" href="?status={{ code }}">{{ label }} <span class="count">{{ count }}</span></a></li>
+          {% endif %}{% endfor %}
+        </ul>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover table-stack">
+          <thead><tr><th>{% translate "Talaba" %}</th><th>{% translate "Holat" %}</th><th>{% translate "Ish" %}</th><th>{% translate "Yuborilgan" %}</th><th></th></tr></thead>
+          <tbody>
+          {% for t, work in targets %}
+            <tr>
+              <td class="small"><span class="fw-semibold">{{ t.student.full_name }}</span><div class="cell-sub">{{ t.student.group|default:"" }}{% if t.source_group %} · {% translate "guruh orqali" %}{% endif %}</div></td>
+              <td>{% status_badge t.display_status t.display_status_label %}</td>
+              <td class="small">{% if work %}<a href="{% url 'portfolios:detail' work.pk %}">{{ work.title|truncatechars:40 }}</a> <span class="badge text-bg-light border">v{{ work.current_version }}</span>{% else %}—{% endif %}</td>
+              <td class="small text-nowrap">{{ t.submitted_at|date:"d.m.Y H:i"|default:"—" }}</td>
+              <td class="text-end">{% if work and work.status == 'submitted' %}<a href="{% url 'portfolios:detail' work.pk %}" class="btn btn-sm btn-primary">{% translate "Baholash" %}</a>{% endif %}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="5" class="text-center text-muted small py-4">{% translate "Ijrochilar yo‘q" %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4">
+    {% include "shared/assignment_info.html" %}
+  </div>
+</div>
+{% endblock %}

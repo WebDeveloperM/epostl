@@ -1,0 +1,11 @@
+{% load i18n core_tags %}
+{% for a in assignment.attachments.all %}
+  <div class="file-item mb-2">
+    <span class="file-icon tone-primary"><i class="bi {{ a.category|file_icon }}"></i></span>
+    <div class="min-w-0"><div class="file-name">{{ a.original_name }}</div><div class="file-meta">{{ a.file_size|human_size }}</div></div>
+    <div class="file-actions">
+      <a class="btn btn-sm btn-light" href="{% url 'assignments:attachment' a.pk %}" target="_blank" rel="noopener"><i class="bi bi-download"></i></a>
+      <button type="submit" form="del-att-{{ a.pk }}" class="btn btn-sm btn-light text-danger" data-confirm="{% translate 'Faylni o‘chirasizmi?' %}"><i class="bi bi-trash"></i></button>
+    </div>
+  </div>
+{% endfor %}

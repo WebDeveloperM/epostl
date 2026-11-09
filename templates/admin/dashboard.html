@@ -1,0 +1,110 @@
+{% extends "base/base.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "Administrator paneli" %}{% endblock %}
+{% block page_title %}{% translate "Administrator paneli" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% translate "Platforma holati" %}</h1>
+    <p class="subtitle">{% translate "Foydalanuvchilar, tashkiliy tuzilma va umumiy faollik" %}</p>
+  </div>
+  <div class="actions">
+    <a href="{% url 'accounts:user_import' %}" class="btn btn-light"><i class="bi bi-file-earmark-excel me-1"></i>{% translate "Excel import" %}</a>
+    <a href="{% url 'accounts:user_create' %}" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i>{% translate "Foydalanuvchi qo‘shish" %}</a>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-primary"><i class="bi bi-people"></i></div>
+    <div><div class="stat-value">{{ users_total|intcomma }}</div><div class="stat-label">{% translate "Jami foydalanuvchilar" %}</div>
+      <div class="stat-sub">{% blocktranslate with a=users_active b=users_blocked %}{{ a }} faol · {{ b }} bloklangan{% endblocktranslate %}</div></div>
+  </div></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-info"><i class="bi bi-mortarboard"></i></div>
+    <div><div class="stat-value">{{ students|intcomma }}</div><div class="stat-label">{% translate "Talabalar" %}</div>
+      <div class="stat-sub">{% blocktranslate with m=mentors %}{{ m }} ta ustoz{% endblocktranslate %}</div></div>
+  </div></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-violet"><i class="bi bi-bank"></i></div>
+    <div><div class="stat-value">{{ faculties_count }}</div><div class="stat-label">{% translate "Fakultetlar" %}</div>
+      <div class="stat-sub">{% blocktranslate with g=groups_count %}{{ g }} ta guruh{% endblocktranslate %}</div></div>
+  </div></div>
+  <div class="col-6 col-xl-3"><div class="card stat-card">
+    <div class="stat-icon tone-success"><i class="bi bi-journal-check"></i></div>
+    <div><div class="stat-value">{{ assignments_total|intcomma }}</div><div class="stat-label">{% translate "Topshiriqlar" %}</div>
+      <div class="stat-sub">{% blocktranslate with a=assignments_active %}{{ a }} ta faol{% endblocktranslate %}</div></div>
+  </div></div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-4"><div class="card stat-card">
+    <div class="stat-icon tone-warning"><i class="bi bi-folder2-open"></i></div>
+    <div><div class="stat-value">{{ portfolios_total|intcomma }}</div><div class="stat-label">{% translate "Portfolio ishlari" %}</div></div>
+  </div></div>
+  <div class="col-6 col-md-4"><div class="card stat-card">
+    <div class="stat-icon tone-primary"><i class="bi bi-chat-square-quote"></i></div>
+    <div><div class="stat-value">{{ reflections_total|intcomma }}</div><div class="stat-label">{% translate "Refleksiyalar" %}</div></div>
+  </div></div>
+  <div class="col-12 col-md-4"><div class="card stat-card">
+    <div class="stat-icon tone-danger"><i class="bi bi-box-arrow-in-right"></i></div>
+    <div><div class="stat-value">{{ logins_today }}</div><div class="stat-label">{% translate "Bugungi kirishlar" %}</div></div>
+  </div></div>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-8">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-activity text-primary"></i>{% translate "Umumiy faollik (oxirgi 14 kun)" %}</div>
+      <div class="card-body">{% translate "Umumiy faollik" as l %}{% include "base/chart.html" with chart_id="activity-chart" spec=activity_chart label=l %}</div>
+    </div>
+  </div>
+  <div class="col-xl-4">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-pie-chart text-primary"></i>{% translate "Rollar bo‘yicha" %}</div>
+      <div class="card-body">{% translate "Rollar bo‘yicha foydalanuvchilar" as l %}{% include "base/chart.html" with chart_id="roles-chart" spec=roles_chart size="sm" label=l %}
+        <table class="table table-sm mt-3 small">
+          <tr><td>{% translate "Talabalar" %}</td><td class="text-end fw-semibold">{{ students }}</td></tr>
+          <tr><td>{% translate "Ustozlar" %}</td><td class="text-end fw-semibold">{{ mentors }}</td></tr>
+          <tr><td>{% translate "Administratorlar" %}</td><td class="text-end fw-semibold">{{ admins }}</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-7">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-bank text-primary"></i>{% translate "Fakultet va guruhlar statistikasi" %}
+        <div class="card-actions"><a href="{% url 'organization:faculty_list' %}" class="btn btn-sm btn-light">{% translate "Boshqarish" %}</a></div></div>
+      <div class="table-responsive">
+        <table class="table table-hover table-stack">
+          <thead><tr><th>{% translate "Fakultet" %}</th><th class="text-end">{% translate "Guruhlar" %}</th><th class="text-end">{% translate "Talabalar" %}</th><th class="text-end">{% translate "Xodimlar" %}</th></tr></thead>
+          <tbody>
+          {% for f in faculties %}
+            <tr><td class="cell-title">{{ f.name }}</td><td class="text-end">{{ f.groups }}</td><td class="text-end">{{ f.students }}</td><td class="text-end">{{ f.staff }}</td></tr>
+          {% empty %}
+            <tr><td colspan="4" class="text-center text-muted py-4">{% translate "Fakultetlar hali kiritilmagan" %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-shield-check text-primary"></i>{% translate "So‘nggi amallar" %}
+        <div class="card-actions"><a href="{% url 'audit:list' %}" class="btn btn-sm btn-light">{% translate "Audit log" %}</a></div></div>
+      <ul class="list-group list-group-flush">
+        {% for log in recent_logs %}
+          <li class="list-group-item small">
+            <div class="d-flex"><span class="fw-semibold">{{ log.user.short_name|default:"—" }}</span><span class="ms-auto text-muted">{{ log.created_at|date:"d.m H:i" }}</span></div>
+            <div class="text-muted">{{ log.get_action_display }}{% if log.object_repr %}: {{ log.object_repr|truncatechars:60 }}{% endif %}</div>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted small">{% translate "Hozircha yozuvlar yo‘q" %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

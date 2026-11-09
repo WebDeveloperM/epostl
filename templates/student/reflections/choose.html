@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Refleksiya modelini tanlang" %}{% endblock %}
+{% block page_title %}{% translate "Refleksiya yozish" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% translate "Refleksiya modelini tanlang" %}</h1>
+    <p class="subtitle">{{ portfolio.title }} · v{{ version.version_number }} — {% translate "Model refleksiyani aniq bosqichlarga bo‘lib beradi. Ustozga yuborguncha modelni almashtirish mumkin." %}</p>
+  </div>
+  <div class="actions"><a href="{% url 'portfolios:detail' portfolio.pk %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Ishga qaytish" %}</a></div>
+</div>
+<div class="row g-4">
+  {% for item in frameworks %}
+    {% with info=item.info %}
+    <div class="col-lg-6">
+      <div class="card h-100 model-card">
+        <div class="card-body d-flex flex-column">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="model-icon"><i class="bi {{ info.icon }}"></i></span>
+            <h2 class="h5 fw-bold mb-0">{{ info.label }}</h2>
+            <span class="badge text-bg-light border ms-auto">{% blocktranslate with n=item.question_count %}{{ n }} ta savol{% endblocktranslate %}</span>
+          </div>
+          <p class="mb-2">{{ info.summary }}</p>
+          <p class="small text-muted mb-3">{{ info.best_for }}</p>
+          <div class="small fw-semibold mb-2">{% translate "Bosqichlar" %}</div>
+          <ol class="stage-list mb-4">
+            {% for st in info.stages %}<li><span class="dot">{{ forloop.counter }}</span><span><strong>{{ st.label }}</strong><span class="text-muted"> — {{ st.hint }}</span></span></li>{% endfor %}
+          </ol>
+          <a href="{% url 'reflections:edit' version.pk %}?model={{ info.code }}" class="btn {% if info.code == default_framework %}btn-primary{% else %}btn-outline-primary{% endif %} mt-auto"><i class="bi bi-check2-circle me-1"></i>{% translate "Shu modelni tanlash" %}</a>
+        </div>
+      </div>
+    </div>
+    {% endwith %}
+  {% empty %}
+    <div class="col-12"><div class="card"><div class="card-body">{% translate "Hozircha faol refleksiya modeli yo‘q. Administratorga murojaat qiling." as t %}{% include "base/empty.html" with icon="bi-chat-square-quote" title=t %}</div></div></div>
+  {% endfor %}
+</div>
+{% endblock %}

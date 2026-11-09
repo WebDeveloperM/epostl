@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "O‘chirish" %}{% endblock %}
+{% block page_title %}{{ crud_title_plural }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card">
+      <div class="card-body text-center p-4">
+        <div class="stat-icon tone-danger mx-auto mb-3" style="width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem"><i class="bi bi-trash"></i></div>
+        <h5 class="fw-bold">{% translate "O‘chirishni tasdiqlang" %}</h5>
+        <p class="text-muted">{% blocktranslate with obj=object %}«{{ obj }}» butunlay o‘chiriladi. Bu amalni qaytarib bo‘lmaydi.{% endblocktranslate %}</p>
+        <form method="post" class="d-flex justify-content-center gap-2">
+          {% csrf_token %}
+          <a href="{{ list_url }}" class="btn btn-light">{% translate "Bekor qilish" %}</a>
+          <button type="submit" class="btn btn-danger">{% translate "Ha, o‘chirish" %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

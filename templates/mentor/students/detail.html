@@ -1,0 +1,72 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{{ student.full_name }}{% endblock %}
+{% block page_title %}{% translate "Talaba" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div class="d-flex align-items-center gap-3">
+    {% if student.avatar %}<img class="avatar avatar-lg" src="{% url 'accounts:avatar' student.pk %}" alt="">{% else %}<span class="avatar avatar-lg">{{ student|initials }}</span>{% endif %}
+    <div>
+      <h1>{{ student.full_name }}</h1>
+      <p class="subtitle">{{ student.group|default:"" }}{% if student.direction %} · {{ student.direction }}{% endif %}{% if student.faculty %} · {{ student.faculty }}{% endif %}
+        <br>{% translate "Ustozlar" %}: {% for m in mentors %}{{ m.short_name }}{% if not forloop.last %}, {% endif %}{% empty %}—{% endfor %}</p>
+    </div>
+  </div>
+  {% if is_mentor_role %}
+  <div class="actions">
+    <a href="{% url 'assessments:baseline' student.pk %}" class="btn {% if has_baseline %}btn-light{% else %}btn-primary{% endif %}"><i class="bi bi-clipboard-data me-1"></i>{% translate "Boshlang‘ich baholash" %}</a>
+    <a href="{% url 'assignments:create' %}?student={{ student.pk }}" class="btn btn-light"><i class="bi bi-journal-plus me-1"></i>{% translate "Topshiriq berish" %}</a>
+  </div>
+  {% endif %}
+</div>
+{% if is_mentor_role and not has_baseline %}
+  <div class="alert alert-info small"><i class="bi bi-info-circle me-1"></i>{% translate "Rivojlanish sikli boshlang‘ich baholashdan boshlanadi. U keyingi natijalarni taqqoslash uchun asos bo‘ladi." %}</div>
+{% endif %}
+
+{% include "shared/analytics_body.html" %}
+
+<div class="row g-4 mt-1">
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-bullseye text-primary"></i>{% translate "Rivojlanish maqsadlari" %}</div>
+      <ul class="list-group list-group-flush">
+        {% for g in goals %}
+          <li class="list-group-item d-flex align-items-center gap-2 small"><a href="{% url 'goals:detail' g.pk %}" class="min-w-0">{{ g.title|truncatechars:70 }}</a><span class="ms-auto">{% status_badge g.status g.get_status_display %}</span></li>
+        {% empty %}<li class="list-group-item small text-muted">{% translate "Maqsadlar yo‘q" %}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-journal-check text-primary"></i>{% translate "Topshiriqlar" %}</div>
+      <ul class="list-group list-group-flush">
+        {% for t in targets %}
+          <li class="list-group-item d-flex align-items-center gap-2 small"><span class="min-w-0">{{ t.assignment.title|truncatechars:60 }}<span class="d-block text-muted">{{ t.assignment.due_date|date:"d.m.Y" }}</span></span><span class="ms-auto">{% status_badge t.display_status t.display_status_label %}</span></li>
+        {% empty %}<li class="list-group-item small text-muted">{% translate "Topshiriqlar yo‘q" %}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-folder2-open text-primary"></i>{% translate "Portfolio ishlari" %}
+        <div class="card-actions"><a href="{% url 'portfolios:list' %}?student={{ student.pk }}" class="btn btn-sm btn-light">{% translate "Barchasi" %}</a></div></div>
+      <ul class="list-group list-group-flush">
+        {% for p in portfolios %}
+          <li class="list-group-item d-flex align-items-center gap-2 small"><a href="{% url 'portfolios:detail' p.pk %}" class="min-w-0">{{ p.title|truncatechars:60 }}</a><span class="badge text-bg-light border">v{{ p.current_version }}</span><span class="ms-auto">{% status_badge p.status p.get_status_display %}</span></li>
+        {% empty %}<li class="list-group-item small text-muted">{% translate "Ishlar yo‘q" %}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card h-100">
+      <div class="card-header"><i class="bi bi-chat-square-quote text-primary"></i>{% translate "Oxirgi refleksiyalar" %}</div>
+      <ul class="list-group list-group-flush">
+        {% for r in reflections %}
+          <li class="list-group-item small"><a href="{% url 'reflections:detail' r.pk %}">{{ r.portfolio_version.portfolio.title|truncatechars:60 }} (v{{ r.portfolio_version.version_number }})</a><span class="text-muted ms-2">{{ r.submitted_at|date:"d.m.Y" }}</span></li>
+        {% empty %}<li class="list-group-item small text-muted">{% translate "Refleksiyalar yo‘q" %}</li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

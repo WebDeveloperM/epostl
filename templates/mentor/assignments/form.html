@@ -1,0 +1,63 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% if object %}{% translate "Topshiriqni tahrirlash" %}{% else %}{% translate "Yangi topshiriq" %}{% endif %}{% endblock %}
+{% block page_title %}{% translate "Topshiriqlar" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1>{% if object %}{% translate "Topshiriqni tahrirlash" %}{% else %}{% translate "Yangi topshiriq" %}{% endif %}</h1>
+  <div class="actions"><a href="{% if object %}{% url 'assignments:detail' object.pk %}{% else %}{% url 'assignments:list' %}{% endif %}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Orqaga" %}</a></div>
+</div>
+<form method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {% include "base/form_errors.html" %}
+  <div class="row g-4">
+    <div class="col-xl-8">
+      <div class="card mb-4"><div class="card-body">
+        {% include "base/field.html" with field=form.title %}
+        {% include "base/field.html" with field=form.description %}
+        <div class="row">
+          <div class="col-md-6">{% include "base/field.html" with field=form.subject %}</div>
+          <div class="col-md-6">{% include "base/field.html" with field=form.competency %}</div>
+        </div>
+        {% include "base/field.html" with field=form.instructions %}
+      </div></div>
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-list-check text-primary"></i>{% translate "Baholash mezonlari" %}</div>
+        <div class="card-body">
+          {% include "base/field.html" with field=form.criteria %}
+          {% include "base/field.html" with field=form.criteria_notes %}
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><i class="bi bi-paperclip text-primary"></i>{% translate "Qo‘shimcha fayllar" %}</div>
+        <div class="card-body">
+          {% if object %}{% include "shared/assignment_info_files.html" with assignment=object %}{% endif %}
+          {% include "base/field.html" with field=form.attachments %}
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-calendar-range text-primary"></i>{% translate "Muddatlar" %}</div>
+        <div class="card-body">
+          {% include "base/field.html" with field=form.start_date %}
+          {% include "base/field.html" with field=form.due_date %}
+          {% include "base/field.html" with field=form.is_active %}
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="card-header"><i class="bi bi-people text-primary"></i>{% translate "Kimga beriladi" %}</div>
+        <div class="card-body">
+          {% include "base/field.html" with field=form.groups %}
+          {% include "base/field.html" with field=form.students %}
+          <p class="small text-muted mb-0">{% translate "Guruh tanlansa, guruhdagi barcha talabalar (keyinchalik qo‘shilganlari ham) topshiriqni oladi. Ishni boshlagan talabalar ro‘yxatdan olib tashlanmaydi." %}</p>
+        </div>
+      </div>
+      <button class="btn btn-primary w-100 py-2"><i class="bi bi-send me-1"></i>{% if object %}{% translate "Saqlash" %}{% else %}{% translate "Topshiriqni yuborish" %}{% endif %}</button>
+    </div>
+  </div>
+</form>
+{% if object %}{% for a in object.attachments.all %}
+  <form id="del-att-{{ a.pk }}" method="post" action="{% url 'assignments:attachment_delete' a.pk %}" class="d-none">{% csrf_token %}</form>
+{% endfor %}{% endif %}
+{% endblock %}

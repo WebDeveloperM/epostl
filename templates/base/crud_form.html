@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{{ crud_title }}{% endblock %}
+{% block page_title %}{{ crud_title_plural }}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1>{% if object %}{% translate "Tahrirlash" %}: {{ object }}{% else %}{% translate "Yangi" %} — {{ crud_title|lower }}{% endif %}</h1>
+  </div>
+  <div class="actions"><a href="{{ list_url }}" class="btn btn-light"><i class="bi bi-arrow-left me-1"></i>{% translate "Ro‘yxatga qaytish" %}</a></div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-xl-6">
+    <div class="card">
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data" novalidate>
+          {% csrf_token %}
+          {% include "base/form_fields.html" %}
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="submit"><i class="bi bi-check2 me-1"></i>{% translate "Saqlash" %}</button>
+            <a href="{{ list_url }}" class="btn btn-light">{% translate "Bekor qilish" %}</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

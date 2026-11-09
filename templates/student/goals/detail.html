@@ -1,0 +1,103 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{{ goal.title }}{% endblock %}
+{% block page_title %}{% translate "Rivojlanish sikli" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <div class="small text-muted mb-1">{% if not is_owner %}{{ goal.student.full_name }} · {% endif %}{{ goal.competency|default:"" }}</div>
+    <h1>{{ goal.title }}</h1>
+    <p class="subtitle">{{ goal.start_date|date:"d.m.Y" }} — {{ goal.target_date|date:"d.m.Y" }} · {% status_badge goal.status goal.get_status_display %}
+      {% if goal.is_overdue %}<span class="badge text-bg-danger ms-1">{% translate "muddati o‘tgan" %}</span>{% endif %}</p>
+  </div>
+  {% if is_owner %}
+  <div class="actions">
+    <a href="{% url 'portfolios:create' %}?goal={{ goal.pk }}" class="btn btn-primary"><i class="bi bi-cloud-arrow-up me-1"></i>{% translate "Ish yuklash" %}</a>
+    <a href="{% url 'goals:update' goal.pk %}" class="btn btn-light"><i class="bi bi-pencil me-1"></i>{% translate "Tahrirlash" %}</a>
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">{% translate "Holat" %}</button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        {% for code, label in statuses %}{% if code != goal.status %}
+        <li><form method="post" action="{% url 'goals:status' goal.pk %}">{% csrf_token %}<input type="hidden" name="status" value="{{ code }}">
+          <button class="dropdown-item">{{ label }}</button></form></li>
+        {% endif %}{% endfor %}
+        <li><hr class="dropdown-divider"></li>
+        <li><form method="post" action="{% url 'goals:delete' goal.pk %}" data-confirm="{% translate 'Maqsadni o‘chirasizmi?' %}">{% csrf_token %}
+          <button class="dropdown-item text-danger">{% translate "O‘chirish" %}</button></form></li>
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="card mb-4">
+  <div class="card-header"><i class="bi bi-arrow-repeat text-primary"></i>{% translate "Uzluksiz refleksiv rivojlanish sikli" %}
+    <span class="ms-auto small text-muted">{{ cycle.done }}/8 · {{ cycle.percent }}%</span></div>
+  <div class="card-body">
+    <div class="cycle-steps">
+      {% for s in cycle.steps %}
+        <div class="cycle-step {% if s.done %}done{% elif s.current %}current{% endif %}">
+          <div class="dot">{% if s.done %}<i class="bi bi-check-lg"></i>{% else %}{{ s.index }}{% endif %}</div>
+          {{ s.label }}
+        </div>
+      {% endfor %}
+    </div>
+    {% if cycle.is_complete %}<div class="alert alert-success small mt-3 mb-0"><i class="bi bi-stars me-1"></i>{% translate "Sikl yakunlandi. Natijalarni tahlil qilib, yangi rivojlanish maqsadini belgilang." %}{% if is_owner %} <a href="{% url 'goals:create' %}">{% translate "Yangi sikl boshlash" %}</a>{% endif %}</div>{% endif %}
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-5">
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-card-text text-primary"></i>{% translate "Maqsad haqida" %}</div>
+      <div class="card-body">
+        {% if goal.description %}<p class="text-pre">{{ goal.description }}</p>{% endif %}
+        <div class="small text-muted fw-semibold mb-1">{% translate "Kutilayotgan natija" %}</div>
+        <p class="text-pre mb-0">{{ goal.expected_outcome }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><i class="bi bi-award text-primary"></i>{% translate "Baholashlar" %}</div>
+      <ul class="list-group list-group-flush">
+        {% for a in assessments %}
+          <li class="list-group-item d-flex align-items-center gap-2 small">
+            {% status_badge a.kind a.get_kind_display %}
+            <span class="min-w-0">{% if a.portfolio_version %}{{ a.portfolio_version.portfolio.title|truncatechars:40 }} (v{{ a.portfolio_version.version_number }}){% endif %}
+              <span class="d-block text-muted">{{ a.created_at|date:"d.m.Y" }} · {{ a.mentor.short_name }}</span></span>
+            <a class="ms-auto fw-semibold" href="{% url 'assessments:detail' a.pk %}">{{ a.total_score }}/{{ a.max_score }}</a>
+          </li>
+        {% empty %}
+          <li class="list-group-item small text-muted">{% translate "Hali baholanmagan" %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-xl-7">
+    <div class="card mb-4">
+      <div class="card-header"><i class="bi bi-folder2-open text-primary"></i>{% translate "Bog‘langan amaliy ishlar" %}</div>
+      <div class="table-responsive">
+        <table class="table table-hover table-stack">
+          <thead><tr><th>{% translate "Ish" %}</th><th>{% translate "Versiyalar" %}</th><th>{% translate "Refleksiya" %}</th><th>{% translate "Holat" %}</th></tr></thead>
+          <tbody>
+          {% for p in portfolios %}
+            <tr>
+              <td><a class="cell-title" href="{% url 'portfolios:detail' p.pk %}">{{ p.title }}</a><div class="cell-sub">{{ p.assignment.title|default:_("Mustaqil ish") }}</div></td>
+              <td class="small">{% for v in p.versions.all %}<span class="badge text-bg-light border me-1">v{{ v.version_number }}{% if v.assessment %} · {{ v.assessment.total_score }}{% endif %}</span>{% endfor %}</td>
+              <td class="small">{% with r=p.versions.all.0.reflection %}{% if r %}{% status_badge r.status r.get_status_display %}{% else %}—{% endif %}{% endwith %}</td>
+              <td>{% status_badge p.status p.get_status_display %}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="4" class="text-center text-muted small py-4">{% translate "Bu maqsadga hali ish bog‘lanmagan" %}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><i class="bi bi-bar-chart text-primary"></i>{% translate "Natijalarni taqqoslash" %}</div>
+      <div class="card-body">{% include "shared/comparison_block.html" with chart_id="goal-comparison" %}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block charts %}{% include "base/chart_scripts.html" %}{% endblock %}

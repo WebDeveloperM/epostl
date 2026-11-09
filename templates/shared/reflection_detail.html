@@ -1,0 +1,32 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Refleksiya" %}{% endblock %}
+{% block page_title %}{% translate "Refleksiya" %}{% endblock %}
+{% block content %}
+{% with v=reflection.portfolio_version %}
+<div class="page-header">
+  <div>
+    <div class="small text-muted mb-1">{{ reflection.student.full_name }}</div>
+    <h1>{{ v.portfolio.title }} <span class="badge text-bg-light border fs-6 align-middle">v{{ v.version_number }}</span></h1>
+    <p class="subtitle">{% status_badge reflection.status reflection.get_status_display %} · <i class="bi {{ reflection.framework_info.icon }} text-primary"></i> {{ reflection.framework_info.label }} · {% translate "Yuborilgan" %}: {{ reflection.submitted_at|date:"d.m.Y H:i"|default:"—" }}</p>
+  </div>
+  <div class="actions">
+    <a href="{% url 'portfolios:detail' v.portfolio_id %}?v={{ v.version_number }}" class="btn btn-light"><i class="bi bi-folder2-open me-1"></i>{% translate "Ishni ochish" %}</a>
+    {% if user.pk == reflection.student_id and not reflection.is_locked %}<a href="{% url 'reflections:edit' v.pk %}" class="btn btn-primary"><i class="bi bi-pencil me-1"></i>{% translate "Tahrirlash" %}</a>{% endif %}
+  </div>
+</div>
+<div class="row"><div class="col-xl-9">
+  <div class="card"><div class="card-body">
+    {% include "shared/reflection_answers.html" with reflection=reflection %}
+    {% if reflection.evidence.all %}
+      <h6 class="fw-bold mt-4">{% translate "Dalillar" %}</h6>
+      {% for e in reflection.evidence.all %}
+        <div class="small mb-1"><i class="bi {% if e.link %}bi-link-45deg{% else %}bi-paperclip{% endif %} me-1"></i>
+          {% if e.file %}<a href="{% url 'reflections:evidence' e.pk %}" target="_blank" rel="noopener">{{ e.original_name }}</a>{% else %}<a href="{{ e.link }}" target="_blank" rel="noopener noreferrer">{{ e.link }}</a>{% endif %}
+          {% if e.description %}<span class="text-muted">— {{ e.description }}</span>{% endif %}</div>
+      {% endfor %}
+    {% endif %}
+  </div></div>
+</div></div>
+{% endwith %}
+{% endblock %}

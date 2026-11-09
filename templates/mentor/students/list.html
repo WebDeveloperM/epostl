@@ -1,0 +1,44 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Talabalar" %}{% endblock %}
+{% block page_title %}{% translate "Talabalar" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% if is_mentor_role %}{% translate "Mening talabalarim" %}{% else %}{% translate "Talabalar" %}{% endif %}</h1>
+    <p class="subtitle">{% translate "Rivojlanish ko‘rsatkichlari: boshlang‘ich va oxirgi natija, ishlar, refleksiyalar" %}</p></div>
+</div>
+{% include "shared/model_stats.html" %}
+<div class="card">
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search"><input type="search" name="q" value="{{ q }}" class="form-control" placeholder="{% translate 'F.I.Sh., guruh yoki ID...' %}"></div>
+      <select name="group" class="form-select" style="max-width:200px">
+        <option value="">{% translate "Barcha guruhlar" %}</option>
+        {% for g in groups %}<option value="{{ g.pk }}" {% if request.GET.group == g.pk|stringformat:"s" %}selected{% endif %}>{{ g }}</option>{% endfor %}
+      </select>
+      <button class="btn btn-outline-primary"><i class="bi bi-funnel"></i> {% translate "Filtrlash" %}</button>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Talaba" %}</th><th>{% translate "Guruh" %}</th><th class="text-end">{% translate "Boshlang‘ich" %}</th><th class="text-end">{% translate "Oxirgi" %}</th><th class="text-end">{% translate "O‘zgarish" %}</th><th class="text-end">{% translate "Ishlar" %}</th><th class="text-end">{% translate "Refleksiya" %}</th><th class="text-end">{% translate "Kutilmoqda" %}</th></tr></thead>
+      <tbody>
+      {% for r in rows %}
+        <tr>
+          <td><a class="cell-title" href="{% url 'analytics:student_detail' r.student.pk %}">{{ r.student.full_name }}</a><div class="cell-sub">{{ r.student.external_id|default:"" }}</div></td>
+          <td class="small">{{ r.student.group|default:"—" }}</td>
+          <td class="text-end small">{% if r.initial is not None %}{{ r.initial }}%{% else %}—{% endif %}</td>
+          <td class="text-end small fw-semibold">{% if r.latest is not None %}{{ r.latest }}%{% else %}—{% endif %}</td>
+          <td class="text-end small">{% if r.delta is not None %}<span class="{% if r.delta > 0 %}delta-up{% elif r.delta < 0 %}delta-down{% endif %}">{{ r.delta|signed }}</span>{% else %}—{% endif %}</td>
+          <td class="text-end small">{{ r.approved }}/{{ r.works }}</td>
+          <td class="text-end small">{{ r.reflections }}</td>
+          <td class="text-end">{% if r.pending %}<span class="badge text-bg-warning">{{ r.pending }}</span>{% else %}<span class="small text-muted">0</span>{% endif %}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="8">{% translate "Talabalar topilmadi" as t %}{% include "base/empty.html" with icon="bi-people" title=t %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

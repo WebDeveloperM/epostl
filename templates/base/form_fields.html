@@ -1,0 +1,3 @@
+{% include "base/form_errors.html" %}
+{% for field in form.hidden_fields %}{{ field }}{% endfor %}
+{% for field in form.visible_fields %}{% include "base/field.html" %}{% endfor %}

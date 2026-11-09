@@ -1,0 +1,5 @@
+{% comment %}Foydalanish: {% include "base/chart.html" with chart_id="x" spec=spec size="sm" label="..." %}{% endcomment %}
+<div class="chart-box {{ size }}">
+  <canvas data-chart="{{ chart_id }}" role="img" aria-label="{{ label }}"></canvas>
+</div>
+{{ spec|json_script:chart_id }}

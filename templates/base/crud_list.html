@@ -1,0 +1,55 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{{ crud_title_plural }}{% endblock %}
+{% block page_title %}{{ crud_title_plural }}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1><i class="bi {{ crud_icon }} me-2 text-primary"></i>{{ crud_title_plural }}</h1>
+    {% if crud_description %}<p class="subtitle">{{ crud_description }}</p>{% endif %}
+  </div>
+  <div class="actions">
+    <a href="{{ create_url }}" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i>{% translate "Qo‘shish" %}</a>
+  </div>
+</div>
+<div class="card">
+  {% if search_enabled %}
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search"><input type="search" name="q" value="{{ q }}" class="form-control" placeholder="{% translate 'Qidiruv...' %}"></div>
+      <button class="btn btn-outline-primary"><i class="bi bi-search"></i></button>
+      {% if q %}<a href="{{ list_url }}" class="btn btn-light">{% translate "Tozalash" %}</a>{% endif %}
+    </form>
+  </div>
+  {% endif %}
+  {% if rows %}
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}<th class="text-end">{% translate "Amallar" %}</th></tr></thead>
+      <tbody>
+      {% for row in rows %}
+        <tr>
+          {% for cell in row.cells %}
+            <td>
+              {% if cell.is_bool %}
+                {% if cell.value %}<span class="badge text-bg-success">{% translate "Ha" %}</span>{% else %}<span class="badge text-bg-secondary">{% translate "Yo‘q" %}</span>{% endif %}
+              {% else %}{{ cell.value|default_if_none:"—" }}{% endif %}
+            </td>
+          {% endfor %}
+          <td class="text-end text-nowrap">
+            <a href="{{ row.edit_url }}" class="btn btn-sm btn-light" title="{% translate 'Tahrirlash' %}"><i class="bi bi-pencil"></i></a>
+            <a href="{{ row.delete_url }}" class="btn btn-sm btn-light text-danger" title="{% translate 'O‘chirish' %}"><i class="bi bi-trash"></i></a>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+  {% else %}
+    {% translate "Hozircha yozuvlar yo‘q" as empty_title %}
+    {% translate "Qo‘shish" as add_label %}
+    {% include "base/empty.html" with title=empty_title action_url=create_url action_label=add_label %}
+  {% endif %}
+</div>
+{% endblock %}

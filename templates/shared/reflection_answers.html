@@ -1,0 +1,10 @@
+{% load i18n core_tags %}
+{% for stage, index, answers in reflection.grouped_answers %}
+  <section class="reflection-stage">
+    {% if stage %}<div class="stage-head"><span class="dot">{{ index }}</span><div><div class="stage-title">{{ stage.label }}</div></div></div>{% endif %}
+    {% for a in answers %}
+      <div class="reflection-q">{% if not stage or answers|length > 1 %}<span class="q-num">{{ a.number }}</span>{% endif %}<span class="q-text">{{ a.question_text|tr }}</span>
+        <div class="q-answer">{{ a.answer|default:"—" }}</div></div>
+    {% endfor %}
+  </section>
+{% endfor %}

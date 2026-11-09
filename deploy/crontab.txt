@@ -1,0 +1,7 @@
+# crontab -u portfolio -e
+# Muddat eslatmalari (har soatda)
+0 * * * * cd /opt/reflective_portfolio && .venv/bin/python manage.py process_deadlines >> /var/log/reflective_portfolio/cron.log 2>&1
+# Kunlik PostgreSQL zaxira nusxasi (har kuni 02:00)
+0 2 * * * /opt/reflective_portfolio/deploy/backup_db.sh >> /var/log/reflective_portfolio/backup.log 2>&1
+# Eskirgan sessiyalarni tozalash (har kuni 03:00)
+0 3 * * * cd /opt/reflective_portfolio && .venv/bin/python manage.py clearsessions

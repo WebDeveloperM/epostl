@@ -1,0 +1,3971 @@
+# O‘zbek tili: asl matnlar (msgid) o‘zgarishsiz ko‘rsatiladi.
+# Bu fayl kerak: asosiy til ingliz tili bo‘lgani uchun, bo‘lmasa Django katalogda topilmagan
+# matnni inglizcha tarjimadan olib qo‘yadi.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Growth Portfolio\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/accounts/admin.py:20 apps/accounts/admin.py:24
+msgid "Platforma"
+msgstr "Platforma"
+
+#: apps/accounts/forms.py:21
+msgid "Profil rasmi 5 MB dan oshmasligi kerak."
+msgstr "Profil rasmi 5 MB dan oshmasligi kerak."
+
+#: apps/accounts/forms.py:30
+msgid "Login yoki parol noto‘g‘ri."
+msgstr "Login yoki parol noto‘g‘ri."
+
+#: apps/accounts/forms.py:31
+msgid "Hisobingiz bloklangan. Administrator bilan bog‘laning."
+msgstr "Hisobingiz bloklangan. Administrator bilan bog‘laning."
+
+#: apps/accounts/forms.py:32
+#, python-format
+msgid "Juda ko‘p muvaffaqiyatsiz urinish. %(minutes)s daqiqadan so‘ng qayta urinib ko‘ring."
+msgstr "Juda ko‘p muvaffaqiyatsiz urinish. %(minutes)s daqiqadan so‘ng qayta urinib ko‘ring."
+
+#: apps/accounts/forms.py:37 apps/accounts/forms.py:105 apps/accounts/forms.py:38 apps/accounts/services.py:95
+msgid "Login"
+msgstr "Login"
+
+#: apps/accounts/forms.py:81 apps/accounts/forms.py:124
+msgid "Bu email boshqa foydalanuvchiga tegishli."
+msgstr "Bu email boshqa foydalanuvchiga tegishli."
+
+#: apps/accounts/forms.py:88 apps/accounts/forms.py:39 apps/accounts/services.py:96 templates/accounts/login.html:53
+msgid "Parol"
+msgstr "Parol"
+
+#: apps/accounts/forms.py:90
+msgid "Parolni tasdiqlang"
+msgstr "Parolni tasdiqlang"
+
+#: apps/accounts/forms.py:108
+msgid "Talabalar uchun majburiy"
+msgstr "Talabalar uchun majburiy"
+
+#: apps/accounts/forms.py:109
+msgid "Ustoz va xodimlar uchun"
+msgstr "Ustoz va xodimlar uchun"
+
+#: apps/accounts/forms.py:111
+msgid "Yangi parol"
+msgstr "Yangi parol"
+
+#: apps/accounts/forms.py:112
+msgid "O‘zgartirmaslik uchun bo‘sh qoldiring"
+msgstr "O‘zgartirmaslik uchun bo‘sh qoldiring"
+
+#: apps/accounts/forms.py:130
+msgid "Bu ID raqam boshqa foydalanuvchiga tegishli."
+msgstr "Bu ID raqam boshqa foydalanuvchiga tegishli."
+
+#: apps/accounts/forms.py:137
+msgid "Talaba uchun guruhni tanlang."
+msgstr "Talaba uchun guruhni tanlang."
+
+#: apps/accounts/forms.py:143
+msgid "Parollar mos kelmadi."
+msgstr "Parollar mos kelmadi."
+
+#: apps/accounts/forms.py:164
+msgid "Qidiruv"
+msgstr "Qidiruv"
+
+#: apps/accounts/forms.py:165
+msgid "F.I.Sh., login, email, ID..."
+msgstr "F.I.Sh., login, email, ID..."
+
+#: apps/accounts/forms.py:166 apps/accounts/models.py:28 apps/accounts/models.py:74 apps/accounts/services.py:99
+msgid "Rol"
+msgstr "Rol"
+
+#: apps/accounts/forms.py:167
+msgid "Barcha rollar"
+msgstr "Barcha rollar"
+
+#: apps/accounts/forms.py:168 apps/organization/models.py:15 apps/organization/models.py:26 apps/organization/models.py:48
+msgid "Fakultet"
+msgstr "Fakultet"
+
+#: apps/accounts/forms.py:169
+msgid "Barcha fakultetlar"
+msgstr "Barcha fakultetlar"
+
+#: apps/accounts/forms.py:170 apps/accounts/models.py:76 apps/accounts/models.py:161 apps/accounts/services.py:100
+msgid "Guruh"
+msgstr "Guruh"
+
+#: apps/accounts/forms.py:171 templates/mentor/students/list.html:15
+msgid "Barcha guruhlar"
+msgstr "Barcha guruhlar"
+
+#: apps/accounts/forms.py:172 templates/admin/mentor_assignments/list.html:29 templates/admin/users/list.html:30 templates/mentor/assignments/detail.html:35
+msgid "Holat"
+msgstr "Holat"
+
+#: apps/accounts/forms.py:173 templates/admin/mentor_assignments/list.html:22 templates/base/notifications.html:10 templates/base/topbar_actions.html:12
+msgid "Barchasi"
+msgstr "Barchasi"
+
+#: apps/accounts/forms.py:173 apps/accounts/models.py:166 apps/assignments/models.py:29 apps/competencies/models.py:15
+msgid "Faol"
+msgstr "Faol"
+
+#: apps/accounts/forms.py:173 templates/admin/users/list.html:45
+msgid "Bloklangan"
+msgstr "Bloklangan"
+
+#: apps/accounts/forms.py:177
+msgid "Excel fayl (.xlsx)"
+msgstr "Excel fayl (.xlsx)"
+
+#: apps/accounts/forms.py:180
+msgid "Xatoli qatorlarni o‘tkazib yuborib, qolganlarini import qilish"
+msgstr "Xatoli qatorlarni o‘tkazib yuborib, qolganlarini import qilish"
+
+#: apps/accounts/forms.py:185
+msgid "Faqat .xlsx formatidagi fayl qabul qilinadi."
+msgstr "Faqat .xlsx formatidagi fayl qabul qilinadi."
+
+#: apps/accounts/forms.py:187
+msgid "Fayl hajmi 10 MB dan oshmasligi kerak."
+msgstr "Fayl hajmi 10 MB dan oshmasligi kerak."
+
+#: apps/accounts/forms.py:190
+msgid "Fayl Excel (.xlsx) formatida emas."
+msgstr "Fayl Excel (.xlsx) formatida emas."
+
+#: apps/accounts/forms.py:196
+msgid "Talabaga"
+msgstr "Talabaga"
+
+#: apps/accounts/forms.py:196
+msgid "Guruhga"
+msgstr "Guruhga"
+
+#: apps/accounts/forms.py:197
+msgid "Biriktirish turi"
+msgstr "Biriktirish turi"
+
+#: apps/accounts/forms.py:218
+msgid "Talabani tanlang."
+msgstr "Talabani tanlang."
+
+#: apps/accounts/forms.py:222
+msgid "Guruhni tanlang."
+msgstr "Guruhni tanlang."
+
+#: apps/accounts/forms.py:230
+msgid "Bu biriktiruv allaqachon mavjud va faol."
+msgstr "Bu biriktiruv allaqachon mavjud va faol."
+
+#: apps/accounts/forms.py:233 apps/goals/models.py:47
+msgid "Tugash sanasi boshlanish sanasidan oldin bo‘lishi mumkin emas."
+msgstr "Tugash sanasi boshlanish sanasidan oldin bo‘lishi mumkin emas."
+
+#: apps/accounts/models.py:17
+msgid "Administrator"
+msgstr "Administrator"
+
+#: apps/accounts/models.py:18 apps/accounts/models.py:157 apps/assessments/models.py:31 apps/assessments/models.py:110
+msgid "Ustoz"
+msgstr "Ustoz"
+
+#: apps/accounts/models.py:19 apps/accounts/models.py:159 apps/assessments/models.py:29 apps/assignments/models.py:101
+msgid "Talaba"
+msgstr "Talaba"
+
+#: apps/accounts/models.py:21 apps/competencies/models.py:11 apps/competencies/urls.py:14 apps/subjects/urls.py:13
+msgid "Kod"
+msgstr "Kod"
+
+#: apps/accounts/models.py:22 apps/competencies/models.py:12 apps/competencies/urls.py:14 apps/organization/models.py:7
+msgid "Nomi"
+msgstr "Nomi"
+
+#: apps/accounts/models.py:23 apps/competencies/models.py:13 apps/competencies/models.py:33 apps/subjects/models.py:10
+msgid "Tavsif"
+msgstr "Tavsif"
+
+#: apps/accounts/models.py:29
+msgid "Rollar"
+msgstr "Rollar"
+
+#: apps/accounts/models.py:59
+msgid "Telefon raqami noto‘g‘ri. Masalan: +998 90 123 45 67"
+msgstr "Telefon raqami noto‘g‘ri. Masalan: +998 90 123 45 67"
+
+#: apps/accounts/models.py:66 apps/accounts/services.py:94
+msgid "Otasining ismi"
+msgstr "Otasining ismi"
+
+#: apps/accounts/models.py:67
+msgid "Elektron pochta"
+msgstr "Elektron pochta"
+
+#: apps/accounts/models.py:68
+msgid "Telefon raqami"
+msgstr "Telefon raqami"
+
+#: apps/accounts/models.py:70
+msgid "Profil rasmi"
+msgstr "Profil rasmi"
+
+#: apps/accounts/models.py:78 apps/accounts/services.py:101 apps/organization/models.py:34 apps/organization/models.py:50
+msgid "Kafedra"
+msgstr "Kafedra"
+
+#: apps/accounts/models.py:79
+msgid "Talaba / xodim ID"
+msgstr "Talaba / xodim ID"
+
+#: apps/accounts/models.py:80
+msgid "Parolni o‘zgartirish talab etiladi"
+msgstr "Parolni o‘zgartirish talab etiladi"
+
+#: apps/accounts/models.py:81 templates/base/language_switch.html:10
+msgid "Til"
+msgstr "Til"
+
+#: apps/accounts/models.py:89 apps/audit/models.py:28 templates/admin/audit_logs.html:27
+msgid "Foydalanuvchi"
+msgstr "Foydalanuvchi"
+
+#: apps/accounts/models.py:90 apps/accounts/services.py:162 templates/admin/users/list.html:3 templates/admin/users/list.html:8
+msgid "Foydalanuvchilar"
+msgstr "Foydalanuvchilar"
+
+#: apps/accounts/models.py:163 templates/admin/mentor_assignments/list.html:29
+msgid "Biriktirgan"
+msgstr "Biriktirgan"
+
+#: apps/accounts/models.py:164 apps/goals/models.py:23
+msgid "Boshlanish sanasi"
+msgstr "Boshlanish sanasi"
+
+#: apps/accounts/models.py:165
+msgid "Tugash sanasi"
+msgstr "Tugash sanasi"
+
+#: apps/accounts/models.py:167 apps/accounts/services.py:178 apps/assessments/forms.py:35 apps/assessments/models.py:72
+msgid "Izoh"
+msgstr "Izoh"
+
+#: apps/accounts/models.py:173
+msgid "Ustoz biriktiruvi"
+msgstr "Ustoz biriktiruvi"
+
+#: apps/accounts/models.py:174 templates/admin/mentor_assignments/form.html:4 templates/admin/mentor_assignments/list.html:3 templates/admin/mentor_assignments/list.html:4
+msgid "Ustoz biriktiruvlari"
+msgstr "Ustoz biriktiruvlari"
+
+#: apps/accounts/services.py:168 apps/accounts/services.py:181 apps/accounts/services.py:173
+msgid "talaba"
+msgstr "talaba"
+
+#: apps/accounts/services.py:170 apps/accounts/services.py:181 apps/accounts/services.py:173
+msgid "ustoz"
+msgstr "ustoz"
+
+#: apps/accounts/services.py:170
+msgid "Pedagogika kafedrasi"
+msgstr "Pedagogika kafedrasi"
+
+#: apps/accounts/services.py:177
+msgid "Yo‘riqnoma"
+msgstr "Yo‘riqnoma"
+
+#: apps/accounts/services.py:178 templates/admin/users/import.html:64
+msgid "Ustun"
+msgstr "Ustun"
+
+#: apps/accounts/services.py:178 apps/reflections/models.py:14 apps/reflections/urls.py:23 templates/admin/users/import.html:64
+msgid "Majburiy"
+msgstr "Majburiy"
+
+#: apps/accounts/services.py:180
+msgid "Bo‘sh qoldirilsa, tizim parol yaratadi va natija sahifasida ko‘rsatadi."
+msgstr "Bo‘sh qoldirilsa, tizim parol yaratadi va natija sahifasida ko‘rsatadi."
+
+#: apps/accounts/services.py:182
+msgid "Talabalar uchun: tizimdagi guruh nomi (masalan, PED-21)."
+msgstr "Talabalar uchun: tizimdagi guruh nomi (masalan, PED-21)."
+
+#: apps/accounts/services.py:183
+msgid "Ustozlar uchun: tizimdagi kafedra nomi."
+msgstr "Ustozlar uchun: tizimdagi kafedra nomi."
+
+#: apps/accounts/services.py:184
+msgid "Talaba yoki xodim identifikatori (takrorlanmas)."
+msgstr "Talaba yoki xodim identifikatori (takrorlanmas)."
+
+#: apps/accounts/services.py:187
+msgid "ha"
+msgstr "ha"
+
+#: apps/accounts/services.py:187
+msgid "yo‘q"
+msgstr "yo‘q"
+
+#: apps/accounts/services.py:201
+#, python-format
+msgid "Excel faylni o‘qib bo‘lmadi: %(e)s"
+msgstr "Excel faylni o‘qib bo‘lmadi: %(e)s"
+
+#: apps/accounts/services.py:207
+msgid "Fayl bo‘sh."
+msgstr "Fayl bo‘sh."
+
+#: apps/accounts/services.py:212
+#, python-format
+msgid "Majburiy ustunlar topilmadi: %(c)s"
+msgstr "Majburiy ustunlar topilmadi: %(c)s"
+
+#: apps/accounts/services.py:220
+msgid "Bir martada 1000 tadan ortiq qator import qilib bo‘lmaydi."
+msgstr "Bir martada 1000 tadan ortiq qator import qilib bo‘lmaydi."
+
+#: apps/accounts/services.py:230
+#, python-format
+msgid "«%(c)s» to‘ldirilmagan"
+msgstr "«%(c)s» to‘ldirilmagan"
+
+#: apps/accounts/services.py:234
+msgid "Login faqat harf, raqam va @ . + - _ belgilaridan iborat bo‘lishi kerak"
+msgstr "Login faqat harf, raqam va @ . + - _ belgilaridan iborat bo‘lishi kerak"
+
+#: apps/accounts/services.py:236
+#, python-format
+msgid "«%(u)s» logini band"
+msgstr "«%(u)s» logini band"
+
+#: apps/accounts/services.py:241
+#, python-format
+msgid "Rol noma’lum: %(r)s"
+msgstr "Rol noma’lum: %(r)s"
+
+#: apps/accounts/services.py:248
+msgid "Email noto‘g‘ri"
+msgstr "Email noto‘g‘ri"
+
+#: apps/accounts/services.py:250
+#, python-format
+msgid "«%(e)s» emaili band"
+msgstr "«%(e)s» emaili band"
+
+#: apps/accounts/services.py:256
+msgid "Telefon raqami noto‘g‘ri"
+msgstr "Telefon raqami noto‘g‘ri"
+
+#: apps/accounts/services.py:259
+#, python-format
+msgid "«%(i)s» ID raqami band"
+msgstr "«%(i)s» ID raqami band"
+
+#: apps/accounts/services.py:266
+#, python-format
+msgid "Guruh topilmadi: %(g)s"
+msgstr "Guruh topilmadi: %(g)s"
+
+#: apps/accounts/services.py:268
+msgid "Talaba uchun guruh ko‘rsatilishi shart"
+msgstr "Talaba uchun guruh ko‘rsatilishi shart"
+
+#: apps/accounts/services.py:276
+#, python-format
+msgid "Kafedra topilmadi: %(k)s"
+msgstr "Kafedra topilmadi: %(k)s"
+
+#: apps/accounts/services.py:278
+#, python-format
+msgid "Kafedra nomi bir nechta fakultetda bor: %(k)s"
+msgstr "Kafedra nomi bir nechta fakultetda bor: %(k)s"
+
+#: apps/accounts/services.py:286
+#, python-format
+msgid "Parol: %(e)s"
+msgstr "Parol: %(e)s"
+
+#: apps/accounts/services.py:331
+#, python-format
+msgid "Excel orqali %(n)s ta foydalanuvchi import qilindi"
+msgstr "Excel orqali %(n)s ta foydalanuvchi import qilindi"
+
+#: apps/accounts/views.py:50
+msgid "Parolingiz muvaffaqiyatli o‘zgartirildi."
+msgstr "Parolingiz muvaffaqiyatli o‘zgartirildi."
+
+#: apps/accounts/views.py:75
+msgid "Profil ma’lumotlari saqlandi."
+msgstr "Profil ma’lumotlari saqlandi."
+
+#: apps/accounts/views.py:133
+#, python-format
+msgid "Foydalanuvchi «%(u)s» yaratildi."
+msgstr "Foydalanuvchi «%(u)s» yaratildi."
+
+#: apps/accounts/views.py:161
+msgid "O‘zgarishlar saqlandi."
+msgstr "O‘zgarishlar saqlandi."
+
+#: apps/accounts/views.py:169
+msgid "O‘z hisobingizni bloklay olmaysiz."
+msgstr "O‘z hisobingizni bloklay olmaysiz."
+
+#: apps/accounts/views.py:172
+#, python-format
+msgid "«%(u)s» faollashtirildi."
+msgstr "«%(u)s» faollashtirildi."
+
+#: apps/accounts/views.py:173
+#, python-format
+msgid "«%(u)s» bloklandi."
+msgstr "«%(u)s» bloklandi."
+
+#: apps/accounts/views.py:195
+#, python-format
+msgid "%(n)s ta foydalanuvchi import qilindi."
+msgstr "%(n)s ta foydalanuvchi import qilindi."
+
+#: apps/accounts/views.py:197
+msgid "Faylda xatolar topildi. Hech bir foydalanuvchi qo‘shilmadi."
+msgstr "Faylda xatolar topildi. Hech bir foydalanuvchi qo‘shilmadi."
+
+#: apps/accounts/views.py:259
+#, python-format
+msgid "Ustoz biriktirildi: %(a)s"
+msgstr "Ustoz biriktirildi: %(a)s"
+
+#: apps/accounts/views.py:270
+msgid "Bunday faol biriktiruv allaqachon mavjud."
+msgstr "Bunday faol biriktiruv allaqachon mavjud."
+
+#: apps/accounts/views.py:275
+msgid "Biriktiruv holati o‘zgartirildi."
+msgstr "Biriktiruv holati o‘zgartirildi."
+
+#: apps/analytics/services.py:339
+msgid "Tizimdagi amallar"
+msgstr "Tizimdagi amallar"
+
+#: apps/analytics/services.py:340
+msgid "Yuklangan ish versiyalari"
+msgstr "Yuklangan ish versiyalari"
+
+#: apps/analytics/services.py:343 templates/admin/dashboard.html:25 templates/admin/dashboard.html:67 templates/admin/dashboard.html:80
+msgid "Talabalar"
+msgstr "Talabalar"
+
+#: apps/analytics/services.py:343 templates/admin/dashboard.html:68 templates/mentor/students/detail.html:12
+msgid "Ustozlar"
+msgstr "Ustozlar"
+
+#: apps/analytics/services.py:343 templates/admin/dashboard.html:69
+msgid "Administratorlar"
+msgstr "Administratorlar"
+
+#: apps/analytics/services.py:348
+msgid "Talabalar soni"
+msgstr "Talabalar soni"
+
+#: apps/analytics/views.py:54
+msgid "Umumiy natija"
+msgstr "Umumiy natija"
+
+#: apps/analytics/views.py:58
+msgid "Tasdiqlangan topshiriqlar"
+msgstr "Tasdiqlangan topshiriqlar"
+
+#: apps/analytics/views.py:59
+msgid "Yuklangan versiyalar"
+msgstr "Yuklangan versiyalar"
+
+#: apps/analytics/views.py:60 apps/reflections/models.py:48 templates/admin/dashboard.html:47 templates/base/sidebar.html:22
+msgid "Refleksiyalar"
+msgstr "Refleksiyalar"
+
+#: apps/assessments/forms.py:13 apps/assessments/models.py:36 templates/student/assessments/list.html:23
+msgid "Qaror"
+msgstr "Qaror"
+
+#: apps/assessments/forms.py:15 apps/assessments/models.py:39 templates/shared/assessment_detail.html:28
+msgid "Umumiy xulosa"
+msgstr "Umumiy xulosa"
+
+#: apps/assessments/forms.py:25
+msgid "Rivojlanish maqsadi (ixtiyoriy)"
+msgstr "Rivojlanish maqsadi (ixtiyoriy)"
+
+#: apps/assessments/forms.py:30 apps/assessments/models.py:70 templates/shared/analytics_body.html:99 templates/shared/criteria_form.html:12
+msgid "Ball"
+msgstr "Ball"
+
+#: apps/assessments/forms.py:38 apps/assessments/models.py:73 templates/shared/assessment_detail.html:45 templates/shared/criteria_form.html:22
+msgid "Kamchiliklar"
+msgstr "Kamchiliklar"
+
+#: apps/assessments/forms.py:41 apps/assessments/models.py:103 templates/shared/criteria_form.html:23 templates/shared/portfolio_detail.html:108
+msgid "Tavsiya"
+msgstr "Tavsiya"
+
+#: apps/assessments/forms.py:76
+msgid "Izoh yoki tavsiya yozing..."
+msgstr "Izoh yoki tavsiya yozing..."
+
+#: apps/assessments/models.py:20 apps/goals/services.py:46 templates/accounts/login.html:24 templates/mentor/baseline_form.html:3
+msgid "Boshlang‘ich baholash"
+msgstr "Boshlang‘ich baholash"
+
+#: apps/assessments/models.py:21
+msgid "Ish bo‘yicha baholash"
+msgstr "Ish bo‘yicha baholash"
+
+#: apps/assessments/models.py:24
+msgid "Tasdiqlash"
+msgstr "Tasdiqlash"
+
+#: apps/assessments/models.py:25
+msgid "Qayta ishlashga qaytarish"
+msgstr "Qayta ishlashga qaytarish"
+
+#: apps/assessments/models.py:27
+msgid "Baholash turi"
+msgstr "Baholash turi"
+
+#: apps/assessments/models.py:33 apps/portfolios/models.py:87 apps/reflections/models.py:37
+msgid "Ish versiyasi"
+msgstr "Ish versiyasi"
+
+#: apps/assessments/models.py:35 apps/goals/models.py:35 templates/student/goals/form.html:4
+msgid "Rivojlanish maqsadi"
+msgstr "Rivojlanish maqsadi"
+
+#: apps/assessments/models.py:37 templates/shared/assessment_detail.html:22
+msgid "Jami ball"
+msgstr "Jami ball"
+
+#: apps/assessments/models.py:38 apps/competencies/models.py:35
+msgid "Maksimal ball"
+msgstr "Maksimal ball"
+
+#: apps/assessments/models.py:40
+msgid "Baholangan vaqt"
+msgstr "Baholangan vaqt"
+
+#: apps/assessments/models.py:46 apps/audit/models.py:21 templates/mentor/assess_form.html:3 templates/mentor/assignments/detail.html:43
+msgid "Baholash"
+msgstr "Baholash"
+
+#: apps/assessments/models.py:47 templates/student/assessments/list.html:4
+msgid "Baholash natijalari"
+msgstr "Baholash natijalari"
+
+#: apps/assessments/models.py:69 apps/competencies/urls.py:22 templates/shared/analytics_body.html:46
+msgid "Mezon"
+msgstr "Mezon"
+
+#: apps/assessments/models.py:71
+msgid "Maksimal ball (nusxa)"
+msgstr "Maksimal ball (nusxa)"
+
+#: apps/assessments/models.py:74 templates/shared/assessment_detail.html:46
+msgid "Takomillashtirish bo‘yicha tavsiya"
+msgstr "Takomillashtirish bo‘yicha tavsiya"
+
+#: apps/assessments/models.py:79
+msgid "Mezon bo‘yicha baho"
+msgstr "Mezon bo‘yicha baho"
+
+#: apps/assessments/models.py:80
+msgid "Mezonlar bo‘yicha baholar"
+msgstr "Mezonlar bo‘yicha baholar"
+
+#: apps/assessments/models.py:91
+msgid "Ball maksimal balldan oshmasligi kerak."
+msgstr "Ball maksimal balldan oshmasligi kerak."
+
+#: apps/assessments/models.py:106 apps/portfolios/models.py:76 templates/mentor/assignments/detail.html:35 templates/mentor/review_queue.html:13
+msgid "Ish"
+msgstr "Ish"
+
+#: apps/assessments/models.py:108 apps/portfolios/models.py:115 templates/mentor/review_queue.html:13 templates/student/dashboard.html:93
+msgid "Versiya"
+msgstr "Versiya"
+
+#: apps/assessments/models.py:111 apps/notifications/models.py:32 templates/shared/analytics_body.html:99 templates/student/assessments/list.html:23
+msgid "Turi"
+msgstr "Turi"
+
+#: apps/assessments/models.py:112 apps/notifications/models.py:34
+msgid "Matn"
+msgstr "Matn"
+
+#: apps/assessments/models.py:118 templates/accounts/login.html:26
+msgid "Ustoz fikri"
+msgstr "Ustoz fikri"
+
+#: apps/assessments/models.py:119
+msgid "Ustoz fikrlari"
+msgstr "Ustoz fikrlari"
+
+#: apps/assessments/services.py:76
+msgid "Faqat ishning oxirgi versiyasini baholash mumkin."
+msgstr "Faqat ishning oxirgi versiyasini baholash mumkin."
+
+#: apps/assessments/services.py:78
+msgid "Bu versiya hali tekshirishga yuborilmagan."
+msgstr "Bu versiya hali tekshirishga yuborilmagan."
+
+#: apps/assessments/services.py:97
+#, python-format
+msgid "Ishingiz tasdiqlandi: %(t)s"
+msgstr "Ishingiz tasdiqlandi: %(t)s"
+
+#: apps/assessments/services.py:102
+#, python-format
+msgid "Ish qayta ishlashga qaytarildi: %(t)s"
+msgstr "Ish qayta ishlashga qaytarildi: %(t)s"
+
+#: apps/assessments/services.py:107
+#, python-format
+msgid "Ball: %(s)s/%(m)s. %(c)s"
+msgstr "Ball: %(s)s/%(m)s. %(c)s"
+
+#: apps/assessments/services.py:124
+#, python-format
+msgid "Boshlang‘ich baholash natijasi: %(s)s/%(m)s"
+msgstr "Boshlang‘ich baholash natijasi: %(s)s/%(m)s"
+
+#: apps/assessments/services.py:137
+#, python-format
+msgid "Ustoz izoh qoldirdi: %(t)s"
+msgstr "Ustoz izoh qoldirdi: %(t)s"
+
+#: apps/assessments/views.py:79
+msgid "Ish baholandi va tasdiqlandi."
+msgstr "Ish baholandi va tasdiqlandi."
+
+#: apps/assessments/views.py:81
+msgid "Ish baholandi va qayta ishlash uchun talabaga qaytarildi."
+msgstr "Ish baholandi va qayta ishlash uchun talabaga qaytarildi."
+
+#: apps/assessments/views.py:107
+msgid "Boshlang‘ich baholash saqlandi."
+msgstr "Boshlang‘ich baholash saqlandi."
+
+#: apps/assessments/views.py:159
+msgid "Oldingi baho"
+msgstr "Oldingi baho"
+
+#: apps/assessments/views.py:159
+msgid "Ushbu baho"
+msgstr "Ushbu baho"
+
+#: apps/assessments/views.py:170
+msgid "Izoh talabaga yuborildi."
+msgstr "Izoh talabaga yuborildi."
+
+#: apps/assessments/views.py:172
+msgid "Izoh matnini kiriting."
+msgstr "Izoh matnini kiriting."
+
+#: apps/assignments/forms.py:15
+msgid "Alohida talabalar"
+msgstr "Alohida talabalar"
+
+#: apps/assignments/forms.py:17
+msgid "Ctrl (Cmd) tugmasini bosib bir nechtasini tanlang"
+msgstr "Ctrl (Cmd) tugmasini bosib bir nechtasini tanlang"
+
+#: apps/assignments/forms.py:19 templates/mentor/assignments/form.html:32 templates/shared/assignment_info.html:23
+msgid "Qo‘shimcha fayllar"
+msgstr "Qo‘shimcha fayllar"
+
+#: apps/assignments/forms.py:37
+msgid "Hech biri tanlanmasa, barcha faol mezonlar qo‘llaniladi."
+msgstr "Hech biri tanlanmasa, barcha faol mezonlar qo‘llaniladi."
+
+#: apps/assignments/forms.py:59
+msgid "Yakuniy muddat boshlanish muddatidan keyin bo‘lishi kerak."
+msgstr "Yakuniy muddat boshlanish muddatidan keyin bo‘lishi kerak."
+
+#: apps/assignments/forms.py:62
+msgid "Kamida bitta guruh yoki talabani tanlang."
+msgstr "Kamida bitta guruh yoki talabani tanlang."
+
+#: apps/assignments/models.py:12
+msgid "Topshiriq nomi"
+msgstr "Topshiriq nomi"
+
+#: apps/assignments/models.py:13
+msgid "Batafsil tavsif"
+msgstr "Batafsil tavsif"
+
+#: apps/assignments/models.py:15 apps/subjects/models.py:17 apps/subjects/urls.py:12 templates/mentor/assignments/list.html:25
+msgid "Fan"
+msgstr "Fan"
+
+#: apps/assignments/models.py:18 apps/goals/models.py:22
+msgid "Rivojlantiriladigan kompetensiya"
+msgstr "Rivojlantiriladigan kompetensiya"
+
+#: apps/assignments/models.py:19 templates/shared/assignment_info.html:7
+msgid "Bajarish bo‘yicha yo‘riqnoma"
+msgstr "Bajarish bo‘yicha yo‘riqnoma"
+
+#: apps/assignments/models.py:21 apps/competencies/models.py:44 apps/competencies/urls.py:19 templates/base/sidebar.html:68
+msgid "Baholash mezonlari"
+msgstr "Baholash mezonlari"
+
+#: apps/assignments/models.py:22
+msgid "Baholash mezonlari bo‘yicha izoh"
+msgstr "Baholash mezonlari bo‘yicha izoh"
+
+#: apps/assignments/models.py:23
+msgid "Boshlanish muddati"
+msgstr "Boshlanish muddati"
+
+#: apps/assignments/models.py:24 templates/student/assignments/detail.html:21 templates/student/assignments/list.html:25
+msgid "Yakuniy muddat"
+msgstr "Yakuniy muddat"
+
+#: apps/assignments/models.py:28
+msgid "Biriktirilgan guruhlar"
+msgstr "Biriktirilgan guruhlar"
+
+#: apps/assignments/models.py:36 apps/assignments/models.py:99 templates/mentor/assignments/detail.html:4 templates/mentor/assignments/list.html:25
+msgid "Topshiriq"
+msgstr "Topshiriq"
+
+#: apps/assignments/models.py:37 templates/admin/dashboard.html:35 templates/base/sidebar.html:18 templates/base/sidebar.html:34
+msgid "Topshiriqlar"
+msgstr "Topshiriqlar"
+
+#: apps/assignments/models.py:67 apps/portfolios/models.py:116 apps/reflections/models.py:91
+msgid "Fayl"
+msgstr "Fayl"
+
+#: apps/assignments/models.py:68 apps/portfolios/models.py:117
+msgid "Fayl nomi"
+msgstr "Fayl nomi"
+
+#: apps/assignments/models.py:69
+msgid "Hajmi"
+msgstr "Hajmi"
+
+#: apps/assignments/models.py:77
+msgid "Topshiriq fayli"
+msgstr "Topshiriq fayli"
+
+#: apps/assignments/models.py:78
+msgid "Topshiriq fayllari"
+msgstr "Topshiriq fayllari"
+
+#: apps/assignments/models.py:88 apps/goals/models.py:12 templates/base/crud_form.html:8
+msgid "Yangi"
+msgstr "Yangi"
+
+#: apps/assignments/models.py:89
+msgid "Qabul qilingan"
+msgstr "Qabul qilingan"
+
+#: apps/assignments/models.py:90
+msgid "Bajarilmoqda"
+msgstr "Bajarilmoqda"
+
+#: apps/assignments/models.py:91 apps/portfolios/models.py:18 templates/admin/analytics.html:45 templates/mentor/assignments/list.html:25
+msgid "Tekshirishda"
+msgstr "Tekshirishda"
+
+#: apps/assignments/models.py:92 apps/portfolios/models.py:19 templates/admin/analytics.html:46
+msgid "Qayta ishlash talab etiladi"
+msgstr "Qayta ishlash talab etiladi"
+
+#: apps/assignments/models.py:93 apps/portfolios/models.py:20 templates/admin/analytics.html:47 templates/shared/analytics_body.html:69
+msgid "Tasdiqlangan"
+msgstr "Tasdiqlangan"
+
+#: apps/assignments/models.py:94
+msgid "Muddati o‘tgan"
+msgstr "Muddati o‘tgan"
+
+#: apps/assignments/models.py:103
+msgid "Guruh orqali"
+msgstr "Guruh orqali"
+
+#: apps/assignments/models.py:104 apps/goals/models.py:26 apps/reflections/models.py:38
+msgid "Holati"
+msgstr "Holati"
+
+#: apps/assignments/models.py:116
+msgid "Topshiriq ijrochisi"
+msgstr "Topshiriq ijrochisi"
+
+#: apps/assignments/models.py:117
+msgid "Topshiriq ijrochilari"
+msgstr "Topshiriq ijrochilari"
+
+#: apps/assignments/services.py:112 apps/assignments/services.py:135
+#, python-format
+msgid "Yangi topshiriq: %(t)s"
+msgstr "Yangi topshiriq: %(t)s"
+
+#: apps/assignments/services.py:113
+#, python-format
+msgid "Muddat: %(d)s"
+msgstr "Muddat: %(d)s"
+
+#: apps/assignments/services.py:177
+#, python-format
+msgid "Muddat yaqinlashmoqda: %(t)s"
+msgstr "Muddat yaqinlashmoqda: %(t)s"
+
+#: apps/assignments/services.py:178
+#, python-format
+msgid "Topshiriqni %(d)s gacha topshiring."
+msgstr "Topshiriqni %(d)s gacha topshiring."
+
+#: apps/assignments/views.py:85
+msgid "Topshiriq yaratildi va talabalarga yuborildi."
+msgstr "Topshiriq yaratildi va talabalarga yuborildi."
+
+#: apps/assignments/views.py:101
+msgid "Topshiriq saqlandi."
+msgstr "Topshiriq saqlandi."
+
+#: apps/assignments/views.py:147
+msgid "Topshiriq qabul qilindi."
+msgstr "Topshiriq qabul qilindi."
+
+#: apps/assignments/views.py:161
+msgid "Topshiriq bo‘yicha ishlar yuklangan — o‘chirib bo‘lmaydi. Uni arxivlash uchun «Faol» belgisini olib tashlang."
+msgstr "Topshiriq bo‘yicha ishlar yuklangan — o‘chirib bo‘lmaydi. Uni arxivlash uchun «Faol» belgisini olib tashlang."
+
+#: apps/assignments/views.py:164
+#, python-format
+msgid "«%(t)s» topshirig‘i o‘chirildi."
+msgstr "«%(t)s» topshirig‘i o‘chirildi."
+
+#: apps/assignments/views.py:184 apps/portfolios/views.py:190
+msgid "Fayl o‘chirildi."
+msgstr "Fayl o‘chirildi."
+
+#: apps/audit/models.py:10 templates/accounts/login.html:39
+msgid "Tizimga kirish"
+msgstr "Tizimga kirish"
+
+#: apps/audit/models.py:11
+msgid "Tizimdan chiqish"
+msgstr "Tizimdan chiqish"
+
+#: apps/audit/models.py:12
+msgid "Muvaffaqiyatsiz kirish"
+msgstr "Muvaffaqiyatsiz kirish"
+
+#: apps/audit/models.py:13
+msgid "Yaratish"
+msgstr "Yaratish"
+
+#: apps/audit/models.py:14
+msgid "O‘zgartirish"
+msgstr "O‘zgartirish"
+
+#: apps/audit/models.py:15 templates/base/confirm_delete.html:3 templates/base/crud_list.html:41 templates/base/file_list.html:28
+msgid "O‘chirish"
+msgstr "O‘chirish"
+
+#: apps/audit/models.py:16 templates/admin/users/list.html:52
+msgid "Bloklash"
+msgstr "Bloklash"
+
+#: apps/audit/models.py:17 templates/admin/mentor_assignments/list.html:42 templates/admin/users/list.html:52
+msgid "Faollashtirish"
+msgstr "Faollashtirish"
+
+#: apps/audit/models.py:18
+msgid "Import"
+msgstr "Import"
+
+#: apps/audit/models.py:19 templates/student/portfolio/upload.html:3
+msgid "Fayl yuklash"
+msgstr "Fayl yuklash"
+
+#: apps/audit/models.py:20
+msgid "Tekshirishga yuborish"
+msgstr "Tekshirishga yuborish"
+
+#: apps/audit/models.py:22
+msgid "Parol o‘zgartirish"
+msgstr "Parol o‘zgartirish"
+
+#: apps/audit/models.py:23 templates/admin/mentor_assignments/form.html:24 templates/admin/mentor_assignments/list.html:9
+msgid "Biriktirish"
+msgstr "Biriktirish"
+
+#: apps/audit/models.py:24
+msgid "Fayl yuklab olish"
+msgstr "Fayl yuklab olish"
+
+#: apps/audit/models.py:30 templates/admin/audit_logs.html:27
+msgid "Amal"
+msgstr "Amal"
+
+#: apps/audit/models.py:31
+msgid "Obyekt turi"
+msgstr "Obyekt turi"
+
+#: apps/audit/models.py:32
+msgid "Obyekt ID"
+msgstr "Obyekt ID"
+
+#: apps/audit/models.py:33 templates/admin/audit_logs.html:27
+msgid "Obyekt"
+msgstr "Obyekt"
+
+#: apps/audit/models.py:35
+msgid "Qo‘shimcha ma’lumot"
+msgstr "Qo‘shimcha ma’lumot"
+
+#: apps/audit/models.py:36
+msgid "IP manzil"
+msgstr "IP manzil"
+
+#: apps/audit/models.py:37
+msgid "Brauzer"
+msgstr "Brauzer"
+
+#: apps/audit/models.py:38 templates/admin/audit_logs.html:27
+msgid "Vaqt"
+msgstr "Vaqt"
+
+#: apps/audit/models.py:43
+msgid "Audit yozuvi"
+msgstr "Audit yozuvi"
+
+#: apps/audit/models.py:44 templates/admin/audit_logs.html:3 templates/admin/audit_logs.html:4 templates/admin/dashboard.html:95
+msgid "Audit log"
+msgstr "Audit log"
+
+#: apps/competencies/models.py:14 apps/competencies/models.py:37 apps/competencies/urls.py:14 apps/competencies/urls.py:22
+msgid "Tartib"
+msgstr "Tartib"
+
+#: apps/competencies/models.py:20 apps/competencies/models.py:31 apps/competencies/urls.py:13 apps/competencies/urls.py:22
+msgid "Kompetensiya"
+msgstr "Kompetensiya"
+
+#: apps/competencies/models.py:21 templates/base/sidebar.html:66
+msgid "Kompetensiyalar"
+msgstr "Kompetensiyalar"
+
+#: apps/competencies/models.py:32
+msgid "Mezon nomi"
+msgstr "Mezon nomi"
+
+#: apps/competencies/models.py:43 apps/competencies/urls.py:19
+msgid "Baholash mezoni"
+msgstr "Baholash mezoni"
+
+#: apps/competencies/urls.py:13
+msgid "Pedagogik kompetensiyalar"
+msgstr "Pedagogik kompetensiyalar"
+
+#: apps/competencies/urls.py:20
+msgid "Ustoz ishlarni shu mezonlar asosida baholaydi. Mezonni o‘zgartirish oldingi baholarga ta’sir qilmaydi — har bir bahoda maksimal ball nusxasi saqlanadi."
+msgstr "Ustoz ishlarni shu mezonlar asosida baholaydi. Mezonni o‘zgartirish oldingi baholarga ta’sir qilmaydi — har bir bahoda maksimal ball nusxasi saqlanadi."
+
+#: apps/competencies/urls.py:23
+msgid "Maks. ball"
+msgstr "Maks. ball"
+
+#: apps/core/charts.py:21 templates/mentor/students/list.html:23 templates/shared/comparison_block.html:9
+msgid "Boshlang‘ich"
+msgstr "Boshlang‘ich"
+
+#: apps/core/charts.py:22 templates/shared/comparison_block.html:9
+msgid "Keyingi natija"
+msgstr "Keyingi natija"
+
+#: apps/core/crud.py:110
+#, python-format
+msgid "«%(obj)s» qo‘shildi."
+msgstr "«%(obj)s» qo‘shildi."
+
+#: apps/core/crud.py:120
+#, python-format
+msgid "«%(obj)s» saqlandi."
+msgstr "«%(obj)s» saqlandi."
+
+#: apps/core/crud.py:137
+#, python-format
+msgid "«%(obj)s» o‘chirilmadi: unga bog‘langan yozuvlar mavjud. Uning o‘rniga nofaol holatga o‘tkazing."
+msgstr "«%(obj)s» o‘chirilmadi: unga bog‘langan yozuvlar mavjud. Uning o‘rniga nofaol holatga o‘tkazing."
+
+#: apps/core/crud.py:141
+#, python-format
+msgid "«%(obj)s» o‘chirildi."
+msgstr "«%(obj)s» o‘chirildi."
+
+#: apps/core/files.py:35
+msgid "Hujjat"
+msgstr "Hujjat"
+
+#: apps/core/files.py:36 apps/portfolios/models.py:27
+msgid "Taqdimot"
+msgstr "Taqdimot"
+
+#: apps/core/files.py:37 templates/student/portfolio/create.html:37
+msgid "Video"
+msgstr "Video"
+
+#: apps/core/files.py:38
+msgid "Audio"
+msgstr "Audio"
+
+#: apps/core/files.py:39
+msgid "Rasm"
+msgstr "Rasm"
+
+#: apps/core/files.py:160
+#, python-format
+msgid "«%(name)s»: bu turdagi faylni yuklashga ruxsat berilmagan."
+msgstr "«%(name)s»: bu turdagi faylni yuklashga ruxsat berilmagan."
+
+#: apps/core/files.py:165
+#, python-format
+msgid "«%(name)s»: bu bo‘limga %(cat)s turidagi fayl yuklab bo‘lmaydi."
+msgstr "«%(name)s»: bu bo‘limga %(cat)s turidagi fayl yuklab bo‘lmaydi."
+
+#: apps/core/files.py:170
+#, python-format
+msgid "«%(name)s»: .%(ext)s video formati ruxsat etilmagan. Ruxsat etilganlar: %(allowed)s"
+msgstr "«%(name)s»: .%(ext)s video formati ruxsat etilmagan. Ruxsat etilganlar: %(allowed)s"
+
+#: apps/core/files.py:177
+#, python-format
+msgid "«%(name)s»: fayl hajmi %(limit)s MB dan oshmasligi kerak."
+msgstr "«%(name)s»: fayl hajmi %(limit)s MB dan oshmasligi kerak."
+
+#: apps/core/files.py:181
+#, python-format
+msgid "«%(name)s»: fayl bo‘sh."
+msgstr "«%(name)s»: fayl bo‘sh."
+
+#: apps/core/files.py:196
+#, python-format
+msgid "«%(name)s»: fayl mazmuni uning kengaytmasiga mos kelmaydi."
+msgstr "«%(name)s»: fayl mazmuni uning kengaytmasiga mos kelmaydi."
+
+#: apps/core/forms.py:94
+#, python-format
+msgid "Bir martada ko‘pi bilan %(n)s ta fayl yuklash mumkin."
+msgstr "Bir martada ko‘pi bilan %(n)s ta fayl yuklash mumkin."
+
+#: apps/core/forms.py:127
+#, python-format
+msgid "Qo‘llab-quvvatlanmaydigan format: %(f)s"
+msgstr "Qo‘llab-quvvatlanmaydigan format: %(f)s"
+
+#: apps/core/forms.py:129
+msgid "Kamida bitta video formatini kiriting."
+msgstr "Kamida bitta video formatini kiriting."
+
+#: apps/core/models.py:10
+msgid "Yaratilgan vaqt"
+msgstr "Yaratilgan vaqt"
+
+#: apps/core/models.py:11
+msgid "Yangilangan vaqt"
+msgstr "Yangilangan vaqt"
+
+#: apps/core/models.py:23
+msgid "Platforma nomi"
+msgstr "Platforma nomi"
+
+#: apps/core/models.py:25
+msgid "Ta’lim muassasasi"
+msgstr "Ta’lim muassasasi"
+
+#: apps/core/models.py:27
+msgid "Hujjat/rasm/audio fayl hajmi limiti (MB)"
+msgstr "Hujjat/rasm/audio fayl hajmi limiti (MB)"
+
+#: apps/core/models.py:32
+msgid "Video fayl hajmi limiti (MB)"
+msgstr "Video fayl hajmi limiti (MB)"
+
+#: apps/core/models.py:37
+msgid "Ruxsat etilgan video formatlari"
+msgstr "Ruxsat etilgan video formatlari"
+
+#: apps/core/models.py:40
+msgid "Vergul bilan ajrating. Mumkin bo‘lganlari: mp4, webm, mov, m4v, mkv, avi"
+msgstr "Vergul bilan ajrating. Mumkin bo‘lganlari: mp4, webm, mov, m4v, mkv, avi"
+
+#: apps/core/models.py:43
+msgid "Muddat eslatmasi (soat oldin)"
+msgstr "Muddat eslatmasi (soat oldin)"
+
+#: apps/core/models.py:47
+msgid "Muddatdan keyin topshirishga ruxsat"
+msgstr "Muddatdan keyin topshirishga ruxsat"
+
+#: apps/core/models.py:53 apps/core/models.py:54 templates/admin/system_settings.html:3 templates/admin/system_settings.html:4
+msgid "Tizim sozlamalari"
+msgstr "Tizim sozlamalari"
+
+#: apps/core/translatable_data.py:14
+msgid "Refleksiv portfolio"
+msgstr "Refleksiv portfolio"
+
+#: apps/core/translatable_data.py:16
+msgid "Darsni rejalashtirish"
+msgstr "Darsni rejalashtirish"
+
+#: apps/core/translatable_data.py:17
+msgid "Mavzuni tushuntirish"
+msgstr "Mavzuni tushuntirish"
+
+#: apps/core/translatable_data.py:18
+msgid "Savol berish"
+msgstr "Savol berish"
+
+#: apps/core/translatable_data.py:19
+msgid "O‘quvchilar bilan muloqot"
+msgstr "O‘quvchilar bilan muloqot"
+
+#: apps/core/translatable_data.py:20 apps/reflections/models.py:47 templates/accounts/login.html:26 templates/mentor/students/list.html:23
+msgid "Refleksiya"
+msgstr "Refleksiya"
+
+#: apps/core/translatable_data.py:21
+msgid "Dars maqsadi, tuzilmasi, vaqt va resurslarni rejalashtirish"
+msgstr "Dars maqsadi, tuzilmasi, vaqt va resurslarni rejalashtirish"
+
+#: apps/core/translatable_data.py:22
+msgid "Mavzuni aniq, izchil va tushunarli bayon qilish"
+msgstr "Mavzuni aniq, izchil va tushunarli bayon qilish"
+
+#: apps/core/translatable_data.py:23
+msgid "Turli darajadagi savollar bilan o‘quvchilarni fikrlashga undash"
+msgstr "Turli darajadagi savollar bilan o‘quvchilarni fikrlashga undash"
+
+#: apps/core/translatable_data.py:24
+msgid "Hamkorlik, qayta aloqa va ijobiy muhit yaratish"
+msgstr "Hamkorlik, qayta aloqa va ijobiy muhit yaratish"
+
+#: apps/core/translatable_data.py:25
+msgid "O‘z faoliyatini tahlil qilish va takomillashtirish"
+msgstr "O‘z faoliyatini tahlil qilish va takomillashtirish"
+
+#: apps/core/translatable_data.py:27
+msgid "Mavzuni tushuntirish aniqligi"
+msgstr "Mavzuni tushuntirish aniqligi"
+
+#: apps/core/translatable_data.py:28
+msgid "Savol berish ko‘nikmasi"
+msgstr "Savol berish ko‘nikmasi"
+
+#: apps/core/translatable_data.py:29
+msgid "Refleksiya va o‘zini tahlil qilish"
+msgstr "Refleksiya va o‘zini tahlil qilish"
+
+#: apps/core/translatable_data.py:31
+msgid "Men nimaga erishmoqchi edim?"
+msgstr "Men nimaga erishmoqchi edim?"
+
+#: apps/core/translatable_data.py:32
+msgid "Amalda nima sodir bo‘ldi?"
+msgstr "Amalda nima sodir bo‘ldi?"
+
+#: apps/core/translatable_data.py:33
+msgid "Nima yaxshi chiqdi? Buni qaysi dalil ko‘rsatadi?"
+msgstr "Nima yaxshi chiqdi? Buni qaysi dalil ko‘rsatadi?"
+
+#: apps/core/translatable_data.py:34
+msgid "Qayerda qiyinchilik bo‘ldi va nima sababdan?"
+msgstr "Qayerda qiyinchilik bo‘ldi va nima sababdan?"
+
+#: apps/core/translatable_data.py:35
+msgid "Keyingi safar nimani o‘zgartiraman?"
+msgstr "Keyingi safar nimani o‘zgartiraman?"
+
+#: apps/core/translatable_data.py:36
+msgid "Dars yoki faoliyat oldidan qo‘ygan maqsadingizni yozing."
+msgstr "Dars yoki faoliyat oldidan qo‘ygan maqsadingizni yozing."
+
+#: apps/core/translatable_data.py:37
+msgid "Jarayonni ketma-ket, faktlarga tayanib tasvirlang."
+msgstr "Jarayonni ketma-ket, faktlarga tayanib tasvirlang."
+
+#: apps/core/translatable_data.py:38
+msgid "Video lavha, o‘quvchilar javoblari, kuzatuv natijalari kabi dalillarni keltiring."
+msgstr "Video lavha, o‘quvchilar javoblari, kuzatuv natijalari kabi dalillarni keltiring."
+
+#: apps/core/translatable_data.py:39
+msgid "Qiyinchilik sabablarini tahlil qiling."
+msgstr "Qiyinchilik sabablarini tahlil qiling."
+
+#: apps/core/translatable_data.py:40
+msgid "Aniq va amalga oshirsa bo‘ladigan qadamlarni yozing."
+msgstr "Aniq va amalga oshirsa bo‘ladigan qadamlarni yozing."
+
+#: apps/core/views.py:27
+msgid "Tizim sozlamalari saqlandi."
+msgstr "Tizim sozlamalari saqlandi."
+
+#: apps/core/views.py:48
+msgid "Ruxsat yo‘q"
+msgstr "Ruxsat yo‘q"
+
+#: apps/core/views.py:49
+msgid "Bu sahifani ko‘rish uchun sizda ruxsat mavjud emas."
+msgstr "Bu sahifani ko‘rish uchun sizda ruxsat mavjud emas."
+
+#: apps/core/views.py:53
+msgid "Sahifa topilmadi"
+msgstr "Sahifa topilmadi"
+
+#: apps/core/views.py:54
+msgid "So‘ralgan sahifa mavjud emas yoki sizga ochiq emas."
+msgstr "So‘ralgan sahifa mavjud emas yoki sizga ochiq emas."
+
+#: apps/core/views.py:58
+msgid "Server xatosi"
+msgstr "Server xatosi"
+
+#: apps/core/views.py:59
+msgid "Kutilmagan xatolik yuz berdi. Iltimos, keyinroq urinib ko‘ring."
+msgstr "Kutilmagan xatolik yuz berdi. Iltimos, keyinroq urinib ko‘ring."
+
+#: apps/goals/forms.py:18
+msgid "Masalan: Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish"
+msgstr "Masalan: Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish"
+
+#: apps/goals/models.py:13
+msgid "Jarayonda"
+msgstr "Jarayonda"
+
+#: apps/goals/models.py:14
+msgid "Bajarildi"
+msgstr "Bajarildi"
+
+#: apps/goals/models.py:15
+msgid "Bekor qilindi"
+msgstr "Bekor qilindi"
+
+#: apps/goals/models.py:19
+msgid "Maqsad nomi"
+msgstr "Maqsad nomi"
+
+#: apps/goals/models.py:20
+msgid "Maqsad tavsifi"
+msgstr "Maqsad tavsifi"
+
+#: apps/goals/models.py:24
+msgid "Rejalashtirilgan tugash sanasi"
+msgstr "Rejalashtirilgan tugash sanasi"
+
+#: apps/goals/models.py:25 templates/student/goals/detail.html:55
+msgid "Kutilayotgan natija"
+msgstr "Kutilayotgan natija"
+
+#: apps/goals/models.py:28
+msgid "Bajarilgan vaqt"
+msgstr "Bajarilgan vaqt"
+
+#: apps/goals/models.py:36 templates/mentor/students/detail.html:31 templates/student/dashboard.html:27 templates/student/goals/list.html:3
+msgid "Rivojlanish maqsadlari"
+msgstr "Rivojlanish maqsadlari"
+
+#: apps/goals/services.py:47
+msgid "Maqsad belgilash"
+msgstr "Maqsad belgilash"
+
+#: apps/goals/services.py:48 templates/accounts/login.html:25
+msgid "Rejalashtirish"
+msgstr "Rejalashtirish"
+
+#: apps/goals/services.py:49
+msgid "Amaliy ishni bajarish"
+msgstr "Amaliy ishni bajarish"
+
+#: apps/goals/services.py:50 templates/student/reflections/form.html:4
+msgid "Refleksiya yozish"
+msgstr "Refleksiya yozish"
+
+#: apps/goals/services.py:51
+msgid "Ustoz fikri va baholash"
+msgstr "Ustoz fikri va baholash"
+
+#: apps/goals/services.py:52
+msgid "Ishni takomillashtirish"
+msgstr "Ishni takomillashtirish"
+
+#: apps/goals/services.py:53 templates/student/goals/detail.html:97
+msgid "Natijalarni taqqoslash"
+msgstr "Natijalarni taqqoslash"
+
+#: apps/goals/views.py:51
+msgid "Rivojlanish maqsadi belgilandi."
+msgstr "Rivojlanish maqsadi belgilandi."
+
+#: apps/goals/views.py:67
+msgid "Maqsad saqlandi."
+msgstr "Maqsad saqlandi."
+
+#: apps/goals/views.py:78
+#, python-format
+msgid "Maqsad holati: %(s)s"
+msgstr "Maqsad holati: %(s)s"
+
+#: apps/goals/views.py:92
+msgid "Maqsadga ishlar bog‘langan — uni o‘chirib bo‘lmaydi. Kerak bo‘lsa, «Bekor qilindi» holatiga o‘tkazing."
+msgstr "Maqsadga ishlar bog‘langan — uni o‘chirib bo‘lmaydi. Kerak bo‘lsa, «Bekor qilindi» holatiga o‘tkazing."
+
+#: apps/goals/views.py:95
+#, python-format
+msgid "«%(t)s» maqsadi o‘chirildi."
+msgstr "«%(t)s» maqsadi o‘chirildi."
+
+#: apps/notifications/models.py:10 templates/mentor/assignments/form.html:3 templates/mentor/assignments/form.html:7 templates/mentor/assignments/list.html:9
+msgid "Yangi topshiriq"
+msgstr "Yangi topshiriq"
+
+#: apps/notifications/models.py:11
+msgid "Muddat yaqinlashmoqda"
+msgstr "Muddat yaqinlashmoqda"
+
+#: apps/notifications/models.py:12
+msgid "Talaba ish yukladi"
+msgstr "Talaba ish yukladi"
+
+#: apps/notifications/models.py:13
+msgid "Ustoz izohi"
+msgstr "Ustoz izohi"
+
+#: apps/notifications/models.py:14
+msgid "Qayta ishlashga qaytarildi"
+msgstr "Qayta ishlashga qaytarildi"
+
+#: apps/notifications/models.py:15
+msgid "Ish tasdiqlandi"
+msgstr "Ish tasdiqlandi"
+
+#: apps/notifications/models.py:16
+msgid "Tizim xabari"
+msgstr "Tizim xabari"
+
+#: apps/notifications/models.py:29
+msgid "Qabul qiluvchi"
+msgstr "Qabul qiluvchi"
+
+#: apps/notifications/models.py:31
+msgid "Yuboruvchi"
+msgstr "Yuboruvchi"
+
+#: apps/notifications/models.py:33
+msgid "Sarlavha"
+msgstr "Sarlavha"
+
+#: apps/notifications/models.py:35 apps/reflections/models.py:96
+msgid "Havola"
+msgstr "Havola"
+
+#: apps/notifications/models.py:36
+msgid "O‘qilgan"
+msgstr "O‘qilgan"
+
+#: apps/notifications/models.py:44
+msgid "Bildirishnoma"
+msgstr "Bildirishnoma"
+
+#: apps/notifications/models.py:45 templates/base/notifications.html:3 templates/base/notifications.html:4 templates/base/notifications.html:7
+msgid "Bildirishnomalar"
+msgstr "Bildirishnomalar"
+
+#: apps/notifications/views.py:41
+msgid "Barcha bildirishnomalar o‘qilgan deb belgilandi."
+msgstr "Barcha bildirishnomalar o‘qilgan deb belgilandi."
+
+#: apps/organization/models.py:8 apps/organization/urls.py:14
+msgid "Qisqa nomi"
+msgstr "Qisqa nomi"
+
+#: apps/organization/models.py:16 apps/organization/urls.py:13 templates/admin/dashboard.html:30 templates/base/sidebar.html:55
+msgid "Fakultetlar"
+msgstr "Fakultetlar"
+
+#: apps/organization/models.py:35 apps/organization/urls.py:19 templates/base/sidebar.html:57
+msgid "Kafedralar"
+msgstr "Kafedralar"
+
+#: apps/organization/models.py:51 apps/organization/urls.py:26
+msgid "Shifr"
+msgstr "Shifr"
+
+#: apps/organization/models.py:59 apps/organization/urls.py:25
+msgid "Ta’lim yo‘nalishi"
+msgstr "Ta’lim yo‘nalishi"
+
+#: apps/organization/models.py:60 apps/organization/urls.py:25
+msgid "Ta’lim yo‘nalishlari"
+msgstr "Ta’lim yo‘nalishlari"
+
+#: apps/organization/models.py:70 apps/organization/urls.py:33 templates/accounts/profile.html:19
+msgid "Yo‘nalish"
+msgstr "Yo‘nalish"
+
+#: apps/organization/models.py:71
+msgid "Guruh nomi"
+msgstr "Guruh nomi"
+
+#: apps/organization/models.py:73 apps/organization/urls.py:33
+msgid "Kurs"
+msgstr "Kurs"
+
+#: apps/organization/models.py:75 apps/organization/urls.py:34
+msgid "O‘quv yili"
+msgstr "O‘quv yili"
+
+#: apps/organization/models.py:83 apps/organization/urls.py:32 templates/accounts/profile.html:43 templates/admin/dashboard.html:80
+msgid "Guruhlar"
+msgstr "Guruhlar"
+
+#: apps/portfolios/forms.py:12 apps/portfolios/forms.py:51 templates/student/dashboard.html:93
+msgid "Fayllar"
+msgstr "Fayllar"
+
+#: apps/portfolios/forms.py:13
+msgid "Dars ishlanmasi, video, audio, rasm yoki taqdimot"
+msgstr "Dars ishlanmasi, video, audio, rasm yoki taqdimot"
+
+#: apps/portfolios/forms.py:28
+msgid "— Topshiriqsiz (mustaqil ish) —"
+msgstr "— Topshiriqsiz (mustaqil ish) —"
+
+#: apps/portfolios/forms.py:31
+msgid "— Maqsad tanlanmagan —"
+msgstr "— Maqsad tanlanmagan —"
+
+#: apps/portfolios/forms.py:52
+msgid "Nima o‘zgardi?"
+msgstr "Nima o‘zgardi?"
+
+#: apps/portfolios/forms.py:53
+msgid "Ustoz tavsiyalari asosida nimalarni takomillashtirdingiz?"
+msgstr "Ustoz tavsiyalari asosida nimalarni takomillashtirdingiz?"
+
+#: apps/portfolios/models.py:17 apps/reflections/models.py:31 templates/admin/analytics.html:44 templates/student/reflections/list.html:16
+msgid "Qoralama"
+msgstr "Qoralama"
+
+#: apps/portfolios/models.py:23
+msgid "Dars ishlanmasi"
+msgstr "Dars ishlanmasi"
+
+#: apps/portfolios/models.py:24
+msgid "Dars videosi"
+msgstr "Dars videosi"
+
+#: apps/portfolios/models.py:25
+msgid "Audio yozuv"
+msgstr "Audio yozuv"
+
+#: apps/portfolios/models.py:26
+msgid "Rasmlar"
+msgstr "Rasmlar"
+
+#: apps/portfolios/models.py:28
+msgid "Boshqa hujjat"
+msgstr "Boshqa hujjat"
+
+#: apps/portfolios/models.py:32
+msgid "Ish nomi"
+msgstr "Ish nomi"
+
+#: apps/portfolios/models.py:33
+msgid "Tavsifi"
+msgstr "Tavsifi"
+
+#: apps/portfolios/models.py:35
+msgid "Bog‘langan topshiriq"
+msgstr "Bog‘langan topshiriq"
+
+#: apps/portfolios/models.py:37
+msgid "Bog‘langan rivojlanish maqsadi"
+msgstr "Bog‘langan rivojlanish maqsadi"
+
+#: apps/portfolios/models.py:38
+msgid "Material turi"
+msgstr "Material turi"
+
+#: apps/portfolios/models.py:40 templates/student/assignments/detail.html:31
+msgid "Ish holati"
+msgstr "Ish holati"
+
+#: apps/portfolios/models.py:42
+msgid "Joriy versiya"
+msgstr "Joriy versiya"
+
+#: apps/portfolios/models.py:43 apps/reflections/models.py:40
+msgid "Yuborilgan vaqt"
+msgstr "Yuborilgan vaqt"
+
+#: apps/portfolios/models.py:44
+msgid "Tasdiqlangan vaqt"
+msgstr "Tasdiqlangan vaqt"
+
+#: apps/portfolios/models.py:45 apps/reflections/models.py:41
+msgid "Yaratilgan"
+msgstr "Yaratilgan"
+
+#: apps/portfolios/models.py:46 apps/reflections/models.py:42 templates/student/portfolio/list.html:29 templates/student/reflections/list.html:30
+msgid "Yangilangan"
+msgstr "Yangilangan"
+
+#: apps/portfolios/models.py:51 templates/shared/portfolio_detail.html:4
+msgid "Portfolio ishi"
+msgstr "Portfolio ishi"
+
+#: apps/portfolios/models.py:52 templates/admin/dashboard.html:43 templates/base/sidebar.html:75 templates/mentor/students/detail.html:51
+msgid "Portfolio ishlari"
+msgstr "Portfolio ishlari"
+
+#: apps/portfolios/models.py:77
+msgid "Versiya raqami"
+msgstr "Versiya raqami"
+
+#: apps/portfolios/models.py:78 templates/shared/portfolio_detail.html:54
+msgid "O‘zgarishlar izohi"
+msgstr "O‘zgarishlar izohi"
+
+#: apps/portfolios/models.py:81
+msgid "Yuklangan sana"
+msgstr "Yuklangan sana"
+
+#: apps/portfolios/models.py:82
+msgid "Tekshirishga yuborilgan"
+msgstr "Tekshirishga yuborilgan"
+
+#: apps/portfolios/models.py:88
+msgid "Ish versiyalari"
+msgstr "Ish versiyalari"
+
+#: apps/portfolios/models.py:118
+msgid "Hajmi (bayt)"
+msgstr "Hajmi (bayt)"
+
+#: apps/portfolios/models.py:119
+msgid "MIME turi"
+msgstr "MIME turi"
+
+#: apps/portfolios/models.py:120
+msgid "Toifa"
+msgstr "Toifa"
+
+#: apps/portfolios/models.py:121
+msgid "Yuklangan vaqt"
+msgstr "Yuklangan vaqt"
+
+#: apps/portfolios/models.py:126
+msgid "Ish fayli"
+msgstr "Ish fayli"
+
+#: apps/portfolios/models.py:127
+msgid "Ish fayllari"
+msgstr "Ish fayllari"
+
+#: apps/portfolios/services.py:57
+msgid "Ish tekshirilmoqda. Ustoz bahosini kuting."
+msgstr "Ish tekshirilmoqda. Ustoz bahosini kuting."
+
+#: apps/portfolios/services.py:59
+msgid "Ish tasdiqlangan."
+msgstr "Ish tasdiqlangan."
+
+#: apps/portfolios/services.py:67
+msgid "Topshiriq muddati o‘tgan. Muddatdan keyin topshirishga ruxsat berilmagan."
+msgstr "Topshiriq muddati o‘tgan. Muddatdan keyin topshirishga ruxsat berilmagan."
+
+#: apps/portfolios/services.py:139
+msgid "Yuborilgan versiya fayllarini o‘chirib bo‘lmaydi."
+msgstr "Yuborilgan versiya fayllarini o‘chirib bo‘lmaydi."
+
+#: apps/portfolios/services.py:153
+msgid "Faqat oxirgi versiyani yuborish mumkin."
+msgstr "Faqat oxirgi versiyani yuborish mumkin."
+
+#: apps/portfolios/services.py:155
+msgid "Bu versiya allaqachon yuborilgan."
+msgstr "Bu versiya allaqachon yuborilgan."
+
+#: apps/portfolios/services.py:157
+msgid "Yuborishdan oldin kamida bitta fayl yuklang."
+msgstr "Yuborishdan oldin kamida bitta fayl yuklang."
+
+#: apps/portfolios/services.py:161
+msgid "Ishni yuborishdan oldin refleksiya yozing."
+msgstr "Ishni yuborishdan oldin refleksiya yozing."
+
+#: apps/portfolios/services.py:175
+#, python-format
+msgid "%(s)s ish yukladi: %(t)s (v%(v)s)"
+msgstr "%(s)s ish yukladi: %(t)s (v%(v)s)"
+
+#: apps/portfolios/services.py:177
+msgid "Ish va refleksiya tekshirishga yuborildi."
+msgstr "Ish va refleksiya tekshirishga yuborildi."
+
+#: apps/portfolios/views.py:71
+msgid "Ish yuklandi (1-versiya). Endi refleksiya yozib, ustozga yuboring."
+msgstr "Ish yuklandi (1-versiya). Endi refleksiya yozib, ustozga yuboring."
+
+#: apps/portfolios/views.py:85
+msgid "Ish ma’lumotlari saqlandi."
+msgstr "Ish ma’lumotlari saqlandi."
+
+#: apps/portfolios/views.py:138
+msgid "Natija"
+msgstr "Natija"
+
+#: apps/portfolios/views.py:165
+#, python-format
+msgid "Fayllar %(v)s-versiyaga yuklandi."
+msgstr "Fayllar %(v)s-versiyaga yuklandi."
+
+#: apps/reflections/forms.py:13
+msgid "Dalil fayllari"
+msgstr "Dalil fayllari"
+
+#: apps/reflections/forms.py:14
+msgid "Dalil havolasi"
+msgstr "Dalil havolasi"
+
+#: apps/reflections/forms.py:16
+msgid "Dalil izohi"
+msgstr "Dalil izohi"
+
+#: apps/reflections/models.py:11
+msgid "Savol matni"
+msgstr "Savol matni"
+
+#: apps/reflections/models.py:12
+msgid "Yordamchi izoh"
+msgstr "Yordamchi izoh"
+
+#: apps/reflections/models.py:20 apps/reflections/urls.py:20
+msgid "Refleksiya savoli"
+msgstr "Refleksiya savoli"
+
+#: apps/reflections/models.py:21 apps/reflections/urls.py:20 templates/base/sidebar.html:70
+msgid "Refleksiya savollari"
+msgstr "Refleksiya savollari"
+
+#: apps/reflections/models.py:32
+msgid "Ustozga yuborilgan"
+msgstr "Ustozga yuborilgan"
+
+#: apps/reflections/models.py:66
+msgid "Savol (nusxa)"
+msgstr "Savol (nusxa)"
+
+#: apps/reflections/models.py:67
+msgid "Javob"
+msgstr "Javob"
+
+#: apps/reflections/models.py:73
+msgid "Refleksiya javobi"
+msgstr "Refleksiya javobi"
+
+#: apps/reflections/models.py:74
+msgid "Refleksiya javoblari"
+msgstr "Refleksiya javoblari"
+
+#: apps/reflections/models.py:103
+msgid "Refleksiya dalili"
+msgstr "Refleksiya dalili"
+
+#: apps/reflections/models.py:104
+msgid "Refleksiya dalillari"
+msgstr "Refleksiya dalillari"
+
+#: apps/reflections/services.py:42
+msgid "Ish baholangan — refleksiyani endi o‘zgartirib bo‘lmaydi."
+msgstr "Ish baholangan — refleksiyani endi o‘zgartirib bo‘lmaydi."
+
+#: apps/reflections/services.py:67
+#, python-format
+msgid "Quyidagi savollarga javob bering: %(q)s"
+msgstr "Quyidagi savollarga javob bering: %(q)s"
+
+#: apps/reflections/services.py:82
+msgid "Baholangan refleksiya dalilini o‘chirib bo‘lmaydi."
+msgstr "Baholangan refleksiya dalilini o‘chirib bo‘lmaydi."
+
+#: apps/reflections/urls.py:23
+msgid "Savol"
+msgstr "Savol"
+
+#: apps/reflections/views.py:89
+msgid "Refleksiya qoralama sifatida saqlandi."
+msgstr "Refleksiya qoralama sifatida saqlandi."
+
+#: apps/reflections/views.py:94
+#, python-format
+msgid "Qoralama saqlandi, lekin yuborilmadi: %(e)s"
+msgstr "Qoralama saqlandi, lekin yuborilmadi: %(e)s"
+
+#: apps/reflections/views.py:96
+msgid "Refleksiya va ish ustozga tekshirish uchun yuborildi."
+msgstr "Refleksiya va ish ustozga tekshirish uchun yuborildi."
+
+#: apps/reflections/views.py:127
+msgid "Dalil o‘chirildi."
+msgstr "Dalil o‘chirildi."
+
+#: apps/subjects/models.py:6 apps/subjects/urls.py:13
+msgid "Fan nomi"
+msgstr "Fan nomi"
+
+#: apps/subjects/models.py:7
+msgid "Fan kodi"
+msgstr "Fan kodi"
+
+#: apps/subjects/models.py:18 apps/subjects/urls.py:12 templates/base/sidebar.html:63
+msgid "Fanlar"
+msgstr "Fanlar"
+
+#: templates/accounts/login.html:7 templates/accounts/login.html:59
+msgid "Kirish"
+msgstr "Kirish"
+
+#: templates/accounts/login.html:21
+msgid "Pedagogik kompetensiyalarni rivojlantirishning yagona elektron platformasi"
+msgstr "Pedagogik kompetensiyalarni rivojlantirishning yagona elektron platformasi"
+
+#: templates/accounts/login.html:22
+msgid "Maqsad qo‘ying, amaliy ishlarni hujjatlashtiring, o‘z faoliyatingizni tahlil qiling va ustoz fikri asosida o‘sib boring."
+msgstr "Maqsad qo‘ying, amaliy ishlarni hujjatlashtiring, o‘z faoliyatingizni tahlil qiling va ustoz fikri asosida o‘sib boring."
+
+#: templates/accounts/login.html:24 templates/student/goals/list.html:27
+msgid "Maqsad"
+msgstr "Maqsad"
+
+#: templates/accounts/login.html:25
+msgid "Amaliy ish"
+msgstr "Amaliy ish"
+
+#: templates/accounts/login.html:27
+msgid "Takomillashtirish"
+msgstr "Takomillashtirish"
+
+#: templates/accounts/login.html:27
+msgid "Taqqoslash"
+msgstr "Taqqoslash"
+
+#: templates/accounts/login.html:40
+msgid "Login va parolingizni kiriting"
+msgstr "Login va parolingizni kiriting"
+
+#: templates/accounts/password_change.html:3 templates/accounts/password_change.html:4 templates/accounts/profile.html:56 templates/base/topbar_actions.html:39
+msgid "Parolni o‘zgartirish"
+msgstr "Parolni o‘zgartirish"
+
+#: templates/accounts/password_change.html:10
+msgid "Xavfsizlik uchun birinchi kirishda vaqtinchalik parolni o‘zingizning shaxsiy parolingizga almashtiring."
+msgstr "Xavfsizlik uchun birinchi kirishda vaqtinchalik parolni o‘zingizning shaxsiy parolingizga almashtiring."
+
+#: templates/accounts/password_change.html:13
+msgid "Yangi parol o‘rnatish"
+msgstr "Yangi parol o‘rnatish"
+
+#: templates/accounts/password_change.html:18
+msgid "Parolni saqlash"
+msgstr "Parolni saqlash"
+
+#: templates/accounts/profile.html:3 templates/accounts/profile.html:4 templates/base/topbar_actions.html:38
+msgid "Profil"
+msgstr "Profil"
+
+#: apps/accounts/services.py:102 templates/accounts/profile.html:16
+msgid "ID raqam"
+msgstr "ID raqam"
+
+#: templates/accounts/profile.html:24 templates/admin/users/form.html:9
+msgid "Oxirgi kirish"
+msgstr "Oxirgi kirish"
+
+#: templates/accounts/profile.html:29
+msgid "Ustozlarim"
+msgstr "Ustozlarim"
+
+#: templates/accounts/profile.html:42 templates/mentor/dashboard.html:16
+msgid "Biriktirilgan talabalar"
+msgstr "Biriktirilgan talabalar"
+
+#: templates/accounts/profile.html:49
+msgid "Aloqa ma’lumotlari"
+msgstr "Aloqa ma’lumotlari"
+
+#: templates/accounts/profile.html:51
+msgid "F.I.Sh., guruh va rol administrator tomonidan o‘zgartiriladi."
+msgstr "F.I.Sh., guruh va rol administrator tomonidan o‘zgartiriladi."
+
+#: templates/accounts/profile.html:55 templates/admin/system_settings.html:24 templates/admin/users/form.html:67 templates/base/crud_form.html:20
+msgid "Saqlash"
+msgstr "Saqlash"
+
+#: templates/admin/analytics.html:3 templates/base/sidebar.html:73
+msgid "Analitika"
+msgstr "Analitika"
+
+#: templates/admin/analytics.html:4
+msgid "Umumiy analitika"
+msgstr "Umumiy analitika"
+
+#: templates/admin/analytics.html:8
+msgid "Platforma bo‘yicha rivojlanish"
+msgstr "Platforma bo‘yicha rivojlanish"
+
+#: templates/admin/analytics.html:9
+#, python-format
+msgid "%(n)s nafar baholangan talaba bo‘yicha kompetensiyalar: o‘rtacha boshlang‘ich va keyingi natija"
+msgstr "%(n)s nafar baholangan talaba bo‘yicha kompetensiyalar: o‘rtacha boshlang‘ich va keyingi natija"
+
+#: templates/admin/analytics.html:15
+msgid "Kompetensiyalar bo‘yicha o‘rtacha natija (%%)"
+msgstr "Kompetensiyalar bo‘yicha o‘rtacha natija (%%)"
+
+#: templates/admin/analytics.html:16
+msgid "Kompetensiyalar bo‘yicha o‘rtacha natija"
+msgstr "Kompetensiyalar bo‘yicha o‘rtacha natija"
+
+#: templates/admin/analytics.html:21
+msgid "Jadval ko‘rinishi"
+msgstr "Jadval ko‘rinishi"
+
+#: templates/admin/analytics.html:24 templates/mentor/dashboard.html:53
+msgid "Boshl."
+msgstr "Boshl."
+
+#: templates/admin/analytics.html:24
+msgid "Keyingi"
+msgstr "Keyingi"
+
+#: templates/admin/analytics.html:34 templates/admin/analytics.html:35
+msgid "Fakultetlar bo‘yicha talabalar"
+msgstr "Fakultetlar bo‘yicha talabalar"
+
+#: templates/admin/analytics.html:40
+msgid "Portfolio ishlari holati"
+msgstr "Portfolio ishlari holati"
+
+#: templates/admin/analytics.html:48
+msgid "Jami baholashlar"
+msgstr "Jami baholashlar"
+
+#: templates/admin/audit_logs.html:7
+msgid "Tizimdagi muhim amallar tarixi"
+msgstr "Tizimdagi muhim amallar tarixi"
+
+#: templates/admin/audit_logs.html:8
+msgid "Kirish/chiqish, yaratish, o‘zgartirish, yuklash, baholash va boshqa amallar"
+msgstr "Kirish/chiqish, yaratish, o‘zgartirish, yuklash, baholash va boshqa amallar"
+
+#: templates/admin/audit_logs.html:13
+msgid "Foydalanuvchi, obyekt, IP..."
+msgstr "Foydalanuvchi, obyekt, IP..."
+
+#: templates/admin/audit_logs.html:15
+msgid "Barcha amallar"
+msgstr "Barcha amallar"
+
+#: templates/admin/audit_logs.html:18
+msgid "Dan"
+msgstr "Dan"
+
+#: templates/admin/audit_logs.html:19
+msgid "Gacha"
+msgstr "Gacha"
+
+#: templates/admin/audit_logs.html:21 templates/admin/users/list.html:22 templates/mentor/students/list.html:18 templates/student/portfolio/list.html:23
+msgid "Filtrlash"
+msgstr "Filtrlash"
+
+#: templates/admin/audit_logs.html:22 templates/admin/users/list.html:23 templates/base/crud_list.html:21 templates/student/portfolio/list.html:24
+msgid "Tozalash"
+msgstr "Tozalash"
+
+#: templates/admin/audit_logs.html:39
+msgid "Yozuvlar topilmadi"
+msgstr "Yozuvlar topilmadi"
+
+#: templates/admin/dashboard.html:3 templates/admin/dashboard.html:4
+msgid "Administrator paneli"
+msgstr "Administrator paneli"
+
+#: templates/admin/dashboard.html:8
+msgid "Platforma holati"
+msgstr "Platforma holati"
+
+#: templates/admin/dashboard.html:9
+msgid "Foydalanuvchilar, tashkiliy tuzilma va umumiy faollik"
+msgstr "Foydalanuvchilar, tashkiliy tuzilma va umumiy faollik"
+
+#: templates/admin/dashboard.html:12
+msgid "Excel import"
+msgstr "Excel import"
+
+#: templates/admin/dashboard.html:13
+msgid "Foydalanuvchi qo‘shish"
+msgstr "Foydalanuvchi qo‘shish"
+
+#: templates/admin/dashboard.html:20
+msgid "Jami foydalanuvchilar"
+msgstr "Jami foydalanuvchilar"
+
+#: templates/admin/dashboard.html:21
+#, python-format
+msgid "%(a)s faol · %(b)s bloklangan"
+msgstr "%(a)s faol · %(b)s bloklangan"
+
+#: templates/admin/dashboard.html:26
+#, python-format
+msgid "%(m)s ta ustoz"
+msgstr "%(m)s ta ustoz"
+
+#: templates/admin/dashboard.html:31
+#, python-format
+msgid "%(g)s ta guruh"
+msgstr "%(g)s ta guruh"
+
+#: templates/admin/dashboard.html:36
+#, python-format
+msgid "%(a)s ta faol"
+msgstr "%(a)s ta faol"
+
+#: templates/admin/dashboard.html:51
+msgid "Bugungi kirishlar"
+msgstr "Bugungi kirishlar"
+
+#: templates/admin/dashboard.html:58
+msgid "Umumiy faollik (oxirgi 14 kun)"
+msgstr "Umumiy faollik (oxirgi 14 kun)"
+
+#: templates/admin/dashboard.html:59
+msgid "Umumiy faollik"
+msgstr "Umumiy faollik"
+
+#: templates/admin/dashboard.html:64
+msgid "Rollar bo‘yicha"
+msgstr "Rollar bo‘yicha"
+
+#: templates/admin/dashboard.html:65
+msgid "Rollar bo‘yicha foydalanuvchilar"
+msgstr "Rollar bo‘yicha foydalanuvchilar"
+
+#: templates/admin/dashboard.html:76
+msgid "Fakultet va guruhlar statistikasi"
+msgstr "Fakultet va guruhlar statistikasi"
+
+#: templates/admin/dashboard.html:77
+msgid "Boshqarish"
+msgstr "Boshqarish"
+
+#: templates/admin/dashboard.html:80
+msgid "Xodimlar"
+msgstr "Xodimlar"
+
+#: templates/admin/dashboard.html:85
+msgid "Fakultetlar hali kiritilmagan"
+msgstr "Fakultetlar hali kiritilmagan"
+
+#: templates/admin/dashboard.html:94
+msgid "So‘nggi amallar"
+msgstr "So‘nggi amallar"
+
+#: templates/admin/dashboard.html:103 templates/base/crud_list.html:50
+msgid "Hozircha yozuvlar yo‘q"
+msgstr "Hozircha yozuvlar yo‘q"
+
+#: templates/admin/mentor_assignments/form.html:3 templates/admin/users/form.html:62 templates/admin/users/form.html:65
+msgid "Ustoz biriktirish"
+msgstr "Ustoz biriktirish"
+
+#: templates/admin/mentor_assignments/form.html:7
+msgid "Ustozni talaba yoki guruhga biriktirish"
+msgstr "Ustozni talaba yoki guruhga biriktirish"
+
+#: templates/admin/mentor_assignments/form.html:8 templates/admin/users/form.html:13 templates/admin/users/import.html:11
+msgid "Ro‘yxat"
+msgstr "Ro‘yxat"
+
+#: templates/admin/mentor_assignments/list.html:7
+msgid "Ustoz — talaba / guruh biriktiruvlari"
+msgstr "Ustoz — talaba / guruh biriktiruvlari"
+
+#: templates/admin/mentor_assignments/list.html:8
+msgid "Ustoz talabaga to‘g‘ridan-to‘g‘ri yoki butun guruhga biriktiriladi"
+msgstr "Ustoz talabaga to‘g‘ridan-to‘g‘ri yoki butun guruhga biriktiriladi"
+
+#: templates/admin/mentor_assignments/list.html:14
+msgid "Ustoz, talaba yoki guruh..."
+msgstr "Ustoz, talaba yoki guruh..."
+
+#: templates/admin/mentor_assignments/list.html:16
+msgid "Barcha ustozlar"
+msgstr "Barcha ustozlar"
+
+#: templates/admin/mentor_assignments/list.html:21 templates/admin/mentor_assignments/list.html:38
+msgid "Nofaol"
+msgstr "Nofaol"
+
+#: templates/admin/mentor_assignments/list.html:29
+msgid "Biriktirilgan"
+msgstr "Biriktirilgan"
+
+#: templates/mentor/assignments/list.html:25 templates/student/goals/list.html:28
+msgid "Muddat"
+msgstr "Muddat"
+
+#: templates/admin/mentor_assignments/list.html:40
+msgid "Holatni o‘zgartirasizmi?"
+msgstr "Holatni o‘zgartirasizmi?"
+
+#: templates/admin/mentor_assignments/list.html:42
+msgid "Nofaol qilish"
+msgstr "Nofaol qilish"
+
+#: templates/admin/mentor_assignments/list.html:47
+msgid "Biriktiruvlar topilmadi"
+msgstr "Biriktiruvlar topilmadi"
+
+#: templates/admin/system_settings.html:8
+msgid "Fayl hajmi limitlari, video formatlari, muddat eslatmalari"
+msgstr "Fayl hajmi limitlari, video formatlari, muddat eslatmalari"
+
+#: templates/admin/system_settings.html:30
+msgid "Server sozlamasi bilan muvofiqlik"
+msgstr "Server sozlamasi bilan muvofiqlik"
+
+#: templates/admin/system_settings.html:31
+msgid "Katta videolar uchun web-serverdagi yuklash limiti ham shu qiymatdan katta bo‘lishi kerak (nginx: client_max_body_size)."
+msgstr "Katta videolar uchun web-serverdagi yuklash limiti ham shu qiymatdan katta bo‘lishi kerak (nginx: client_max_body_size)."
+
+#: templates/admin/system_settings.html:32
+msgid "Video fayllar PostgreSQL ichida saqlanmaydi: bazada faqat metama’lumot va saqlash manzili, faylning o‘zi himoyalangan media storage’da."
+msgstr "Video fayllar PostgreSQL ichida saqlanmaydi: bazada faqat metama’lumot va saqlash manzili, faylning o‘zi himoyalangan media storage’da."
+
+#: templates/admin/users/form.html:3 templates/admin/users/form.html:8 templates/admin/users/list.html:14
+msgid "Yangi foydalanuvchi"
+msgstr "Yangi foydalanuvchi"
+
+#: templates/admin/users/form.html:4 templates/admin/users/list.html:4
+msgid "Foydalanuvchilarni boshqarish"
+msgstr "Foydalanuvchilarni boshqarish"
+
+#: templates/admin/users/form.html:9
+msgid "Ro‘yxatdan o‘tgan"
+msgstr "Ro‘yxatdan o‘tgan"
+
+#: templates/admin/users/form.html:12
+msgid "Amallar tarixi"
+msgstr "Amallar tarixi"
+
+#: templates/admin/users/form.html:22
+msgid "Shaxsiy ma’lumotlar"
+msgstr "Shaxsiy ma’lumotlar"
+
+#: templates/admin/users/form.html:34
+msgid "Rol va tashkiliy tuzilma"
+msgstr "Rol va tashkiliy tuzilma"
+
+#: templates/admin/users/form.html:40
+msgid "Talabaning fakulteti va yo‘nalishi guruh orqali avtomatik aniqlanadi."
+msgstr "Talabaning fakulteti va yo‘nalishi guruh orqali avtomatik aniqlanadi."
+
+#: templates/admin/users/form.html:46
+msgid "Kirish ma’lumotlari"
+msgstr "Kirish ma’lumotlari"
+
+#: templates/admin/users/form.html:57
+msgid "Ustozlari"
+msgstr "Ustozlari"
+
+#: templates/admin/users/form.html:57
+msgid "Biriktirilganlar"
+msgstr "Biriktirilganlar"
+
+#: templates/admin/users/form.html:59 templates/mentor/assignments/detail.html:39
+msgid "guruh orqali"
+msgstr "guruh orqali"
+
+#: templates/admin/users/form.html:59 templates/admin/users/form.html:60
+msgid "faol"
+msgstr "faol"
+
+#: templates/admin/users/form.html:59 templates/admin/users/form.html:60
+msgid "nofaol"
+msgstr "nofaol"
+
+#: templates/admin/users/import.html:3 templates/admin/users/import.html:7 templates/admin/users/list.html:13
+msgid "Excel orqali import"
+msgstr "Excel orqali import"
+
+#: templates/admin/users/import.html:4
+msgid "Foydalanuvchilarni ommaviy import qilish"
+msgstr "Foydalanuvchilarni ommaviy import qilish"
+
+#: templates/admin/users/import.html:8
+msgid "Talaba va ustozlarni bitta .xlsx fayl orqali qo‘shish"
+msgstr "Talaba va ustozlarni bitta .xlsx fayl orqali qo‘shish"
+
+#: templates/admin/users/import.html:10
+msgid "Namuna faylni yuklab olish"
+msgstr "Namuna faylni yuklab olish"
+
+#: templates/admin/users/import.html:18
+#, python-format
+msgid "%(n)s ta foydalanuvchi qo‘shildi"
+msgstr "%(n)s ta foydalanuvchi qo‘shildi"
+
+#: templates/admin/users/import.html:19
+msgid "CSV yuklab olish"
+msgstr "CSV yuklab olish"
+
+#: templates/admin/users/import.html:21
+msgid "Yaratilgan vaqtinchalik parollar faqat shu sahifada bir marta ko‘rsatiladi va hech qayerda saqlanmaydi. Ularni hozir yuklab oling. Foydalanuvchilar birinchi kirishda parolni almashtiradi."
+msgstr "Yaratilgan vaqtinchalik parollar faqat shu sahifada bir marta ko‘rsatiladi va hech qayerda saqlanmaydi. Ularni hozir yuklab oling. Foydalanuvchilar birinchi kirishda parolni almashtiradi."
+
+#: templates/admin/users/import.html:24 templates/admin/users/import.html:39
+msgid "Qator"
+msgstr "Qator"
+
+#: templates/admin/users/import.html:24 templates/admin/users/list.html:29
+msgid "F.I.Sh."
+msgstr "F.I.Sh."
+
+#: templates/admin/users/import.html:24
+msgid "Vaqtinchalik parol"
+msgstr "Vaqtinchalik parol"
+
+#: templates/admin/users/import.html:27
+msgid "fayldagi parol"
+msgstr "fayldagi parol"
+
+#: templates/admin/users/import.html:36
+#, python-format
+msgid "Xatoli qatorlar: %(n)s"
+msgstr "Xatoli qatorlar: %(n)s"
+
+#: templates/admin/users/import.html:39
+msgid "Xatolar"
+msgstr "Xatolar"
+
+#: templates/admin/users/import.html:55
+msgid "Import qilish"
+msgstr "Import qilish"
+
+#: templates/admin/users/import.html:61
+msgid "Fayl tuzilmasi"
+msgstr "Fayl tuzilmasi"
+
+#: templates/admin/users/import.html:68
+msgid "Rol: talaba / ustoz / admin. Talaba uchun guruh, ustoz uchun kafedra tizimda oldindan mavjud bo‘lishi kerak. Standart rejimda bitta xato bo‘lsa ham hech kim qo‘shilmaydi."
+msgstr "Rol: talaba / ustoz / admin. Talaba uchun guruh, ustoz uchun kafedra tizimda oldindan mavjud bo‘lishi kerak. Standart rejimda bitta xato bo‘lsa ham hech kim qo‘shilmaydi."
+
+#: templates/admin/users/list.html:9
+#, python-format
+msgid "Jami %(n)s ta hisob"
+msgstr "Jami %(n)s ta hisob"
+
+#: templates/admin/users/list.html:10
+msgid "Rolsiz"
+msgstr "Rolsiz"
+
+#: templates/admin/users/list.html:30
+msgid "Guruh / Kafedra"
+msgstr "Guruh / Kafedra"
+
+#: templates/admin/users/list.html:30
+msgid "Aloqa"
+msgstr "Aloqa"
+
+#: templates/admin/users/list.html:30 templates/base/crud_list.html:28
+msgid "Amallar"
+msgstr "Amallar"
+
+#: templates/admin/users/list.html:46
+msgid "Parolni o‘zgartirishi kerak"
+msgstr "Parolni o‘zgartirishi kerak"
+
+#: templates/admin/users/list.html:48 templates/base/crud_form.html:8 templates/base/crud_list.html:40 templates/mentor/assignments/detail.html:15
+msgid "Tahrirlash"
+msgstr "Tahrirlash"
+
+#: templates/admin/users/list.html:50
+msgid "Foydalanuvchini bloklaysizmi?"
+msgstr "Foydalanuvchini bloklaysizmi?"
+
+#: templates/admin/users/list.html:50
+msgid "Foydalanuvchini faollashtirasizmi?"
+msgstr "Foydalanuvchini faollashtirasizmi?"
+
+#: templates/admin/users/list.html:59
+msgid "Foydalanuvchilar topilmadi"
+msgstr "Foydalanuvchilar topilmadi"
+
+#: templates/base/base.html:7
+msgid "Bosh sahifa"
+msgstr "Bosh sahifa"
+
+#: templates/base/base.html:15
+msgid "Fayllarni shu yerga tashlang yoki tanlash uchun bosing"
+msgstr "Fayllarni shu yerga tashlang yoki tanlash uchun bosing"
+
+#: templates/base/base.html:16
+msgid "Ruxsat etilgan"
+msgstr "Ruxsat etilgan"
+
+#: templates/base/base.html:16
+msgid "Hajm"
+msgstr "Hajm"
+
+#: templates/base/base.html:17
+msgid "hujjat"
+msgstr "hujjat"
+
+#: templates/base/base.html:17
+msgid "video"
+msgstr "video"
+
+#: templates/base/base.html:22
+msgid "Menyu"
+msgstr "Menyu"
+
+#: templates/base/base.html:34
+msgid "Refleksiv portfolio platformasi"
+msgstr "Refleksiv portfolio platformasi"
+
+#: templates/base/confirm_delete.html:11
+msgid "O‘chirishni tasdiqlang"
+msgstr "O‘chirishni tasdiqlang"
+
+#: templates/base/confirm_delete.html:12
+#, python-format
+msgid "«%(obj)s» butunlay o‘chiriladi. Bu amalni qaytarib bo‘lmaydi."
+msgstr "«%(obj)s» butunlay o‘chiriladi. Bu amalni qaytarib bo‘lmaydi."
+
+#: templates/base/confirm_delete.html:15 templates/base/crud_form.html:21
+msgid "Bekor qilish"
+msgstr "Bekor qilish"
+
+#: templates/base/confirm_delete.html:16
+msgid "Ha, o‘chirish"
+msgstr "Ha, o‘chirish"
+
+#: templates/base/crud_form.html:10
+msgid "Ro‘yxatga qaytish"
+msgstr "Ro‘yxatga qaytish"
+
+#: templates/base/crud_list.html:12 templates/base/crud_list.html:51
+msgid "Qo‘shish"
+msgstr "Qo‘shish"
+
+#: templates/base/crud_list.html:19 templates/student/assignments/list.html:20 templates/student/goals/list.html:21
+msgid "Qidiruv..."
+msgstr "Qidiruv..."
+
+#: templates/base/crud_list.html:35
+msgid "Ha"
+msgstr "Ha"
+
+#: templates/base/crud_list.html:35
+msgid "Yo‘q"
+msgstr "Yo‘q"
+
+#: templates/base/error.html:16
+msgid "Bosh sahifaga"
+msgstr "Bosh sahifaga"
+
+#: templates/base/file_list.html:9
+msgid "Brauzeringiz videoni qo‘llab-quvvatlamaydi."
+msgstr "Brauzeringiz videoni qo‘llab-quvvatlamaydi."
+
+#: templates/base/file_list.html:24 templates/mentor/dashboard.html:37
+msgid "Ko‘rish"
+msgstr "Ko‘rish"
+
+#: templates/base/file_list.html:25
+msgid "Yuklab olish"
+msgstr "Yuklab olish"
+
+#: templates/base/file_list.html:27 templates/shared/assignment_info.html:32 templates/shared/assignment_info_files.html:8
+msgid "Faylni o‘chirasizmi?"
+msgstr "Faylni o‘chirasizmi?"
+
+#: templates/base/file_list.html:34
+msgid "Fayl yuklanmagan"
+msgstr "Fayl yuklanmagan"
+
+#: templates/base/form_errors.html:7
+msgid "Formada xatolar bor. Iltimos, belgilangan maydonlarni tekshiring."
+msgstr "Formada xatolar bor. Iltimos, belgilangan maydonlarni tekshiring."
+
+#: templates/base/language_switch.html:4
+msgid "Tilni o‘zgartirish"
+msgstr "Tilni o‘zgartirish"
+
+#: templates/base/no_role.html:3 templates/base/sidebar.html:11 templates/student/dashboard.html:3 templates/student/dashboard.html:4
+msgid "Boshqaruv paneli"
+msgstr "Boshqaruv paneli"
+
+#: templates/base/no_role.html:6
+msgid "Hisobingizga rol biriktirilmagan"
+msgstr "Hisobingizga rol biriktirilmagan"
+
+#: templates/base/no_role.html:7
+msgid "Administrator bilan bog‘laning."
+msgstr "Administrator bilan bog‘laning."
+
+#: templates/base/notifications.html:11
+msgid "O‘qilmagan"
+msgstr "O‘qilmagan"
+
+#: templates/base/notifications.html:15
+msgid "Barchasini o‘qilgan deb belgilash"
+msgstr "Barchasini o‘qilgan deb belgilash"
+
+#: templates/base/notifications.html:25
+msgid "yangi"
+msgstr "yangi"
+
+#: templates/base/notifications.html:31
+msgid "Bildirishnomalar yo‘q"
+msgstr "Bildirishnomalar yo‘q"
+
+#: templates/base/pagination.html:2
+msgid "Sahifalar"
+msgstr "Sahifalar"
+
+#: templates/base/pagination.html:3
+#, python-format
+msgid "%(start)s–%(end)s / jami %(total)s"
+msgstr "%(start)s–%(end)s / jami %(total)s"
+
+#: templates/base/sidebar.html:3
+msgid "Asosiy menyu"
+msgstr "Asosiy menyu"
+
+#: templates/base/sidebar.html:7
+msgid "Pedagogik rivojlanish"
+msgstr "Pedagogik rivojlanish"
+
+#: templates/base/sidebar.html:14 templates/student/goals/detail.html:4
+msgid "Rivojlanish sikli"
+msgstr "Rivojlanish sikli"
+
+#: templates/base/sidebar.html:16 templates/student/goals/list.html:7
+msgid "Maqsadlarim"
+msgstr "Maqsadlarim"
+
+#: templates/base/sidebar.html:20 templates/student/dashboard.html:90 templates/student/portfolio/create.html:9 templates/student/portfolio/list.html:3
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: templates/base/sidebar.html:24 templates/student/assessments/list.html:7
+msgid "Baholarim"
+msgstr "Baholarim"
+
+#: templates/base/sidebar.html:26 templates/student/analytics.html:3
+msgid "Rivojlanishim"
+msgstr "Rivojlanishim"
+
+#: templates/base/sidebar.html:32 templates/mentor/students/list.html:7
+msgid "Mening talabalarim"
+msgstr "Mening talabalarim"
+
+#: templates/base/sidebar.html:36 templates/mentor/review_queue.html:3
+msgid "Tekshirish"
+msgstr "Tekshirish"
+
+#: templates/base/sidebar.html:38 templates/student/portfolio/list.html:7
+msgid "Talabalar ishlari"
+msgstr "Talabalar ishlari"
+
+#: templates/base/sidebar.html:42 templates/student/assessments/list.html:7
+msgid "Baholar tarixi"
+msgstr "Baholar tarixi"
+
+#: templates/base/sidebar.html:44 templates/student/goals/list.html:7
+msgid "Talabalar maqsadlari"
+msgstr "Talabalar maqsadlari"
+
+#: templates/base/sidebar.html:53
+msgid "Tashkiliy tuzilma"
+msgstr "Tashkiliy tuzilma"
+
+#: templates/base/sidebar.html:59
+msgid "Yo‘nalishlar"
+msgstr "Yo‘nalishlar"
+
+#: templates/base/sidebar.html:64
+msgid "Baholash tizimi"
+msgstr "Baholash tizimi"
+
+#: templates/base/sidebar.html:71
+msgid "Monitoring"
+msgstr "Monitoring"
+
+#: templates/base/sidebar.html:82
+msgid "Uzluksiz refleksiv rivojlanish"
+msgstr "Uzluksiz refleksiv rivojlanish"
+
+#: templates/base/topbar_actions.html:19 templates/mentor/dashboard.html:36 templates/mentor/review_queue.html:21 templates/shared/assessment_detail.html:40
+msgid "oldin"
+msgstr "oldin"
+
+#: templates/base/topbar_actions.html:23
+msgid "Yangi bildirishnoma yo‘q"
+msgstr "Yangi bildirishnoma yo‘q"
+
+#: templates/base/topbar_actions.html:43
+msgid "Chiqish"
+msgstr "Chiqish"
+
+#: templates/mentor/assess_form.html:4
+msgid "Ishni baholash"
+msgstr "Ishni baholash"
+
+#: templates/mentor/assess_form.html:10 templates/mentor/review_queue.html:19 templates/student/goals/detail.html:84 templates/student/portfolio/list.html:35
+msgid "Mustaqil ish"
+msgstr "Mustaqil ish"
+
+#: templates/mentor/assess_form.html:10
+msgid "oldingi versiya bahosi"
+msgstr "oldingi versiya bahosi"
+
+#: templates/mentor/assess_form.html:12 templates/student/reflections/form.html:12
+msgid "Ishga qaytish"
+msgstr "Ishga qaytish"
+
+#: templates/mentor/assess_form.html:17
+msgid "Yuklangan materiallar"
+msgstr "Yuklangan materiallar"
+
+#: templates/mentor/assess_form.html:21
+msgid "Talaba refleksiyasi"
+msgstr "Talaba refleksiyasi"
+
+#: templates/mentor/assess_form.html:30
+msgid "Refleksiya yo‘q"
+msgstr "Refleksiya yo‘q"
+
+#: templates/mentor/assess_form.html:39
+msgid "Mezonlar bo‘yicha baholash"
+msgstr "Mezonlar bo‘yicha baholash"
+
+#: templates/mentor/assess_form.html:45 templates/mentor/baseline_form.html:20
+msgid "Jami"
+msgstr "Jami"
+
+#: templates/mentor/assess_form.html:50
+msgid "«Qayta ishlashga qaytarish» tanlansa, talaba tavsiyalaringiz asosida ishning yangi versiyasini yuklaydi. Oldingi versiya va bahosi tarixda saqlanadi."
+msgstr "«Qayta ishlashga qaytarish» tanlansa, talaba tavsiyalaringiz asosida ishning yangi versiyasini yuklaydi. Oldingi versiya va bahosi tarixda saqlanadi."
+
+#: templates/mentor/assess_form.html:51
+msgid "Bahoni saqlash"
+msgstr "Bahoni saqlash"
+
+#: templates/mentor/assignments/detail.html:8 templates/mentor/assignments/list.html:30
+msgid "arxiv"
+msgstr "arxiv"
+
+#: templates/mentor/assignments/detail.html:16
+msgid "Topshiriqni o‘chirasizmi?"
+msgstr "Topshiriqni o‘chirasizmi?"
+
+#: templates/mentor/assignments/detail.html:24
+msgid "Ijrochilar va holat"
+msgstr "Ijrochilar va holat"
+
+#: templates/mentor/assignments/detail.html:35 templates/mentor/review_queue.html:13 templates/shared/reflection_detail.html:11 templates/student/reflections/list.html:15
+msgid "Yuborilgan"
+msgstr "Yuborilgan"
+
+#: templates/mentor/assignments/detail.html:46
+msgid "Ijrochilar yo‘q"
+msgstr "Ijrochilar yo‘q"
+
+#: templates/mentor/assignments/form.html:3 templates/mentor/assignments/form.html:7
+msgid "Topshiriqni tahrirlash"
+msgstr "Topshiriqni tahrirlash"
+
+#: templates/mentor/assignments/form.html:8 templates/student/goals/form.html:8 templates/student/portfolio/edit.html:8 templates/student/portfolio/upload.html:11
+msgid "Orqaga"
+msgstr "Orqaga"
+
+#: templates/admin/mentor_assignments/list.html:29 templates/mentor/assignments/form.html:41
+msgid "Muddatlar"
+msgstr "Muddatlar"
+
+#: templates/mentor/assignments/form.html:49
+msgid "Kimga beriladi"
+msgstr "Kimga beriladi"
+
+#: templates/mentor/assignments/form.html:53
+msgid "Guruh tanlansa, guruhdagi barcha talabalar (keyinchalik qo‘shilganlari ham) topshiriqni oladi. Ishni boshlagan talabalar ro‘yxatdan olib tashlanmaydi."
+msgstr "Guruh tanlansa, guruhdagi barcha talabalar (keyinchalik qo‘shilganlari ham) topshiriqni oladi. Ishni boshlagan talabalar ro‘yxatdan olib tashlanmaydi."
+
+#: templates/mentor/assignments/form.html:56
+msgid "Topshiriqni yuborish"
+msgstr "Topshiriqni yuborish"
+
+#: templates/mentor/assignments/list.html:7
+msgid "Platformadagi topshiriqlar"
+msgstr "Platformadagi topshiriqlar"
+
+#: templates/mentor/assignments/list.html:7
+msgid "Men bergan topshiriqlar"
+msgstr "Men bergan topshiriqlar"
+
+#: templates/mentor/assignments/list.html:8
+msgid "Topshiriqlar, biriktirilgan talabalar va bajarilish holati"
+msgstr "Topshiriqlar, biriktirilgan talabalar va bajarilish holati"
+
+#: templates/mentor/assignments/list.html:14
+msgid "Topshiriq yoki fan..."
+msgstr "Topshiriq yoki fan..."
+
+#: templates/mentor/assignments/list.html:18
+msgid "Arxiv"
+msgstr "Arxiv"
+
+#: templates/mentor/assignments/list.html:25
+msgid "Bajarilishi"
+msgstr "Bajarilishi"
+
+#: templates/mentor/assignments/list.html:42 templates/mentor/students/detail.html:45
+msgid "Topshiriqlar yo‘q"
+msgstr "Topshiriqlar yo‘q"
+
+#: templates/mentor/assignments/list.html:42 templates/mentor/dashboard.html:11 templates/mentor/students/detail.html:18
+msgid "Topshiriq berish"
+msgstr "Topshiriq berish"
+
+#: templates/mentor/baseline_form.html:9
+msgid "Rivojlanish siklining 1-bosqichi. Bu natija keyingi baholashlar bilan taqqoslanadigan dastlabki ko‘rsatkich bo‘ladi."
+msgstr "Rivojlanish siklining 1-bosqichi. Bu natija keyingi baholashlar bilan taqqoslanadigan dastlabki ko‘rsatkich bo‘ladi."
+
+#: templates/mentor/dashboard.html:3 templates/mentor/dashboard.html:4
+msgid "Ustoz paneli"
+msgstr "Ustoz paneli"
+
+#: templates/mentor/dashboard.html:7 templates/student/dashboard.html:8
+#, python-format
+msgid "Xush kelibsiz, %(name)s!"
+msgstr "Xush kelibsiz, %(name)s!"
+
+#: templates/mentor/dashboard.html:8
+msgid "Talabalaringizning rivojlanishi va tekshirish kutilayotgan ishlar"
+msgstr "Talabalaringizning rivojlanishi va tekshirish kutilayotgan ishlar"
+
+#: templates/mentor/dashboard.html:10
+msgid "Talabalarim"
+msgstr "Talabalarim"
+
+#: templates/mentor/dashboard.html:17
+#, python-format
+msgid "%(n)s ta faol topshiriq"
+msgstr "%(n)s ta faol topshiriq"
+
+#: templates/mentor/dashboard.html:19
+msgid "Tekshirish kutilmoqda"
+msgstr "Tekshirish kutilmoqda"
+
+#: templates/mentor/dashboard.html:21
+msgid "Baholangan ishlar"
+msgstr "Baholangan ishlar"
+
+#: templates/mentor/dashboard.html:22
+#, python-format
+msgid "shu hafta: %(n)s"
+msgstr "shu hafta: %(n)s"
+
+#: templates/mentor/dashboard.html:24 templates/mentor/dashboard.html:67
+msgid "Yangi refleksiya yozuvlari"
+msgstr "Yangi refleksiya yozuvlari"
+
+#: templates/mentor/dashboard.html:30 templates/mentor/review_queue.html:7
+msgid "Tekshirish kutilayotgan ishlar"
+msgstr "Tekshirish kutilayotgan ishlar"
+
+#: templates/mentor/dashboard.html:40
+msgid "Barcha ishlar tekshirilgan"
+msgstr "Barcha ishlar tekshirilgan"
+
+#: templates/mentor/dashboard.html:45
+msgid "Talabalar rivojlanish ko‘rsatkichlari"
+msgstr "Talabalar rivojlanish ko‘rsatkichlari"
+
+#: templates/mentor/dashboard.html:46
+msgid "o‘rtacha o‘sish"
+msgstr "o‘rtacha o‘sish"
+
+#: templates/mentor/dashboard.html:47 templates/shared/portfolio_detail.html:94 templates/student/dashboard.html:47
+msgid "Batafsil"
+msgstr "Batafsil"
+
+#: templates/mentor/dashboard.html:49
+msgid "Talabalar: boshlang‘ich va keyingi natija"
+msgstr "Talabalar: boshlang‘ich va keyingi natija"
+
+#: templates/mentor/dashboard.html:53 templates/mentor/students/list.html:23 templates/shared/analytics_body.html:46 templates/shared/analytics_body.html:84
+msgid "Oxirgi"
+msgstr "Oxirgi"
+
+#: templates/mentor/dashboard.html:53 templates/mentor/students/list.html:23 templates/shared/analytics_body.html:46 templates/shared/analytics_body.html:84
+msgid "O‘zgarish"
+msgstr "O‘zgarish"
+
+#: templates/mentor/dashboard.html:53 templates/mentor/students/list.html:23
+msgid "Kutilmoqda"
+msgstr "Kutilmoqda"
+
+#: templates/mentor/dashboard.html:60
+msgid "Sizga hali talaba biriktirilmagan. Administrator bilan bog‘laning."
+msgstr "Sizga hali talaba biriktirilmagan. Administrator bilan bog‘laning."
+
+#: templates/mentor/dashboard.html:74
+msgid "Yangi refleksiyalar yo‘q"
+msgstr "Yangi refleksiyalar yo‘q"
+
+#: templates/mentor/review_queue.html:4
+msgid "Tekshirish navbati"
+msgstr "Tekshirish navbati"
+
+#: templates/mentor/review_queue.html:8
+msgid "Talabalar yuborgan ishlar va refleksiyalar — yuborilgan vaqti bo‘yicha"
+msgstr "Talabalar yuborgan ishlar va refleksiyalar — yuborilgan vaqti bo‘yicha"
+
+#: templates/mentor/review_queue.html:19
+msgid "kechikkan"
+msgstr "kechikkan"
+
+#: templates/mentor/review_queue.html:22
+msgid "Ko‘rib chiqish"
+msgstr "Ko‘rib chiqish"
+
+#: templates/mentor/review_queue.html:25
+msgid "Tekshirish kutilayotgan ishlar yo‘q"
+msgstr "Tekshirish kutilayotgan ishlar yo‘q"
+
+#: templates/mentor/review_queue.html:32
+msgid "Yaqinda baholaganlarim"
+msgstr "Yaqinda baholaganlarim"
+
+#: templates/mentor/students/detail.html:23
+msgid "Rivojlanish sikli boshlang‘ich baholashdan boshlanadi. U keyingi natijalarni taqqoslash uchun asos bo‘ladi."
+msgstr "Rivojlanish sikli boshlang‘ich baholashdan boshlanadi. U keyingi natijalarni taqqoslash uchun asos bo‘ladi."
+
+#: templates/mentor/students/detail.html:35
+msgid "Maqsadlar yo‘q"
+msgstr "Maqsadlar yo‘q"
+
+#: templates/mentor/students/detail.html:56
+msgid "Ishlar yo‘q"
+msgstr "Ishlar yo‘q"
+
+#: templates/mentor/students/detail.html:62
+msgid "Oxirgi refleksiyalar"
+msgstr "Oxirgi refleksiyalar"
+
+#: templates/mentor/students/detail.html:66
+msgid "Refleksiyalar yo‘q"
+msgstr "Refleksiyalar yo‘q"
+
+#: templates/mentor/students/list.html:8
+msgid "Rivojlanish ko‘rsatkichlari: boshlang‘ich va oxirgi natija, ishlar, refleksiyalar"
+msgstr "Rivojlanish ko‘rsatkichlari: boshlang‘ich va oxirgi natija, ishlar, refleksiyalar"
+
+#: templates/mentor/students/list.html:13
+msgid "F.I.Sh., guruh yoki ID..."
+msgstr "F.I.Sh., guruh yoki ID..."
+
+#: templates/mentor/students/list.html:23 templates/student/goals/list.html:28
+msgid "Ishlar"
+msgstr "Ishlar"
+
+#: templates/mentor/students/list.html:37
+msgid "Talabalar topilmadi"
+msgstr "Talabalar topilmadi"
+
+#: templates/shared/analytics_body.html:5 templates/student/goals/detail.html:60
+msgid "Baholashlar"
+msgstr "Baholashlar"
+
+#: templates/shared/analytics_body.html:7 templates/student/dashboard.html:37
+msgid "Bajarilgan topshiriqlar"
+msgstr "Bajarilgan topshiriqlar"
+
+#: templates/shared/analytics_body.html:9
+msgid "Refleksiyalar soni"
+msgstr "Refleksiyalar soni"
+
+#: templates/shared/analytics_body.html:11
+msgid "Takroriy ishlar"
+msgstr "Takroriy ishlar"
+
+#: templates/shared/analytics_body.html:18
+msgid "Talabaning pedagogik kompetensiyalari"
+msgstr "Talabaning pedagogik kompetensiyalari"
+
+#: templates/shared/analytics_body.html:20
+msgid "Dastlabki (boshlang‘ich) va keyingi baholash natijalari, foizda. Boshlang‘ich baholash o‘tkazilgan bo‘lsa, u dastlabki natija sifatida olinadi."
+msgstr "Dastlabki (boshlang‘ich) va keyingi baholash natijalari, foizda. Boshlang‘ich baholash o‘tkazilgan bo‘lsa, u dastlabki natija sifatida olinadi."
+
+#: templates/shared/analytics_body.html:27
+msgid "Ustoz baholari dinamikasi"
+msgstr "Ustoz baholari dinamikasi"
+
+#: templates/shared/analytics_body.html:30
+msgid "Umumiy natija dinamikasi"
+msgstr "Umumiy natija dinamikasi"
+
+#: templates/shared/analytics_body.html:33
+msgid "Baholar tarixi bo‘sh"
+msgstr "Baholar tarixi bo‘sh"
+
+#: templates/shared/analytics_body.html:41
+msgid "Mezonlar bo‘yicha ballar (dastlabki va oxirgi)"
+msgstr "Mezonlar bo‘yicha ballar (dastlabki va oxirgi)"
+
+#: templates/shared/analytics_body.html:43
+msgid "Mezonlar bo‘yicha ballar"
+msgstr "Mezonlar bo‘yicha ballar"
+
+#: templates/shared/analytics_body.html:46
+msgid "Dastlabki"
+msgstr "Dastlabki"
+
+#: templates/shared/analytics_body.html:46
+msgid "Maks."
+msgstr "Maks."
+
+#: templates/shared/analytics_body.html:46
+msgid "Tarix"
+msgstr "Tarix"
+
+#: templates/shared/analytics_body.html:55
+msgid "Ma’lumot yo‘q"
+msgstr "Ma’lumot yo‘q"
+
+#: templates/shared/analytics_body.html:61
+msgid "Bajarilgan ishlar dinamikasi (6 oy)"
+msgstr "Bajarilgan ishlar dinamikasi (6 oy)"
+
+#: templates/shared/analytics_body.html:63
+msgid "Oylar bo‘yicha faollik"
+msgstr "Oylar bo‘yicha faollik"
+
+#: templates/shared/analytics_body.html:70 templates/student/goals/detail.html:80
+msgid "Versiyalar"
+msgstr "Versiyalar"
+
+#: templates/shared/analytics_body.html:81
+msgid "Takroriy ishlar natijasi"
+msgstr "Takroriy ishlar natijasi"
+
+#: templates/shared/analytics_body.html:84
+msgid "Birinchi"
+msgstr "Birinchi"
+
+#: templates/shared/analytics_body.html:86
+msgid "versiya"
+msgstr "versiya"
+
+#: templates/shared/analytics_body.html:89
+msgid "Qayta ishlangan va qayta baholangan ishlar hali yo‘q"
+msgstr "Qayta ishlangan va qayta baholangan ishlar hali yo‘q"
+
+#: templates/shared/analytics_body.html:96
+msgid "Ustoz baholari tarixi"
+msgstr "Ustoz baholari tarixi"
+
+#: templates/shared/analytics_body.html:99 templates/student/assessments/list.html:23
+msgid "Sana"
+msgstr "Sana"
+
+#: templates/shared/analytics_body.html:104
+msgid "Baholar yo‘q"
+msgstr "Baholar yo‘q"
+
+#: templates/shared/assessment_detail.html:3 templates/shared/assessment_detail.html:4
+msgid "Baholash natijasi"
+msgstr "Baholash natijasi"
+
+#: templates/shared/assessment_detail.html:15 templates/shared/reflection_detail.html:14
+msgid "Ishni ochish"
+msgstr "Ishni ochish"
+
+#: templates/shared/assessment_detail.html:25
+msgid "oldingi baho"
+msgstr "oldingi baho"
+
+#: templates/shared/assessment_detail.html:31
+msgid "Oldingi baho bilan taqqoslash"
+msgstr "Oldingi baho bilan taqqoslash"
+
+#: templates/shared/assessment_detail.html:32
+msgid "Mezonlar bo‘yicha taqqoslash"
+msgstr "Mezonlar bo‘yicha taqqoslash"
+
+#: templates/shared/assignment_info.html:3
+msgid "Topshiriq tavsifi"
+msgstr "Topshiriq tavsifi"
+
+#: templates/shared/assignment_info.html:16 templates/shared/criteria_form.html:7
+msgid "ball"
+msgstr "ball"
+
+#: templates/shared/comparison_block.html:5
+msgid "Kompetensiyalar bo‘yicha boshlang‘ich va keyingi natijalar"
+msgstr "Kompetensiyalar bo‘yicha boshlang‘ich va keyingi natijalar"
+
+#: templates/shared/comparison_block.html:22
+msgid "Keyingi natija takroriy baholashdan keyin paydo bo‘ladi."
+msgstr "Keyingi natija takroriy baholashdan keyin paydo bo‘ladi."
+
+#: templates/shared/comparison_block.html:24
+msgid "Hali baholash natijalari yo‘q"
+msgstr "Hali baholash natijalari yo‘q"
+
+#: templates/shared/comparison_block.html:25
+msgid "Ustoz baholaganidan so‘ng kompetensiyalar bo‘yicha rivojlanish diagrammasi shu yerda ko‘rinadi."
+msgstr "Ustoz baholaganidan so‘ng kompetensiyalar bo‘yicha rivojlanish diagrammasi shu yerda ko‘rinadi."
+
+#: templates/shared/criteria_form.html:7
+msgid "maks."
+msgstr "maks."
+
+#: templates/shared/criteria_form.html:8
+msgid "oldingi versiyada"
+msgstr "oldingi versiyada"
+
+#: templates/shared/portfolio_detail.html:23
+msgid "Yangi versiya yuklash"
+msgstr "Yangi versiya yuklash"
+
+#: templates/shared/portfolio_detail.html:23
+msgid "Fayl qo‘shish"
+msgstr "Fayl qo‘shish"
+
+#: templates/shared/portfolio_detail.html:28
+msgid "Bahoni tahrirlash"
+msgstr "Bahoni tahrirlash"
+
+#: templates/shared/portfolio_detail.html:35
+msgid "Ish qayta ishlash uchun qaytarildi."
+msgstr "Ish qayta ishlash uchun qaytarildi."
+
+#: templates/shared/portfolio_detail.html:35
+msgid "Ustoz tavsiyalarini o‘qib chiqing, ishni takomillashtiring va yangi versiyasini yuklang."
+msgstr "Ustoz tavsiyalarini o‘qib chiqing, ishni takomillashtiring va yangi versiyasini yuklang."
+
+#: templates/shared/portfolio_detail.html:38
+#, python-format
+msgid "v%(n)s — qoralama. Refleksiya yozing va ishni ustozga tekshirishga yuboring."
+msgstr "v%(n)s — qoralama. Refleksiya yozing va ishni ustozga tekshirishga yuboring."
+
+#: templates/shared/portfolio_detail.html:39
+msgid "Refleksiya va yuborish"
+msgstr "Refleksiya va yuborish"
+
+#: templates/shared/portfolio_detail.html:49
+#, python-format
+msgid "%(n)s-versiya"
+msgstr "%(n)s-versiya"
+
+#: templates/shared/portfolio_detail.html:51
+msgid "yuborilgan"
+msgstr "yuborilgan"
+
+#: templates/shared/portfolio_detail.html:51 templates/shared/portfolio_detail.html:129
+msgid "qoralama"
+msgstr "qoralama"
+
+#: templates/shared/portfolio_detail.html:64
+msgid "Yozish"
+msgstr "Yozish"
+
+#: templates/shared/portfolio_detail.html:75 templates/shared/reflection_detail.html:25
+msgid "Dalillar"
+msgstr "Dalillar"
+
+#: templates/shared/portfolio_detail.html:83
+msgid "Bu versiya uchun refleksiya yozilmagan."
+msgstr "Bu versiya uchun refleksiya yozilmagan."
+
+#: templates/shared/portfolio_detail.html:92
+msgid "Ustoz bahosi va fikri"
+msgstr "Ustoz bahosi va fikri"
+
+#: templates/shared/portfolio_detail.html:116
+msgid "Versiyalar yo‘q"
+msgstr "Versiyalar yo‘q"
+
+#: templates/shared/portfolio_detail.html:122
+msgid "Versiyalar tarixi"
+msgstr "Versiyalar tarixi"
+
+#: templates/shared/portfolio_detail.html:128
+msgid "oxirgi"
+msgstr "oxirgi"
+
+#: templates/shared/portfolio_detail.html:129
+msgid "tekshirishda"
+msgstr "tekshirishda"
+
+#: templates/shared/portfolio_detail.html:131 templates/student/portfolio/list.html:33
+msgid "fayl"
+msgstr "fayl"
+
+#: templates/shared/portfolio_detail.html:131
+msgid "refleksiya"
+msgstr "refleksiya"
+
+#: templates/shared/portfolio_detail.html:139 templates/shared/portfolio_detail.html:140
+msgid "Versiyalar bo‘yicha natija"
+msgstr "Versiyalar bo‘yicha natija"
+
+#: templates/shared/portfolio_detail.html:145
+msgid "Ustoz izohlari"
+msgstr "Ustoz izohlari"
+
+#: templates/shared/portfolio_detail.html:151
+msgid "Yuborish"
+msgstr "Yuborish"
+
+#: templates/shared/portfolio_detail.html:165
+msgid "Izohlar yo‘q"
+msgstr "Izohlar yo‘q"
+
+#: templates/student/analytics.html:4
+msgid "Rivojlanish va analitika"
+msgstr "Rivojlanish va analitika"
+
+#: templates/student/analytics.html:7
+msgid "Mening rivojlanishim"
+msgstr "Mening rivojlanishim"
+
+#: templates/student/analytics.html:8
+msgid "Boshlang‘ich va keyingi natijalar, ustoz baholari tarixi va faollik dinamikasi"
+msgstr "Boshlang‘ich va keyingi natijalar, ustoz baholari tarixi va faollik dinamikasi"
+
+#: templates/student/assessments/list.html:3
+msgid "Baholar"
+msgstr "Baholar"
+
+#: templates/student/assessments/list.html:8
+msgid "Boshlang‘ich va ishlar bo‘yicha baholashlar, mezonlar bo‘yicha batafsil"
+msgstr "Boshlang‘ich va ishlar bo‘yicha baholashlar, mezonlar bo‘yicha batafsil"
+
+#: templates/student/assessments/list.html:18
+msgid "Talaba yoki ish..."
+msgstr "Talaba yoki ish..."
+
+#: templates/student/assessments/list.html:36
+msgid "Baholar hali yo‘q"
+msgstr "Baholar hali yo‘q"
+
+#: templates/student/assignments/detail.html:20
+msgid "Boshlanish"
+msgstr "Boshlanish"
+
+#: templates/student/assignments/detail.html:22 templates/student/assignments/list.html:34
+msgid "qoldi"
+msgstr "qoldi"
+
+#: templates/student/assignments/detail.html:26
+msgid "Topshiriqni qabul qilish"
+msgstr "Topshiriqni qabul qilish"
+
+#: templates/student/assignments/detail.html:30
+msgid "Ishimni ochish"
+msgstr "Ishimni ochish"
+
+#: templates/student/assignments/detail.html:33
+msgid "Dars rejasi / ish yuklash"
+msgstr "Dars rejasi / ish yuklash"
+
+#: templates/student/assignments/detail.html:37
+msgid "Dars ishlanmasi, video yoki boshqa materialni yuklang"
+msgstr "Dars ishlanmasi, video yoki boshqa materialni yuklang"
+
+#: templates/student/assignments/detail.html:38
+msgid "Refleksiya savollariga javob yozing"
+msgstr "Refleksiya savollariga javob yozing"
+
+#: templates/student/assignments/detail.html:39
+msgid "Ustozga tekshirishga yuboring"
+msgstr "Ustozga tekshirishga yuboring"
+
+#: templates/student/assignments/detail.html:40
+msgid "Ustoz fikri asosida takomillashtiring"
+msgstr "Ustoz fikri asosida takomillashtiring"
+
+#: templates/student/assignments/list.html:7
+msgid "Mening topshiriqlarim"
+msgstr "Mening topshiriqlarim"
+
+#: templates/student/assignments/list.html:8
+msgid "Ustozlar bergan topshiriqlar va ularning bajarilish holati"
+msgstr "Ustozlar bergan topshiriqlar va ularning bajarilish holati"
+
+#: templates/student/assignments/list.html:38
+msgid "Topshiriqlar topilmadi"
+msgstr "Topshiriqlar topilmadi"
+
+#: templates/student/dashboard.html:12 templates/student/goals/list.html:43
+msgid "Maqsad qo‘yish"
+msgstr "Maqsad qo‘yish"
+
+#: templates/student/dashboard.html:13 templates/student/goals/detail.html:15 templates/student/portfolio/create.html:3 templates/student/portfolio/list.html:9
+msgid "Ish yuklash"
+msgstr "Ish yuklash"
+
+#: templates/student/dashboard.html:21
+msgid "Portfolio holati"
+msgstr "Portfolio holati"
+
+#: templates/student/dashboard.html:23
+#, python-format
+msgid "%(p)s%% tasdiqlangan"
+msgstr "%(p)s%% tasdiqlangan"
+
+#: templates/student/dashboard.html:28
+#, python-format
+msgid "%(a)s faol · %(c)s bajarilgan"
+msgstr "%(a)s faol · %(c)s bajarilgan"
+
+#: templates/student/dashboard.html:32 templates/student/dashboard.html:53
+msgid "Faol topshiriqlar"
+msgstr "Faol topshiriqlar"
+
+#: templates/student/dashboard.html:33
+#, python-format
+msgid "%(r)s tasi qayta ishlashda"
+msgstr "%(r)s tasi qayta ishlashda"
+
+#: templates/student/dashboard.html:33
+#, python-format
+msgid "jami %(t)s ta"
+msgstr "jami %(t)s ta"
+
+#: templates/student/dashboard.html:38
+#, python-format
+msgid "%(r)s ta refleksiya"
+msgstr "%(r)s ta refleksiya"
+
+#: templates/student/dashboard.html:46
+msgid "Kompetensiyalar bo‘yicha rivojlanish"
+msgstr "Kompetensiyalar bo‘yicha rivojlanish"
+
+#: templates/student/dashboard.html:67
+msgid "Faol topshiriqlar yo‘q"
+msgstr "Faol topshiriqlar yo‘q"
+
+#: templates/student/dashboard.html:72
+msgid "Ustozdan kelgan izohlar"
+msgstr "Ustozdan kelgan izohlar"
+
+#: templates/student/dashboard.html:82
+msgid "Hozircha izohlar yo‘q"
+msgstr "Hozircha izohlar yo‘q"
+
+#: templates/student/dashboard.html:89
+msgid "Oxirgi yuklangan ishlar"
+msgstr "Oxirgi yuklangan ishlar"
+
+#: templates/student/dashboard.html:93
+msgid "Yuklangan"
+msgstr "Yuklangan"
+
+#: templates/student/dashboard.html:104
+msgid "Hali ish yuklanmagan"
+msgstr "Hali ish yuklanmagan"
+
+#: templates/student/goals/detail.html:11
+msgid "muddati o‘tgan"
+msgstr "muddati o‘tgan"
+
+#: templates/student/goals/detail.html:25
+msgid "Maqsadni o‘chirasizmi?"
+msgstr "Maqsadni o‘chirasizmi?"
+
+#: templates/student/goals/detail.html:34
+msgid "Uzluksiz refleksiv rivojlanish sikli"
+msgstr "Uzluksiz refleksiv rivojlanish sikli"
+
+#: templates/student/goals/detail.html:45
+msgid "Sikl yakunlandi. Natijalarni tahlil qilib, yangi rivojlanish maqsadini belgilang."
+msgstr "Sikl yakunlandi. Natijalarni tahlil qilib, yangi rivojlanish maqsadini belgilang."
+
+#: templates/student/goals/detail.html:45
+msgid "Yangi sikl boshlash"
+msgstr "Yangi sikl boshlash"
+
+#: templates/student/goals/detail.html:52
+msgid "Maqsad haqida"
+msgstr "Maqsad haqida"
+
+#: templates/student/goals/detail.html:70
+msgid "Hali baholanmagan"
+msgstr "Hali baholanmagan"
+
+#: templates/student/goals/detail.html:77
+msgid "Bog‘langan amaliy ishlar"
+msgstr "Bog‘langan amaliy ishlar"
+
+#: templates/student/goals/detail.html:90
+msgid "Bu maqsadga hali ish bog‘lanmagan"
+msgstr "Bu maqsadga hali ish bog‘lanmagan"
+
+#: templates/student/goals/form.html:3 templates/student/goals/form.html:7
+msgid "Maqsadni tahrirlash"
+msgstr "Maqsadni tahrirlash"
+
+#: templates/student/goals/form.html:3 templates/student/goals/list.html:9
+msgid "Yangi maqsad"
+msgstr "Yangi maqsad"
+
+#: templates/student/goals/form.html:7
+msgid "Yangi rivojlanish maqsadi"
+msgstr "Yangi rivojlanish maqsadi"
+
+#: templates/student/goals/form.html:30
+msgid "Yaxshi maqsad qanday bo‘ladi?"
+msgstr "Yaxshi maqsad qanday bo‘ladi?"
+
+#: templates/student/goals/form.html:32
+msgid "Aniq: qaysi ko‘nikmani rivojlantirmoqchisiz?"
+msgstr "Aniq: qaysi ko‘nikmani rivojlantirmoqchisiz?"
+
+#: templates/student/goals/form.html:33
+msgid "O‘lchanadigan: natijani qanday dalil ko‘rsatadi?"
+msgstr "O‘lchanadigan: natijani qanday dalil ko‘rsatadi?"
+
+#: templates/student/goals/form.html:34
+msgid "Real: muddat ichida bajarsa bo‘ladigan."
+msgstr "Real: muddat ichida bajarsa bo‘ladigan."
+
+#: templates/student/goals/form.html:35
+msgid "Kompetensiyaga bog‘langan: baholash mezonlari bilan mos."
+msgstr "Kompetensiyaga bog‘langan: baholash mezonlari bilan mos."
+
+#: templates/student/goals/form.html:38
+msgid "Misol"
+msgstr "Misol"
+
+#: templates/student/goals/form.html:38
+msgid "«Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish»"
+msgstr "«Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish»"
+
+#: templates/student/goals/list.html:8
+msgid "Har bir maqsad — alohida rivojlanish sikli: baholash → reja → amaliyot → refleksiya → takomillashtirish"
+msgstr "Har bir maqsad — alohida rivojlanish sikli: baholash → reja → amaliyot → refleksiya → takomillashtirish"
+
+#: templates/student/goals/list.html:42
+msgid "Maqsadlar hali belgilanmagan"
+msgstr "Maqsadlar hali belgilanmagan"
+
+#: templates/student/goals/list.html:44
+msgid "Masalan: «Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish»"
+msgstr "Masalan: «Dars jarayonida barcha o‘quvchilarni savol-javobga jalb qilish ko‘nikmasini rivojlantirish»"
+
+#: templates/student/portfolio/create.html:4 templates/student/portfolio/edit.html:4 templates/student/portfolio/list.html:4 templates/student/portfolio/upload.html:4
+msgid "Elektron portfolio"
+msgstr "Elektron portfolio"
+
+#: templates/student/portfolio/create.html:7
+msgid "Amaliy ishni yuklash"
+msgstr "Amaliy ishni yuklash"
+
+#: templates/student/portfolio/create.html:8
+msgid "Bu ishning 1-versiyasi bo‘ladi. Keyingi qayta yuklashlar yangi versiya sifatida saqlanadi, oldingilari o‘chmaydi."
+msgstr "Bu ishning 1-versiyasi bo‘ladi. Keyingi qayta yuklashlar yangi versiya sifatida saqlanadi, oldingilari o‘chmaydi."
+
+#: templates/student/portfolio/create.html:28 templates/student/portfolio/upload.html:21
+msgid "Yuklanmoqda..."
+msgstr "Yuklanmoqda..."
+
+#: templates/student/portfolio/create.html:29 templates/student/portfolio/upload.html:22
+msgid "Yuklash"
+msgstr "Yuklash"
+
+#: templates/student/portfolio/create.html:34
+msgid "Qanday materiallar yuklash mumkin"
+msgstr "Qanday materiallar yuklash mumkin"
+
+#: templates/student/portfolio/create.html:36
+msgid "Dars ishlanmasi: PDF, DOC, DOCX"
+msgstr "Dars ishlanmasi: PDF, DOC, DOCX"
+
+#: templates/student/portfolio/create.html:37
+msgid "ko‘pi bilan"
+msgstr "ko‘pi bilan"
+
+#: templates/student/portfolio/create.html:38
+msgid "Audio: MP3, WAV"
+msgstr "Audio: MP3, WAV"
+
+#: templates/student/portfolio/create.html:39
+msgid "Rasmlar: JPG, PNG"
+msgstr "Rasmlar: JPG, PNG"
+
+#: templates/student/portfolio/create.html:40
+msgid "Taqdimotlar: PPT, PPTX"
+msgstr "Taqdimotlar: PPT, PPTX"
+
+#: templates/student/portfolio/create.html:42
+#, python-format
+msgid "Hujjat, rasm va audio fayllar uchun limit — %(n)s MB. Bir versiyaga bir nechta fayl (masalan, dars rejasi va dars videosi) yuklash mumkin."
+msgstr "Hujjat, rasm va audio fayllar uchun limit — %(n)s MB. Bir versiyaga bir nechta fayl (masalan, dars rejasi va dars videosi) yuklash mumkin."
+
+#: templates/student/portfolio/edit.html:3
+msgid "Ishni tahrirlash"
+msgstr "Ishni tahrirlash"
+
+#: templates/student/portfolio/edit.html:7
+msgid "Ish ma’lumotlarini tahrirlash"
+msgstr "Ish ma’lumotlarini tahrirlash"
+
+#: templates/student/portfolio/list.html:7
+msgid "Mening portfoliom"
+msgstr "Mening portfoliom"
+
+#: templates/student/portfolio/list.html:8
+msgid "Amaliy ishlar: dars ishlanmalari, videolar, audio, rasm va taqdimotlar — barcha versiyalari bilan"
+msgstr "Amaliy ishlar: dars ishlanmalari, videolar, audio, rasm va taqdimotlar — barcha versiyalari bilan"
+
+#: templates/student/portfolio/list.html:14
+msgid "Ish nomi yoki topshiriq..."
+msgstr "Ish nomi yoki topshiriq..."
+
+#: templates/student/portfolio/list.html:14
+msgid "Ish, talaba yoki topshiriq..."
+msgstr "Ish, talaba yoki topshiriq..."
+
+#: templates/student/portfolio/list.html:16
+msgid "Barcha holatlar"
+msgstr "Barcha holatlar"
+
+#: templates/student/portfolio/list.html:20
+msgid "Barcha turlar"
+msgstr "Barcha turlar"
+
+#: templates/student/portfolio/list.html:29
+msgid "Topshiriq / maqsad"
+msgstr "Topshiriq / maqsad"
+
+#: templates/student/portfolio/list.html:43
+msgid "Ishlar topilmadi"
+msgstr "Ishlar topilmadi"
+
+#: templates/student/portfolio/upload.html:8
+#, python-format
+msgid "Yangi versiya yuklash (v%(n)s)"
+msgstr "Yangi versiya yuklash (v%(n)s)"
+
+#: templates/student/portfolio/upload.html:8
+#, python-format
+msgid "v%(n)s qoralamasiga fayl qo‘shish"
+msgstr "v%(n)s qoralamasiga fayl qo‘shish"
+
+#: templates/student/portfolio/upload.html:18
+msgid "Oldingi versiyalar va ularning fayllari tarixda o‘zgarishsiz saqlanadi."
+msgstr "Oldingi versiyalar va ularning fayllari tarixda o‘zgarishsiz saqlanadi."
+
+#: templates/student/reflections/form.html:9
+msgid "Har bir savolga alohida, aniq dalillarga tayanib javob bering."
+msgstr "Har bir savolga alohida, aniq dalillarga tayanib javob bering."
+
+#: templates/student/reflections/form.html:31
+msgid "Dalil biriktirish (ixtiyoriy)"
+msgstr "Dalil biriktirish (ixtiyoriy)"
+
+#: templates/student/reflections/form.html:42
+msgid "Dalilni o‘chirasizmi?"
+msgstr "Dalilni o‘chirasizmi?"
+
+#: templates/student/reflections/form.html:59
+msgid "Qoralama sifatida saqlash"
+msgstr "Qoralama sifatida saqlash"
+
+#: templates/student/reflections/form.html:60
+msgid "O‘zgarishlarni saqlab, ustozga yuborasizmi?"
+msgstr "O‘zgarishlarni saqlab, ustozga yuborasizmi?"
+
+#: templates/student/reflections/form.html:60
+msgid "Refleksiya va ish ustozga tekshirishga yuboriladi. Davom etasizmi?"
+msgstr "Refleksiya va ish ustozga tekshirishga yuboriladi. Davom etasizmi?"
+
+#: templates/student/reflections/form.html:61
+msgid "Ustozga yuborish"
+msgstr "Ustozga yuborish"
+
+#: templates/student/reflections/form.html:62
+msgid "Yuborilgandan keyin ham ustoz baholaguncha refleksiyani tahrirlash mumkin."
+msgstr "Yuborilgandan keyin ham ustoz baholaguncha refleksiyani tahrirlash mumkin."
+
+#: templates/student/reflections/form.html:64
+msgid "Ushbu versiya fayllari"
+msgstr "Ushbu versiya fayllari"
+
+#: templates/student/reflections/form.html:65
+msgid "Fayl yuklanmagan — yuborishdan oldin fayl yuklang."
+msgstr "Fayl yuklanmagan — yuborishdan oldin fayl yuklang."
+
+#: templates/student/reflections/form.html:68
+msgid "Oldingi refleksiyalarim"
+msgstr "Oldingi refleksiyalarim"
+
+#: templates/student/reflections/list.html:7
+msgid "Refleksiyalar tarixi"
+msgstr "Refleksiyalar tarixi"
+
+#: templates/student/reflections/list.html:7
+msgid "Talabalar refleksiyalari"
+msgstr "Talabalar refleksiyalari"
+
+#: templates/student/reflections/list.html:8
+msgid "O‘z-o‘zini tahlil: maqsad, jarayon, yutuqlar va dalillar, qiyinchiliklar, keyingi qadamlar"
+msgstr "O‘z-o‘zini tahlil: maqsad, jarayon, yutuqlar va dalillar, qiyinchiliklar, keyingi qadamlar"
+
+#: templates/student/reflections/list.html:14
+msgid "Yangi (baholanmagan)"
+msgstr "Yangi (baholanmagan)"
+
+#: templates/student/reflections/list.html:20
+msgid "Matn bo‘yicha qidiruv..."
+msgstr "Matn bo‘yicha qidiruv..."
+
+#: templates/student/reflections/list.html:25
+msgid "Ish / versiya"
+msgstr "Ish / versiya"
+
+#: templates/student/reflections/list.html:25
+msgid "Baho"
+msgstr "Baho"
+
+#: templates/student/reflections/list.html:37
+msgid "Refleksiyalar topilmadi"
+msgstr "Refleksiyalar topilmadi"
+
+#: templates/student/reflections/list.html:37
+msgid "Refleksiya ish yuklangandan keyin, ish sahifasidan yoziladi."
+msgstr "Refleksiya ish yuklangandan keyin, ish sahifasidan yoziladi."
+
+#: apps/accounts/services.py:92
+msgid "Familiya"
+msgstr "Familiya"
+
+#: apps/accounts/services.py:93
+msgid "Ism"
+msgstr "Ism"
+
+#: apps/accounts/services.py:97
+msgid "Email"
+msgstr "Email"
+
+#: apps/accounts/services.py:98
+msgid "Telefon"
+msgstr "Telefon"
+
+msgid "Nima sodir bo‘ldi?"
+msgstr "Nima sodir bo‘ldi?"
+
+msgid "Voqeani ketma-ket, faqat faktlarga tayanib hikoya qiling."
+msgstr "Voqeani ketma-ket, faqat faktlarga tayanib hikoya qiling."
+
+msgid "Qanday his-tuyg‘ularni his qildingiz?"
+msgstr "Qanday his-tuyg‘ularni his qildingiz?"
+
+msgid "Voqea paytida va undan keyin o‘zingizni qanday his qilganingizni yozing."
+msgstr "Voqea paytida va undan keyin o‘zingizni qanday his qilganingizni yozing."
+
+msgid "Nima yaxshi, nima yomon chiqdi?"
+msgstr "Nima yaxshi, nima yomon chiqdi?"
+
+msgid "Yaxshi va yomon tomonlarni dalillar bilan ko‘rsating."
+msgstr "Yaxshi va yomon tomonlarni dalillar bilan ko‘rsating."
+
+msgid "Nima uchun bunday bo‘ldi?"
+msgstr "Nima uchun bunday bo‘ldi?"
+
+msgid "Sabablarni toping: nima yordam berdi, nima xalaqit qildi?"
+msgstr "Sabablarni toping: nima yordam berdi, nima xalaqit qildi?"
+
+msgid "Bundan nimani o‘rgandingiz?"
+msgstr "Bundan nimani o‘rgandingiz?"
+
+msgid "Boshqacha nima qilish mumkin edi?"
+msgstr "Boshqacha nima qilish mumkin edi?"
+
+msgid "Keyingi safar nima qilasiz?"
+msgstr "Keyingi safar nima qilasiz?"
+
+msgid "Haqiqatan bajara oladigan aniq qadamlarni yozing."
+msgstr "Haqiqatan bajara oladigan aniq qadamlarni yozing."
+
+msgid "Nima qildingiz?"
+msgstr "Nima qildingiz?"
+
+msgid "Tajribani tasvirlang: qayerda, kim bilan va nima bo‘ldi?"
+msgstr "Tajribani tasvirlang: qayerda, kim bilan va nima bo‘ldi?"
+
+msgid "Nimani payqadingiz?"
+msgstr "Nimani payqadingiz?"
+
+msgid "Voqeaga yon tomondan qarang. Nimani ko‘rdingiz va nimani o‘yladingiz?"
+msgstr "Voqeaga yon tomondan qarang. Nimani ko‘rdingiz va nimani o‘yladingiz?"
+
+msgid "Bu tajriba sizga nimani o‘rgatdi?"
+msgstr "Bu tajriba sizga nimani o‘rgatdi?"
+
+msgid "Tajribani biror nazariya yoki qoida bilan bog‘lang."
+msgstr "Tajribani biror nazariya yoki qoida bilan bog‘lang."
+
+msgid "Keyingi safar nimani sinab ko‘rasiz?"
+msgstr "Keyingi safar nimani sinab ko‘rasiz?"
+
+msgid "Yangi g‘oyani ishda qo‘llash uchun aniq reja yozing."
+msgstr "Yangi g‘oyani ishda qo‘llash uchun aniq reja yozing."
+
+msgid "Bosqich"
+msgstr "Bosqich"
+
+msgid "Gibbs va Kolb modellari uchun majburiy. Qisqa refleksiyada bo‘sh qoldiring."
+msgstr "Gibbs va Kolb modellari uchun majburiy. Qisqa refleksiyada bo‘sh qoldiring."
+
+msgid "Bu model uchun bosqichni tanlang."
+msgstr "Bu model uchun bosqichni tanlang."
+
+msgid "Bu bosqich tanlangan modelga tegishli emas."
+msgstr "Bu bosqich tanlangan modelga tegishli emas."
+
+msgid "Gibbs refleksiya sikli"
+msgstr "Gibbs refleksiya sikli"
+
+msgid "Kolb tajriba orqali o‘rganish sikli"
+msgstr "Kolb tajriba orqali o‘rganish sikli"
+
+msgid "Qisqa refleksiya"
+msgstr "Qisqa refleksiya"
+
+msgid "Tajriba yoki faoliyat bosqichlari haqida ketma-ket, tizimli o‘ylashga yordam beradigan keng tarqalgan model. Olti bosqichdan iborat: tasvir, his-tuyg‘ular, baholash, tahlil, xulosa va harakat rejasi."
+msgstr "Tajriba yoki faoliyat bosqichlari haqida ketma-ket, tizimli o‘ylashga yordam beradigan keng tarqalgan model. Olti bosqichdan iborat: tasvir, his-tuyg‘ular, baholash, tahlil, xulosa va harakat rejasi."
+
+msgid "Tuzilmasi aniq: muvaffaqiyat va xatolardan to‘liq o‘rganish uchun qulay."
+msgstr "Tuzilmasi aniq: muvaffaqiyat va xatolardan to‘liq o‘rganish uchun qulay."
+
+msgid "Tajriba va undan o‘rganishga tayanadigan model. To‘rt bosqichdan iborat: aniq tajriba, mulohazali kuzatish, mavhum tushunchalash va faol tajriba qilish."
+msgstr "Tajriba va undan o‘rganishga tayanadigan model. To‘rt bosqichdan iborat: aniq tajriba, mulohazali kuzatish, mavhum tushunchalash va faol tajriba qilish."
+
+msgid "Tajribani amalda qo‘llasa bo‘ladigan xulosalarga aylantirish uchun qulay."
+msgstr "Tajribani amalda qo‘llasa bo‘ladigan xulosalarga aylantirish uchun qulay."
+
+msgid "Tez refleksiya uchun beshta oddiy savol."
+msgstr "Tez refleksiya uchun beshta oddiy savol."
+
+msgid "Vaqt kam bo‘lganda qulay."
+msgstr "Vaqt kam bo‘lganda qulay."
+
+msgid "Tasvir"
+msgstr "Tasvir"
+
+msgid "Nima bo‘lganini aytib bering."
+msgstr "Nima bo‘lganini aytib bering."
+
+msgid "His-tuyg‘ular"
+msgstr "His-tuyg‘ular"
+
+msgid "Nimalarni his qilganingizni yozing."
+msgstr "Nimalarni his qilganingizni yozing."
+
+msgid "Voqeani baholash"
+msgstr "Voqeani baholash"
+
+msgid "Nima yaxshi, nima yomon bo‘ldi?"
+msgstr "Nima yaxshi, nima yomon bo‘ldi?"
+
+msgid "Tahlil"
+msgstr "Tahlil"
+
+msgid "Nima uchun shunday bo‘lganini tushuntiring."
+msgstr "Nima uchun shunday bo‘lganini tushuntiring."
+
+msgid "Xulosa"
+msgstr "Xulosa"
+
+msgid "Nimani o‘rganganingizni yozing."
+msgstr "Nimani o‘rganganingizni yozing."
+
+msgid "Harakat rejasi"
+msgstr "Harakat rejasi"
+
+msgid "Keyingi safar nima qilishingizni yozing."
+msgstr "Keyingi safar nima qilishingizni yozing."
+
+msgid "Aniq tajriba"
+msgstr "Aniq tajriba"
+
+msgid "Nima qilganingizni tasvirlang."
+msgstr "Nima qilganingizni tasvirlang."
+
+msgid "Mulohazali kuzatish"
+msgstr "Mulohazali kuzatish"
+
+msgid "Voqeaga yon tomondan qarang: nimani payqadingiz?"
+msgstr "Voqeaga yon tomondan qarang: nimani payqadingiz?"
+
+msgid "Mavhum tushunchalash"
+msgstr "Mavhum tushunchalash"
+
+msgid "Tajribani nazariya yoki qoida bilan bog‘lang."
+msgstr "Tajribani nazariya yoki qoida bilan bog‘lang."
+
+msgid "Faol tajriba qilish"
+msgstr "Faol tajriba qilish"
+
+msgid "Yangi g‘oyani sinab ko‘ring."
+msgstr "Yangi g‘oyani sinab ko‘ring."
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Bosqich (nusxa)"
+msgstr "Bosqich (nusxa)"
+
+msgid "Savollar model (Gibbs, Kolb) va bosqich bo‘yicha guruhlanadi. Talaba tanlagan modelning savollariga alohida javob beradi. Savol matni o‘zgarsa, oldingi javoblarda eski matn nusxasi saqlanib qoladi."
+msgstr "Savollar model (Gibbs, Kolb) va bosqich bo‘yicha guruhlanadi. Talaba tanlagan modelning savollariga alohida javob beradi. Savol matni o‘zgarsa, oldingi javoblarda eski matn nusxasi saqlanib qoladi."
+
+msgid "Refleksiya modelini tanlang"
+msgstr "Refleksiya modelini tanlang"
+
+msgid "Bosqichlar"
+msgstr "Bosqichlar"
+
+msgid "Shu modelni tanlash"
+msgstr "Shu modelni tanlash"
+
+msgid "Hozircha faol refleksiya modeli yo‘q. Administratorga murojaat qiling."
+msgstr "Hozircha faol refleksiya modeli yo‘q. Administratorga murojaat qiling."
+
+#, python-format
+msgid "%(n)s ta savol"
+msgstr "%(n)s ta savol"
+
+msgid "Javob berilgan savollar"
+msgstr "Javob berilgan savollar"
+
+msgid "Refleksiya bosqichlari"
+msgstr "Refleksiya bosqichlari"
+
+msgid "Modelni faqat ustozga yuborishdan oldin almashtirish mumkin."
+msgstr "Modelni faqat ustozga yuborishdan oldin almashtirish mumkin."
+
+msgid "Bu modelga o‘tib bo‘lmaydi."
+msgstr "Bu modelga o‘tib bo‘lmaydi."
+
+msgid "Tanlangan modelda faol savollar yo‘q."
+msgstr "Tanlangan modelda faol savollar yo‘q."
+
+msgid "Avval formadagi xatolarni tuzating, keyin modelni almashtiring."
+msgstr "Avval formadagi xatolarni tuzating, keyin modelni almashtiring."
+
+msgid "Model almashtirildi. Javoblaringiz mos bosqichlarga ko‘chirildi — ularni tekshirib chiqing."
+msgstr "Model almashtirildi. Javoblaringiz mos bosqichlarga ko‘chirildi — ularni tekshirib chiqing."
+
+msgid "Refleksiya modellari bo‘yicha tahlil"
+msgstr "Refleksiya modellari bo‘yicha tahlil"
+
+msgid "Yuborilgan refleksiyalar"
+msgstr "Yuborilgan refleksiyalar"
+
+msgid "Javob uzunligi (o‘rtacha so‘z)"
+msgstr "Javob uzunligi (o‘rtacha so‘z)"
+
+msgid "O‘rtacha ball"
+msgstr "O‘rtacha ball"
+
+msgid "bosqichlar bo‘yicha o‘rtacha javob uzunligi (so‘z)"
+msgstr "bosqichlar bo‘yicha o‘rtacha javob uzunligi (so‘z)"
+
+msgid "Ball ishning o‘ziga ham bog‘liq, shuning uchun u bir modelning boshqasidan yaxshiroq ekanini isbotlamaydi. Javob uzunligi — faqat taxminiy ko‘rsatkich."
+msgstr "Ball ishning o‘ziga ham bog‘liq, shuning uchun u bir modelning boshqasidan yaxshiroq ekanini isbotlamaydi. Javob uzunligi — faqat taxminiy ko‘rsatkich."
+
+#, python-format
+msgid "Eng qisqa yoziladigan bosqich: %(stage)s"
+msgstr "Eng qisqa yoziladigan bosqich: %(stage)s"
+
+msgid "Asosiy xulosalar"
+msgstr "Asosiy xulosalar"
+
+msgid "Model refleksiyani aniq bosqichlarga bo‘lib beradi. Ustozga yuborguncha modelni almashtirish mumkin."
+msgstr "Model refleksiyani aniq bosqichlarga bo‘lib beradi. Ustozga yuborguncha modelni almashtirish mumkin."
+
+msgid "Modelni almashtirish"
+msgstr "Modelni almashtirish"
+
+msgid "Modelni almashtirasizmi? Javoblaringiz mos bosqichlarga ko‘chiriladi."
+msgstr "Modelni almashtirasizmi? Javoblaringiz mos bosqichlarga ko‘chiriladi."
+
+msgid "Boshqa modelni tanlash"
+msgstr "Boshqa modelni tanlash"
+
+msgid "Haqida"
+msgstr "Haqida"
+
+msgid "Qanday ishlaydi"
+msgstr "Qanday ishlaydi"
+
+msgid "Modellar"
+msgstr "Modellar"
+
+msgid "Imkoniyatlar"
+msgstr "Imkoniyatlar"
+
+msgid "Savol-javob"
+msgstr "Savol-javob"
+
+msgid "bosqichli rivojlanish sikli"
+msgstr "bosqichli rivojlanish sikli"
+
+msgid "refleksiya modeli: Gibbs va Kolb"
+msgstr "refleksiya modeli: Gibbs va Kolb"
+
+msgid "foydalanuvchi roli"
+msgstr "foydalanuvchi roli"
+
+msgid "til: English va O‘zbekcha"
+msgstr "til: English va O‘zbekcha"
+
+msgid "Saqlang"
+msgstr "Saqlang"
+
+msgid "Muhim tajribalaringizni va ish versiyalaringizni bir joyda saqlang."
+msgstr "Muhim tajribalaringizni va ish versiyalaringizni bir joyda saqlang."
+
+msgid "O‘ylang"
+msgstr "O‘ylang"
+
+msgid "Gibbs va Kolb modellari bilan o‘z faoliyatingizni tahlil qiling."
+msgstr "Gibbs va Kolb modellari bilan o‘z faoliyatingizni tahlil qiling."
+
+msgid "O‘sing"
+msgstr "O‘sing"
+
+msgid "Ustoz fikri va natijalar taqqoslashi bilan oldinga siljing."
+msgstr "Ustoz fikri va natijalar taqqoslashi bilan oldinga siljing."
+
+msgid "Ustoz sizning boshlang‘ich darajangizni baholaydi."
+msgstr "Ustoz sizning boshlang‘ich darajangizni baholaydi."
+
+msgid "O‘zingiz uchun aniq va o‘lchasa bo‘ladigan maqsad qo‘ying."
+msgstr "O‘zingiz uchun aniq va o‘lchasa bo‘ladigan maqsad qo‘ying."
+
+msgid "Maqsadga erishish uchun topshiriq va muddatlarni rejalashtiring."
+msgstr "Maqsadga erishish uchun topshiriq va muddatlarni rejalashtiring."
+
+msgid "Dars ishlanmasi, video va boshqa ishlaringizni yuklang."
+msgstr "Dars ishlanmasi, video va boshqa ishlaringizni yuklang."
+
+msgid "Gibbs yoki Kolb modeli bilan o‘z ishingiz haqida o‘ylang."
+msgstr "Gibbs yoki Kolb modeli bilan o‘z ishingiz haqida o‘ylang."
+
+msgid "Ustoz mezonlar bo‘yicha ball qo‘yadi va tavsiya beradi."
+msgstr "Ustoz mezonlar bo‘yicha ball qo‘yadi va tavsiya beradi."
+
+msgid "Tavsiyalar asosida ishni yaxshilab, yangi versiya yuklang."
+msgstr "Tavsiyalar asosida ishni yaxshilab, yangi versiya yuklang."
+
+msgid "Boshlang‘ich va oxirgi natijani yonma-yon ko‘ring."
+msgstr "Boshlang‘ich va oxirgi natijani yonma-yon ko‘ring."
+
+msgid "Maqsad va reja"
+msgstr "Maqsad va reja"
+
+msgid "Maqsad qo‘ying va yo‘lingizni rejalashtiring"
+msgstr "Maqsad qo‘ying va yo‘lingizni rejalashtiring"
+
+msgid "Har bir maqsadda kompetensiya, muddat va kutilgan natija bo‘ladi. Ustozlar topshiriq beradi, muddatlardan oldin esa eslatma kelib turadi."
+msgstr "Har bir maqsadda kompetensiya, muddat va kutilgan natija bo‘ladi. Ustozlar topshiriq beradi, muddatlardan oldin esa eslatma kelib turadi."
+
+msgid "Ishlaringizni versiyalari bilan saqlang"
+msgstr "Ishlaringizni versiyalari bilan saqlang"
+
+msgid "Dars ishlanmasi, video, audio, rasm va taqdimotlarni yuklang. Har bir versiya saqlanadi va hech qachon o‘chirilmaydi."
+msgstr "Dars ishlanmasi, video, audio, rasm va taqdimotlarni yuklang. Har bir versiya saqlanadi va hech qachon o‘chirilmaydi."
+
+msgid "Gibbs yoki Kolb modeli bilan o‘ylang"
+msgstr "Gibbs yoki Kolb modeli bilan o‘ylang"
+
+msgid "Model refleksiyani aniq bosqichlarga bo‘lib beradi. Javob yozgan sari progressni ko‘rasiz."
+msgstr "Model refleksiyani aniq bosqichlarga bo‘lib beradi. Javob yozgan sari progressni ko‘rasiz."
+
+msgid "O‘sishingizni raqamlarda ko‘ring"
+msgstr "O‘sishingizni raqamlarda ko‘ring"
+
+msgid "Boshlang‘ich va oxirgi natija, mezonlar bo‘yicha ballar va ustoz fikrlari tarixi bitta sahifada."
+msgstr "Boshlang‘ich va oxirgi natija, mezonlar bo‘yicha ballar va ustoz fikrlari tarixi bitta sahifada."
+
+msgid "Versiyali portfolio"
+msgstr "Versiyali portfolio"
+
+msgid "Ishning har bir versiyasi saqlanadi, shuning uchun o‘sish tarixi to‘liq ko‘rinadi."
+msgstr "Ishning har bir versiyasi saqlanadi, shuning uchun o‘sish tarixi to‘liq ko‘rinadi."
+
+msgid "Refleksiya modellari"
+msgstr "Refleksiya modellari"
+
+msgid "Gibbs va Kolb sikllari: savollar bosqichlarga bo‘lingan, to‘ldirilish darajasi ko‘rinib turadi."
+msgstr "Gibbs va Kolb sikllari: savollar bosqichlarga bo‘lingan, to‘ldirilish darajasi ko‘rinib turadi."
+
+msgid "Aniq baholash mezonlari"
+msgstr "Aniq baholash mezonlari"
+
+msgid "Ustoz har bir mezon bo‘yicha ball va izoh beradi, nimani yaxshilash kerakligi aniq bo‘ladi."
+msgstr "Ustoz har bir mezon bo‘yicha ball va izoh beradi, nimani yaxshilash kerakligi aniq bo‘ladi."
+
+msgid "Maqsadlar va topshiriqlar"
+msgstr "Maqsadlar va topshiriqlar"
+
+msgid "Maqsad qo‘ying, topshiriqni qabul qiling, muddatni kuzating."
+msgstr "Maqsad qo‘ying, topshiriqni qabul qiling, muddatni kuzating."
+
+msgid "Tahlil va taqqoslash"
+msgstr "Tahlil va taqqoslash"
+
+msgid "Boshlang‘ich va oxirgi natija, dinamika grafiklari va modellar bo‘yicha tahlil."
+msgstr "Boshlang‘ich va oxirgi natija, dinamika grafiklari va modellar bo‘yicha tahlil."
+
+msgid "Yangi topshiriq, ustoz fikri va muddat eslatmalari o‘z tilingizda keladi."
+msgstr "Yangi topshiriq, ustoz fikri va muddat eslatmalari o‘z tilingizda keladi."
+
+msgid "Ikki til"
+msgstr "Ikki til"
+
+msgid "Sayt ingliz va o‘zbek tillarida ishlaydi. Tanlovingiz eslab qolinadi."
+msgstr "Sayt ingliz va o‘zbek tillarida ishlaydi. Tanlovingiz eslab qolinadi."
+
+msgid "Xavfsizlik"
+msgstr "Xavfsizlik"
+
+msgid "Fayllar yopiq, har bir amal jurnalga yoziladi, ruxsatlar rolga qarab beriladi."
+msgstr "Fayllar yopiq, har bir amal jurnalga yoziladi, ruxsatlar rolga qarab beriladi."
+
+msgid "Administrator foydalanuvchilarni Excel fayldan birdaniga qo‘shadi."
+msgstr "Administrator foydalanuvchilarni Excel fayldan birdaniga qo‘shadi."
+
+msgid "Platformaga kim kira oladi?"
+msgstr "Platformaga kim kira oladi?"
+
+msgid "Administrator yaratgan talaba, ustoz va administrator hisoblari. O‘zingiz ro‘yxatdan o‘ta olmaysiz."
+msgstr "Administrator yaratgan talaba, ustoz va administrator hisoblari. O‘zingiz ro‘yxatdan o‘ta olmaysiz."
+
+msgid "Parolimni unutsam, nima qilaman?"
+msgstr "Parolimni unutsam, nima qilaman?"
+
+msgid "Qanday fayllarni yuklash mumkin?"
+msgstr "Qanday fayllarni yuklash mumkin?"
+
+msgid "Refleksiya modelini almashtirsam bo‘ladimi?"
+msgstr "Refleksiya modelini almashtirsam bo‘ladimi?"
+
+msgid "Ha, ustozga yuborguncha. Javoblaringiz mos bosqichlarga ko‘chiriladi, hech narsa yo‘qolmaydi."
+msgstr "Ha, ustozga yuborguncha. Javoblaringiz mos bosqichlarga ko‘chiriladi, hech narsa yo‘qolmaydi."
+
+msgid "Ishimni kimlar ko‘ra oladi?"
+msgstr "Ishimni kimlar ko‘ra oladi?"
+
+msgid "Faqat siz, sizga biriktirilgan ustoz va administrator."
+msgstr "Faqat siz, sizga biriktirilgan ustoz va administrator."
+
+msgid "Sayt qaysi tillarda ishlaydi?"
+msgstr "Sayt qaysi tillarda ishlaydi?"
+
+msgid "Ingliz va o‘zbek tillarida. Tilni yuqoridagi tugma bilan almashtirasiz, tanlovingiz saqlanadi."
+msgstr "Ingliz va o‘zbek tillarida. Tilni yuqoridagi tugma bilan almashtirasiz, tanlovingiz saqlanadi."
+
+msgid "Maqsadlar va topshiriqlar bir joyda"
+msgstr "Maqsadlar va topshiriqlar bir joyda"
+
+msgid "Muddatlar haqida eslatmalar"
+msgstr "Muddatlar haqida eslatmalar"
+
+msgid "Holatingizni har doim ko‘rasiz"
+msgstr "Holatingizni har doim ko‘rasiz"
+
+msgid "Hujjat, video, audio, rasm va taqdimot"
+msgstr "Hujjat, video, audio, rasm va taqdimot"
+
+msgid "Har bir yangi versiya alohida saqlanadi"
+msgstr "Har bir yangi versiya alohida saqlanadi"
+
+msgid "Fayllar yopiq va xavfsiz"
+msgstr "Fayllar yopiq va xavfsiz"
+
+msgid "Gibbs: 6 bosqich"
+msgstr "Gibbs: 6 bosqich"
+
+msgid "Kolb: 4 bosqich"
+msgstr "Kolb: 4 bosqich"
+
+msgid "Ustozga yuborguncha modelni almashtirish mumkin"
+msgstr "Ustozga yuborguncha modelni almashtirish mumkin"
+
+msgid "Boshlang‘ich va oxirgi natija taqqoslanadi"
+msgstr "Boshlang‘ich va oxirgi natija taqqoslanadi"
+
+msgid "Ustoz fikrlari tarixi"
+msgstr "Ustoz fikrlari tarixi"
+
+msgid "Maqsad qo‘yadi va topshiriqlarni bajaradi"
+msgstr "Maqsad qo‘yadi va topshiriqlarni bajaradi"
+
+msgid "Ish yuklaydi va refleksiya yozadi"
+msgstr "Ish yuklaydi va refleksiya yozadi"
+
+msgid "Baholarini va o‘sishini ko‘radi"
+msgstr "Baholarini va o‘sishini ko‘radi"
+
+msgid "Topshiriq beradi va ishlarni ko‘radi"
+msgstr "Topshiriq beradi va ishlarni ko‘radi"
+
+msgid "Mezonlar bo‘yicha baholaydi va tavsiya yozadi"
+msgstr "Mezonlar bo‘yicha baholaydi va tavsiya yozadi"
+
+msgid "Talabalar o‘sishini kuzatadi"
+msgstr "Talabalar o‘sishini kuzatadi"
+
+msgid "Foydalanuvchilar va tuzilmani boshqaradi"
+msgstr "Foydalanuvchilar va tuzilmani boshqaradi"
+
+msgid "Mezonlar va refleksiya savollarini sozlaydi"
+msgstr "Mezonlar va refleksiya savollarini sozlaydi"
+
+msgid "Umumiy analitikani ko‘radi"
+msgstr "Umumiy analitikani ko‘radi"
+
+#, python-format
+msgid "Hujjat, rasm, audio, video va taqdimot. Hajm: hujjat, rasm va audio %(doc)s MB gacha, video %(video)s MB gacha."
+msgstr "Hujjat, rasm, audio, video va taqdimot. Hajm: hujjat, rasm va audio %(doc)s MB gacha, video %(video)s MB gacha."
+
+msgid "Asosiy mazmunga o‘tish"
+msgstr "Asosiy mazmunga o‘tish"
+
+msgid "Menyuni ochish"
+msgstr "Menyuni ochish"
+
+msgid "Boshqaruv panelini ochish"
+msgstr "Boshqaruv panelini ochish"
+
+msgid "Kasbiy o‘sish uchun platforma"
+msgstr "Kasbiy o‘sish uchun platforma"
+
+msgid "Platforma haqida"
+msgstr "Platforma haqida"
+
+msgid "Kasbiy o‘sish uchun refleksiv e-portfolio"
+msgstr "Kasbiy o‘sish uchun refleksiv e-portfolio"
+
+msgid "Refleksiv e-portfolio — o‘z faoliyati haqida o‘ylash orqali kasbiy rivojlanishga yordam beradigan platforma. U muhim tajribalarni, olingan xulosalarni va o‘rganganlaringizni bir joyda saqlaydi."
+msgstr "Refleksiv e-portfolio — o‘z faoliyati haqida o‘ylash orqali kasbiy rivojlanishga yordam beradigan platforma. U muhim tajribalarni, olingan xulosalarni va o‘rganganlaringizni bir joyda saqlaydi."
+
+msgid "Shu jarayon doimiy takomillashish va o‘sishni ta’minlaydi."
+msgstr "Shu jarayon doimiy takomillashish va o‘sishni ta’minlaydi."
+
+msgid "Yaqindan tanishing"
+msgstr "Yaqindan tanishing"
+
+msgid "Platforma nimalarga qodir"
+msgstr "Platforma nimalarga qodir"
+
+msgid "Platforma imkoniyatlari"
+msgstr "Platforma imkoniyatlari"
+
+msgid "Sakkiz bosqichli rivojlanish sikli"
+msgstr "Sakkiz bosqichli rivojlanish sikli"
+
+msgid "Har bir bosqich oldingisiga tayanadi. Sikl takrorlanadi: har bir aylanishda siz biroz yuqoriroq darajaga chiqasiz."
+msgstr "Har bir bosqich oldingisiga tayanadi. Sikl takrorlanadi: har bir aylanishda siz biroz yuqoriroq darajaga chiqasiz."
+
+msgid "Ikkita mashhur refleksiya modeli"
+msgstr "Ikkita mashhur refleksiya modeli"
+
+msgid "O‘zingizga mosini tanlang. Model savollarni bosqichlarga bo‘lib beradi va qaysi bosqichgacha yetganingizni ko‘rsatadi."
+msgstr "O‘zingizga mosini tanlang. Model savollarni bosqichlarga bo‘lib beradi va qaysi bosqichgacha yetganingizni ko‘rsatadi."
+
+msgid "Rivojlanish uchun kerakli hamma narsa"
+msgstr "Rivojlanish uchun kerakli hamma narsa"
+
+msgid "Har bir foydalanuvchi uchun o‘z kabineti"
+msgstr "Har bir foydalanuvchi uchun o‘z kabineti"
+
+msgid "Ko‘p beriladigan savollar"
+msgstr "Ko‘p beriladigan savollar"
+
+msgid "Rivojlanishni bugun boshlang"
+msgstr "Rivojlanishni bugun boshlang"
+
+msgid "Administrator bergan login va parol bilan kiring."
+msgstr "Administrator bergan login va parol bilan kiring."
+
+msgid "Sahifa bo‘limlari"
+msgstr "Sahifa bo‘limlari"
+
+msgid "Hisob"
+msgstr "Hisob"
+
+msgid "Yuqoriga"
+msgstr "Yuqoriga"
+
+#, python-format
+msgid "%(n)s bosqich"
+msgstr "%(n)s bosqich"
+
+msgid "Tahlil va natijalar"
+msgstr "Tahlil va natijalar"
+
+msgid "Oldingi slayd"
+msgstr "Oldingi slayd"
+
+msgid "Keyingi slayd"
+msgstr "Keyingi slayd"
+
+msgid "Administratorga"
+msgstr "Administratorga"
+
+#, python-format
+msgid "Javob topa olmadingizmi? %(admin)s murojaat qiling."
+msgstr "Javob topa olmadingizmi? %(admin)s murojaat qiling."
+
+#, python-format
+msgid "%(admin)s murojaat qiling. U sizga yangi vaqtinchalik parol beradi."
+msgstr "%(admin)s murojaat qiling. U sizga yangi vaqtinchalik parol beradi."
+
+#, python-format
+msgid "Parolni unutgan bo‘lsangiz, %(admin)s murojaat qiling."
+msgstr "Parolni unutgan bo‘lsangiz, %(admin)s murojaat qiling."

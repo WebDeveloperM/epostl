@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Tizim sozlamalari" %}{% endblock %}
+{% block page_title %}{% translate "Tizim sozlamalari" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% translate "Tizim sozlamalari" %}</h1>
+    <p class="subtitle">{% translate "Fayl hajmi limitlari, video formatlari, muddat eslatmalari" %}</p></div>
+</div>
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="card"><div class="card-body">
+      <form method="post" novalidate>{% csrf_token %}
+        {% include "base/form_errors.html" %}
+        <div class="row">
+          <div class="col-md-6">{% include "base/field.html" with field=form.platform_name %}</div>
+          <div class="col-md-6">{% include "base/field.html" with field=form.organization_name %}</div>
+          <div class="col-md-6">{% include "base/field.html" with field=form.max_upload_size_mb %}</div>
+          <div class="col-md-6">{% include "base/field.html" with field=form.max_video_size_mb %}</div>
+          <div class="col-md-12">{% include "base/field.html" with field=form.allowed_video_extensions %}</div>
+          <div class="col-md-6">{% include "base/field.html" with field=form.deadline_reminder_hours %}</div>
+          <div class="col-md-6 pt-md-4">{% include "base/field.html" with field=form.allow_late_submission %}</div>
+        </div>
+        <button class="btn btn-primary"><i class="bi bi-check2 me-1"></i>{% translate "Saqlash" %}</button>
+      </form>
+    </div></div>
+  </div>
+  <div class="col-lg-5">
+    <div class="card"><div class="card-body small">
+      <h6 class="fw-bold"><i class="bi bi-info-circle text-primary me-1"></i>{% translate "Server sozlamasi bilan muvofiqlik" %}</h6>
+      <p class="text-muted mb-2">{% translate "Katta videolar uchun web-serverdagi yuklash limiti ham shu qiymatdan katta bo‘lishi kerak (nginx: client_max_body_size)." %}</p>
+      <p class="text-muted mb-0">{% translate "Video fayllar PostgreSQL ichida saqlanmaydi: bazada faqat metama’lumot va saqlash manzili, faylning o‘zi himoyalangan media storage’da." %}</p>
+    </div></div>
+  </div>
+</div>
+{% endblock %}

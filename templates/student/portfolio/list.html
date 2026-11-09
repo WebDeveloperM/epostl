@@ -1,0 +1,54 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Portfolio" %}{% endblock %}
+{% block page_title %}{% translate "Elektron portfolio" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% if is_student_role %}{% translate "Mening portfoliom" %}{% else %}{% translate "Talabalar ishlari" %}{% endif %}</h1>
+    <p class="subtitle">{% translate "Amaliy ishlar: dars ishlanmalari, videolar, audio, rasm va taqdimotlar — barcha versiyalari bilan" %}</p></div>
+  {% if is_student_role %}<div class="actions"><a href="{% url 'portfolios:create' %}" class="btn btn-primary"><i class="bi bi-cloud-arrow-up me-1"></i>{% translate "Ish yuklash" %}</a></div>{% endif %}
+</div>
+<div class="card">
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search"><input type="search" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="{% if is_student_role %}{% translate 'Ish nomi yoki topshiriq...' %}{% else %}{% translate 'Ish, talaba yoki topshiriq...' %}{% endif %}"></div>
+      <select name="status" class="form-select" style="max-width:220px">
+        <option value="">{% translate "Barcha holatlar" %}</option>
+        {% for code, label in statuses %}<option value="{{ code }}" {% if request.GET.status == code %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+      <select name="type" class="form-select" style="max-width:200px">
+        <option value="">{% translate "Barcha turlar" %}</option>
+        {% for code, label in material_types %}<option value="{{ code }}" {% if request.GET.type == code %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+      <button class="btn btn-outline-primary"><i class="bi bi-funnel"></i> {% translate "Filtrlash" %}</button>
+      <a href="{% url 'portfolios:list' %}" class="btn btn-light">{% translate "Tozalash" %}</a>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Ish" %}</th>{% if not is_student_role %}<th>{% translate "Talaba" %}</th>{% endif %}<th>{% translate "Topshiriq / maqsad" %}</th><th>{% translate "Turi" %}</th><th class="text-center">{% translate "Versiya" %}</th><th>{% translate "Yangilangan" %}</th><th>{% translate "Holat" %}</th></tr></thead>
+      <tbody>
+      {% for p in portfolios %}
+        <tr>
+          <td><a class="cell-title" href="{% url 'portfolios:detail' p.pk %}">{{ p.title }}</a><div class="cell-sub">{{ p.files_count }} {% translate "fayl" %}</div></td>
+          {% if not is_student_role %}<td class="small">{{ p.student.full_name }}<div class="cell-sub">{{ p.student.group|default:"" }}</div></td>{% endif %}
+          <td class="small">{{ p.assignment.title|default:_("Mustaqil ish") }}{% if p.goal %}<div class="cell-sub"><i class="bi bi-bullseye me-1"></i>{{ p.goal.title|truncatechars:50 }}</div>{% endif %}</td>
+          <td class="small">{{ p.get_material_type_display }}</td>
+          <td class="text-center"><span class="badge text-bg-light border">v{{ p.current_version }}</span></td>
+          <td class="small text-nowrap">{{ p.updated_at|date:"d.m.Y H:i" }}</td>
+          <td>{% status_badge p.status p.get_status_display %}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="7">
+          {% translate "Ishlar topilmadi" as t %}
+          {% if is_student_role %}{% url 'portfolios:create' as u %}{% translate "Ish yuklash" as al %}
+            {% include "base/empty.html" with icon="bi-folder2-open" title=t action_url=u action_label=al %}
+          {% else %}{% include "base/empty.html" with icon="bi-folder2-open" title=t %}{% endif %}
+        </td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}

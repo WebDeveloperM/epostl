@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% load i18n core_tags %}
+{% block title %}{% translate "Topshiriqlar" %}{% endblock %}
+{% block page_title %}{% translate "Topshiriqlar" %}{% endblock %}
+{% block content %}
+<div class="page-header">
+  <div><h1>{% if is_admin_role %}{% translate "Platformadagi topshiriqlar" %}{% else %}{% translate "Men bergan topshiriqlar" %}{% endif %}</h1>
+    <p class="subtitle">{% translate "Topshiriqlar, biriktirilgan talabalar va bajarilish holati" %}</p></div>
+  {% if is_mentor_role %}<div class="actions"><a href="{% url 'assignments:create' %}" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i>{% translate "Yangi topshiriq" %}</a></div>{% endif %}
+</div>
+<div class="card">
+  <div class="card-body border-bottom">
+    <form method="get" class="filter-bar">
+      <div class="search"><input type="search" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="{% translate 'Topshiriq yoki fan...' %}"></div>
+      <select name="state" class="form-select" style="max-width:200px">
+        <option value="">{% translate "Barchasi" %}</option>
+        <option value="active" {% if request.GET.state == "active" %}selected{% endif %}>{% translate "Faol" %}</option>
+        <option value="archived" {% if request.GET.state == "archived" %}selected{% endif %}>{% translate "Arxiv" %}</option>
+      </select>
+      <button class="btn btn-outline-primary"><i class="bi bi-funnel"></i></button>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-stack">
+      <thead><tr><th>{% translate "Topshiriq" %}</th>{% if is_admin_role %}<th>{% translate "Ustoz" %}</th>{% endif %}<th>{% translate "Fan" %}</th><th>{% translate "Muddat" %}</th><th>{% translate "Bajarilishi" %}</th><th class="text-end">{% translate "Tekshirishda" %}</th></tr></thead>
+      <tbody>
+      {% for a in object_list %}
+        <tr>
+          <td><a class="cell-title" href="{% url 'assignments:detail' a.pk %}">{{ a.title }}</a>
+            <div class="cell-sub">{% if not a.is_active %}<span class="badge text-bg-secondary">{% translate "arxiv" %}</span> {% endif %}{{ a.competency|default:"" }}</div></td>
+          {% if is_admin_role %}<td class="small">{{ a.created_by.short_name }}</td>{% endif %}
+          <td class="small">{{ a.subject.name|default:"—" }}</td>
+          <td class="small text-nowrap {% if a.is_past_due %}text-muted{% endif %}">{{ a.due_date|date:"d.m.Y H:i" }}</td>
+          <td style="min-width:160px">
+            {% widthratio a.targets_approved a.targets_total|default:1 100 as pct %}
+            <div class="d-flex small"><span>{{ a.targets_approved }}/{{ a.targets_total }}</span><span class="ms-auto text-muted">{{ pct }}%</span></div>
+            <div class="progress progress-thin"><div class="progress-bar bg-success" style="width: {{ pct }}%"></div></div>
+          </td>
+          <td class="text-end">{% if a.targets_submitted %}<span class="badge text-bg-warning">{{ a.targets_submitted }}</span>{% else %}<span class="text-muted small">0</span>{% endif %}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6">{% translate "Topshiriqlar yo‘q" as t %}{% if is_mentor_role %}{% url 'assignments:create' as u %}{% translate "Topshiriq berish" as al %}{% include "base/empty.html" with icon="bi-journal-plus" title=t action_url=u action_label=al %}{% else %}{% include "base/empty.html" with icon="bi-journal" title=t %}{% endif %}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% include "base/pagination.html" %}
+</div>
+{% endblock %}
