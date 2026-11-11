@@ -3634,9 +3634,6 @@ msgstr "Change the model? Your answers will move to the matching stages."
 msgid "Boshqa modelni tanlash"
 msgstr "Choose another model"
 
-msgid "Haqida"
-msgstr "About"
-
 msgid "Qanday ishlaydi"
 msgstr "How it works"
 
@@ -3968,3 +3965,6 @@ msgstr "Talk to %(admin)s. The admin will give you a new temporary password."
 #, python-format
 msgid "Parolni unutgan bo‘lsangiz, %(admin)s murojaat qiling."
 msgstr "If you forgot your password, please talk to %(admin)s."
+
+msgid "Umumiy ma'lumot"
+msgstr "About us"

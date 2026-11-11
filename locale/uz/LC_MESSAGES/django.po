@@ -3635,9 +3635,6 @@ msgstr "Modelni almashtirasizmi? Javoblaringiz mos bosqichlarga ko‘chiriladi."
 msgid "Boshqa modelni tanlash"
 msgstr "Boshqa modelni tanlash"
 
-msgid "Haqida"
-msgstr "Haqida"
-
 msgid "Qanday ishlaydi"
 msgstr "Qanday ishlaydi"
 
@@ -3969,3 +3966,6 @@ msgstr "%(admin)s murojaat qiling. U sizga yangi vaqtinchalik parol beradi."
 #, python-format
 msgid "Parolni unutgan bo‘lsangiz, %(admin)s murojaat qiling."
 msgstr "Parolni unutgan bo‘lsangiz, %(admin)s murojaat qiling."
+
+msgid "Umumiy ma'lumot"
+msgstr "Umumiy ma'lumot"

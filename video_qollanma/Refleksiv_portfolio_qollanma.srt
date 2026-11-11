@@ -1,0 +1,391 @@
+1
+00:00:00,790 --> 00:00:02,017
+Assalomu alaykum!
+
+2
+00:00:02,684 --> 00:00:05,892
+Ushbu video qo‘llanmada «Refleksiv portfolio» platformasidan
+
+3
+00:00:05,912 --> 00:00:09,107
+talaba, ustoz va administrator sifatida qanday foydalanishni
+
+4
+00:00:09,127 --> 00:00:10,150
+ko‘rib chiqamiz.
+
+5
+00:00:13,380 --> 00:00:15,732
+Saytni ochganingizda bosh sahifa chiqadi.
+
+6
+00:00:16,387 --> 00:00:19,583
+Unda platforma haqida ma’lumot, rivojlanish sikli, refleksiya
+
+7
+00:00:19,603 --> 00:00:22,637
+modellari va ko‘p beriladigan savollarga javoblar bor.
+
+8
+00:00:26,010 --> 00:00:28,430
+Tizimga kirish uchun «Kirish» tugmasini bosing.
+
+9
+00:00:29,460 --> 00:00:32,812
+Til tugmasi orqali o‘zbek yoki ingliz tilini tanlash mumkin.
+
+10
+00:00:33,899 --> 00:00:36,251
+Login va parolni administrator beradi.
+
+11
+00:00:36,906 --> 00:00:39,258
+Ularni kiriting va «Kirish» tugmasini bosing.
+
+12
+00:00:40,603 --> 00:00:43,220
+Birinchi kirishda tizim parolni yangisiga almashtirishni
+
+13
+00:00:43,240 --> 00:00:43,990
+so‘raydi.
+
+14
+00:00:46,601 --> 00:00:47,999
+Birinchi qism: talaba.
+
+15
+00:00:51,265 --> 00:00:54,836
+Talaba panelida portfolio holati, maqsadlar, faol topshiriqlar
+
+16
+00:00:54,856 --> 00:00:57,969
+va kompetensiyalar bo‘yicha rivojlanish grafigi ko‘rinadi.
+
+17
+00:00:58,987 --> 00:01:01,944
+Chap tomondagi menyuda rivojlanish siklining barcha bo‘limlari
+
+18
+00:01:01,964 --> 00:01:02,793
+joylashgan.
+
+19
+00:01:03,849 --> 00:01:05,610
+Ishni maqsad qo‘yishdan boshlang.
+
+20
+00:01:06,253 --> 00:01:09,117
+«Maqsadlarim» bo‘limida «Yangi maqsad» tugmasini bosing.
+
+21
+00:01:10,226 --> 00:01:13,297
+Maqsad nomini, rivojlantiriladigan kompetensiyani, tugash
+
+22
+00:01:13,317 --> 00:01:16,214
+muddatini va kutilayotgan natijani yozib, saqlang.
+
+23
+00:01:17,429 --> 00:01:18,599
+Maqsad saqlandi.
+
+24
+00:01:19,243 --> 00:01:21,561
+Endi ishlaringizni unga bog‘lash mumkin.
+
+25
+00:01:22,619 --> 00:01:25,517
+«Topshiriqlar» bo‘limida ustoz bergan vazifalar turadi.
+
+26
+00:01:26,184 --> 00:01:28,914
+Yangi topshiriqni ochib, uning shartlari va muddati bilan
+
+27
+00:01:28,934 --> 00:01:29,639
+tanishing.
+
+28
+00:01:32,619 --> 00:01:35,553
+So‘ng «Topshiriqni qabul qilish» tugmasini bosing va ishingizni
+
+29
+00:01:35,573 --> 00:01:36,233
+yuklang.
+
+30
+00:01:37,524 --> 00:01:40,811
+Ish nomini yozing, uni maqsadingizga bog‘lang va material turini
+
+31
+00:01:40,831 --> 00:01:41,513
+tanlang.
+
+32
+00:01:42,533 --> 00:01:45,817
+Fayllarni shu maydonga sudrab tashlang yoki bosib tanlang.
+
+33
+00:01:46,460 --> 00:01:49,690
+Bitta versiyaga dars ishlanmasi va dars videosini birga yuklash
+
+34
+00:01:49,710 --> 00:01:50,324
+mumkin.
+
+35
+00:01:51,379 --> 00:01:53,164
+So‘ng «Yuklash» tugmasini bosing.
+
+36
+00:01:54,207 --> 00:01:55,571
+Ish sahifasi ochildi.
+
+37
+00:01:56,235 --> 00:01:59,088
+Endi refleksiya yozib, ishni ustozga yuborish kerak.
+
+38
+00:02:00,172 --> 00:02:03,675
+Refleksiya ikki modeldan biri asosida yoziladi: Gibbs sikli olti
+
+39
+00:02:03,695 --> 00:02:06,717
+bosqichdan, Kolb sikli esa to‘rt bosqichdan iborat.
+
+40
+00:02:07,361 --> 00:02:09,315
+O‘zingizga qulay modelni tanlang.
+
+41
+00:02:10,611 --> 00:02:14,111
+Har bir bosqich savoliga o‘z tajribangizga tayanib javob yozing.
+
+42
+00:02:14,766 --> 00:02:18,027
+Yuqoridagi chiziq nechta savolga javob berilganini ko‘rsatadi.
+
+43
+00:02:22,351 --> 00:02:25,388
+Javoblarni qoralama sifatida saqlash yoki darhol «Ustozga
+
+44
+00:02:25,408 --> 00:02:26,385
+yuborish» mumkin.
+
+45
+00:02:27,443 --> 00:02:30,605
+Ustoz baholagach, «Baholarim» bo‘limida har bir mezon bo‘yicha
+
+46
+00:02:30,625 --> 00:02:33,216
+ball, kamchiliklar va tavsiyalarni ko‘rasiz.
+
+47
+00:02:34,306 --> 00:02:37,351
+Ish qayta ishlashga qaytarilsa, yangi versiya yuklaysiz.
+
+48
+00:02:37,993 --> 00:02:40,709
+Oldingi versiyalar va baholar tarixda saqlanadi.
+
+49
+00:02:41,763 --> 00:02:44,686
+«Rivojlanishim» sahifasida boshlang‘ich va keyingi natijalar
+
+50
+00:02:44,706 --> 00:02:46,376
+grafiklarda taqqoslanadi.
+
+51
+00:02:50,221 --> 00:02:51,641
+Ikkinchi qism: ustoz.
+
+52
+00:02:54,944 --> 00:02:58,186
+Ustoz panelida biriktirilgan talabalar, tekshirish kutilayotgan
+
+53
+00:02:58,206 --> 00:03:01,581
+ishlar va talabalarning rivojlanish ko‘rsatkichlari jamlangan.
+
+54
+00:03:02,627 --> 00:03:05,119
+Yangi topshiriq berish uchun «Topshiriq berish» tugmasini
+
+55
+00:03:05,139 --> 00:03:05,764
+bosing.
+
+56
+00:03:07,717 --> 00:03:10,720
+Topshiriq nomi va tavsifini yozing, fan va kompetensiyani
+
+57
+00:03:10,740 --> 00:03:11,433
+tanlang.
+
+58
+00:03:14,495 --> 00:03:16,893
+Baholash mezonlari va muddatni belgilang.
+
+59
+00:03:18,996 --> 00:03:21,999
+So‘ng guruhni yoki alohida talabalarni tanlab, «Topshiriqni
+
+60
+00:03:22,019 --> 00:03:23,553
+yuborish» tugmasini bosing.
+
+61
+00:03:24,173 --> 00:03:26,036
+Talabalarga bildirishnoma boradi.
+
+62
+00:03:27,095 --> 00:03:29,913
+Talabalar yuborgan ishlar «Tekshirish» bo‘limiga tushadi.
+
+63
+00:03:30,591 --> 00:03:33,548
+Ishni ochib, yuklangan fayllar va talaba refleksiyasi bilan
+
+64
+00:03:33,568 --> 00:03:34,284
+tanishing.
+
+65
+00:03:35,330 --> 00:03:37,194
+So‘ng «Baholash» tugmasini bosing.
+
+66
+00:03:38,219 --> 00:03:41,108
+Har bir mezon bo‘yicha ball qo‘ying, kerak bo‘lsa kamchilik va
+
+67
+00:03:41,128 --> 00:03:42,139
+tavsiya yozing.
+
+68
+00:03:42,771 --> 00:03:44,748
+Jami ball avtomatik hisoblanadi.
+
+69
+00:03:51,938 --> 00:03:55,486
+Oxirida xulosa yozib, qaror tanlang: ishni tasdiqlash yoki qayta
+
+70
+00:03:55,506 --> 00:03:56,779
+ishlashga qaytarish.
+
+71
+00:04:00,102 --> 00:04:03,014
+«Mening talabalarim» bo‘limida har bir talabaning maqsadlari,
+
+72
+00:04:03,034 --> 00:04:05,500
+ishlari va natijalar dinamikasi ko‘rinadi.
+
+73
+00:04:06,131 --> 00:04:08,995
+Bu yerda boshlang‘ich baholashni ham o‘tkazish mumkin.
+
+74
+00:04:11,670 --> 00:04:13,557
+Uchinchi qism: administrator.
+
+75
+00:04:16,806 --> 00:04:20,252
+Administrator panelida platformaning umumiy holati ko‘rinadi:
+
+76
+00:04:20,272 --> 00:04:23,954
+foydalanuvchilar, fakultetlar, topshiriqlar va so‘nggi faollik.
+
+77
+00:04:24,997 --> 00:04:28,076
+«Foydalanuvchilar» bo‘limida talaba va ustozlar qo‘shiladi.
+
+78
+00:04:28,720 --> 00:04:31,981
+«Yangi foydalanuvchi» tugmasi orqali bittadan qo‘shish mumkin.
+
+79
+00:04:33,017 --> 00:04:36,119
+Ko‘p foydalanuvchini Excel orqali import qilish qulayroq.
+
+80
+00:04:36,740 --> 00:04:39,763
+Namuna faylni yuklab oling, to‘ldiring va qayta yuklang.
+
+81
+00:04:40,352 --> 00:04:42,784
+Parol yozilmasa, tizim uni o‘zi yaratadi.
+
+82
+00:04:43,980 --> 00:04:46,960
+«Ustoz biriktiruvlari» bo‘limida ustoz guruhga yoki alohida
+
+83
+00:04:46,980 --> 00:04:48,423
+talabaga biriktiriladi.
+
+84
+00:04:49,066 --> 00:04:51,998
+Ustoz faqat o‘ziga biriktirilgan talabalarni ko‘radi.
+
+85
+00:04:53,046 --> 00:04:55,901
+Tashkiliy tuzilma bo‘limida fakultetlar, kafedralar,
+
+86
+00:04:55,921 --> 00:04:58,603
+yo‘nalishlar, guruhlar va fanlar boshqariladi.
+
+87
+00:04:59,667 --> 00:05:03,136
+Baholash tizimida kompetensiyalar, mezonlar hamda Gibbs va Kolb
+
+88
+00:05:03,156 --> 00:05:04,951
+refleksiya savollari sozlanadi.
+
+89
+00:05:06,004 --> 00:05:08,950
+«Analitika» sahifasida butun platforma bo‘yicha natijalar va
+
+90
+00:05:08,970 --> 00:05:10,310
+statistika ko‘rinadi.
+
+91
+00:05:12,454 --> 00:05:15,548
+«Audit log» kim, qachon va qanday amal bajarganini qayd etib
+
+92
+00:05:15,568 --> 00:05:16,170
+boradi.
+
+93
+00:05:17,222 --> 00:05:20,599
+«Tizim sozlamalari» da platforma nomi, fayl hajmi chegaralari va
+
+94
+00:05:20,619 --> 00:05:22,426
+muddat eslatmalari sozlanadi.
+
+95
+00:05:25,065 --> 00:05:28,010
+Maqsad qo‘yish, ish yuklash, refleksiya, baholash va
+
+96
+00:05:28,030 --> 00:05:31,019
+rivojlanishni kuzatish — barchasi bitta platformada.
+
+97
+00:05:31,662 --> 00:05:34,469
+Savollar bo‘lsa, administratorga murojaat qiling.
+
+98
+00:05:35,117 --> 00:05:36,674
+E’tiboringiz uchun rahmat!

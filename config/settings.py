@@ -83,6 +83,16 @@ TEMPLATES = [
 ]
 
 # --- Ma'lumotlar bazasi (PostgreSQL) --------------------------------------
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.postg',
+#          'NAME': 'refleksi_db',
+#          'USER': 'refleksi_admin',
+#          'PASSWORD': 'nilufarDSC1515',
+#          'HOST': 'localhost',
+#          'PORT': '3306'
+#      }
+#  }
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("DB_CONN_MAX_AGE", default=60)
 DATABASES["default"]["ATOMIC_REQUESTS"] = False
@@ -128,9 +138,9 @@ USE_I18N = True
 USE_TZ = True
 
 # --- Statik va media fayllar ----------------------------------------------
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = Path(env("STATIC_ROOT", default=str(BASE_DIR / "staticfiles")))
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Har bir statik havolaga fayl hash'i qo‘shiladi (nginx 30 kun keshlaydi, yangilanish ko‘rinib turishi uchun)
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
@@ -139,8 +149,11 @@ STORAGES = {
 
 # Media fayllar ochiq URL orqali TARQATILMAYDI. Ular faqat ruxsatni
 # tekshiradigan view'lar orqali beriladi (apps.core.files).
-MEDIA_ROOT = Path(env("MEDIA_ROOT", default=str(BASE_DIR / "media")))
-MEDIA_URL = "/media/"
+# Media files (uploaded course images, certificates, etc.)
+MEDIA_URL = 'media/'
+# MEDIA_ROOT = os.environ.get('MEDIA_ROOT', BASE_DIR / 'media')
+MEDIA_ROOT = '/home/refleksi/public_html/backmanager/media'
+
 # Production'da nginx X-Accel-Redirect orqali uzatish (deploy/nginx.conf)
 PROTECTED_MEDIA_USE_X_ACCEL = env.bool("PROTECTED_MEDIA_USE_X_ACCEL", default=False)
 PROTECTED_MEDIA_INTERNAL_URL = "/protected-media/"

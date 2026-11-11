@@ -10,7 +10,7 @@ admin.site.site_title = "Growth Portfolio"
 urlpatterns = [
     path("", LandingView.as_view(), name="landing"),
     path("dashboard/", DashboardView.as_view(), name="dashboard"),
-    path("django-admin/", admin.site.urls),
+    path("admincha/", admin.site.urls),
     path("language/", set_language, name="set_language"),
     path("accounts/", include("apps.accounts.urls")),
     path("organization/", include("apps.organization.urls")),
