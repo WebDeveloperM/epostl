@@ -17,7 +17,7 @@ def landing_content(system) -> dict:
     video_mb = system.max_video_size_mb if system else 1024
     return {
         "nav": [
-            ("about", _("Haqida")), ("cycle", _("Qanday ishlaydi")), ("models", _("Modellar")),
+            ("about", _("Umumiy ma'lumot")), ("cycle", _("Qanday ishlaydi")), ("models", _("Modellar")),
             ("features", _("Imkoniyatlar")), ("roles", _("Rollar")), ("faq", _("Savol-javob")),
         ],
         "stats": [

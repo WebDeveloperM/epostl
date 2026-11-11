@@ -23,6 +23,16 @@ Platforma: <http://localhost:8080> (port: `PORTFOLIO_PORT=9000 docker compose up
   qiling — sayt `http://192.168.2.72:8080` da ochiladi (port hamma tarmoq interfeyslarida ochiq; Windows Firewall
   bu portni bloklasa, 8080 uchun kiruvchi qoida qo‘shing). Ro‘yxatda yo‘q host (masalan boshqa IP yoki domen) rad etiladi.
   Docker'siz ishga tushirishda `.env` dagi `ALLOWED_HOSTS` ni to‘ldiring va `python manage.py runserver 0.0.0.0:8000` qiling.
+* **Vaqtinchalik internet manzil (boshqa kishiga ko‘rsatish uchun):** kompyuter server bo‘lib qoladi, Cloudflare
+  "quick tunnel" `https://<tasodifiy-nom>.trycloudflare.com` manzilini beradi (hisob va domen kerak emas, HTTPS bor).
+  Kerak: Docker stack ishlayotgan bo‘lsin va `cloudflared.exe` (`winget install Cloudflare.cloudflared`).
+  `powershell -ExecutionPolicy Bypass -File tools\tunnel.ps1 start` — yoqadi va manzilni chiqaradi,
+  `... url` — manzilni ko‘rsatadi, `... stop` — o‘chiradi. Manzil har yoqilganda yangi bo‘ladi; kompyuter o‘chsa/uxlasa,
+  Docker yoki tunnel to‘xtasa — sayt ochilmaydi. `.env.docker` da `*.trycloudflare.com` allaqachon ruxsat etilgan
+  (`ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`); doimiy o‘z domeningiz kerak bo‘lsa — Cloudflare'da nomlangan tunnel + DNS.
+  **Ehtiyot:** manzilni bilgan har kim saytga kira oladi. Demo hisob parollari (`Admin12345!` va b.) ommaviy bo‘lgani
+  uchun avval `docker compose exec web python manage.py changepassword admin` bilan administrator parolini
+  almashtiring, ko‘rsatish uchun faqat `ustoz`/`talaba1` hisobini bering, ish tugagach `stop` qiling.
 * **Mobil versiya:** barcha sahifalar telefon (360 px dan), planshet va kompyuterda ishlaydi: yon menyu surma panel,
   statistika kartalari 2 tadan, ro‘yxat jadvallari telefonda kartaga aylanadi (`table-stack`), diagramma yorliqlari
   ekran kengligiga moslanadi, shakllarda 16 px shrift (iOS yaqinlashtirmaydi), bosish uchun qulay tugmalar.
@@ -103,7 +113,7 @@ Brauzerda: <http://127.0.0.1:8000> · Django admin (zaxira panel): `/django-admi
 python manage.py test apps
 ```
 
-88 ta test: har bir rol uchun barcha asosiy sahifalar, RBAC va obyekt darajasidagi ruxsatlar
+89 ta test: har bir rol uchun barcha asosiy sahifalar, RBAC va obyekt darajasidagi ruxsatlar
 (talaba boshqa talabaning ishini, faylini, bahosini ko‘ra olmaydi), fayl xavfsizligi (niqoblangan
 `.exe`, taqiqlangan kengaytma, ochiq `/media/` yo‘qligi, video uchun HTTP Range), brute-force
 himoyasi, Excel import va HTTP orqali to‘liq sikl: topshiriq → yuklash → refleksiya →
